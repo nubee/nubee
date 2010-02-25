@@ -1,0 +1,45 @@
+.width5  { width: 5%; }
+.width10 { width: 10%; }
+.width15 { width: 15%; }
+.width20 { width: 20%; }
+.width25 { width: 25%; }
+.width30 { width: 30%; }
+.width35 { width: 35%; }
+.width40 { width: 40%; }
+.width45 { width: 45%; }
+.width50 { width: 50%; }
+.width55 { width: 55%; }
+.width60 { width: 60%; }
+.width65 { width: 65%; }
+.width70 { width: 70%; }
+.width75 { width: 75%; }
+.width80 { width: 80%; }
+.width85 { width: 85%; }
+.width90 { width: 90%; }
+.width95 { width: 95%; }
+.width100 { width: 100%; }
+.width25f  { width: 25px; }
+.width50f  { width: 50px; }
+.width75f  { width: 75px; }
+.width100f  { width: 100px; }
+.width125f  { width: 125px; }
+.width150f  { width: 150px; }
+.width170f  { width: 170px; }
+.width200f  { width: 200px; }
+
+.left   { text-align: left; }
+.center { text-align: center; }
+.right  { text-align: right; }
+
+.top     { vertical-align: top; }
+.vcenter { vertical-align: middle; }
+.bottom  { vertical-align: bottom; }
+
+.strong { font-weight: bold; }
+.italic { font-style: italic; }
+
+.help {
+  float: left;
+  position: absolute;
+  left: 10px;
+}

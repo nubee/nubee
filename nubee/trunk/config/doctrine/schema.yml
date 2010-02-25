@@ -1,0 +1,121 @@
+Product:
+  actAs:
+    Timestampable: ~
+    Sluggable: ~
+  columns:
+    name:        { type: string(255), notnull: true }
+    description: { type: string }
+
+Project:
+  actAs:
+    Timestampable: ~
+    Sluggable: ~
+  columns:
+    user_id:     { type: integer, notnull: true }
+    product_id:  { type: integer, notnull: true }
+    name:        { type: string(255), notnull: true }
+    description: { type: string }
+    version:     { type: string(16), notnull: true }
+    website:     { type: string(255) }
+    status:      { type: enum, notnull: true, values: [enabled, disabled] }
+  relations:
+    Manager:     { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: Projects }
+    Product:     { local: product_id, foreign: id, foreignAlias: Projects, onDelete: CASCADE }
+
+ProjectRelation:
+  columns:
+    parent_id: { type: integer, notnull: true, primary: true }
+    child_id:  { type: integer, notnull: true, primary: true }
+  relations:
+    Parent:    { class: Project, local: parent_id, foreign: id, foreignAlias: Children, onDelete: CASCADE }
+    Child:     { class: Project, local: child_id, foreign: id, foreignAlias: Parents }
+
+ProjectMember:
+  columns:
+    project_id: { type: integer, notnull: true }
+    member_id:  { type: integer, notnull: true }
+  relations:
+    Project:    { class: Project, local: project_id, foreign: id, foreignAlias: Members, onDelete: CASCADE }
+    Member:     { class: sfGuardUser, local: member_id, foreign: id, foreignAlias: Projects, onDelete: CASCADE }
+
+Iteration:
+  actAs:        { Timestampable: ~ }
+  columns:
+    project_id:  { type: integer, notnull: true }
+    name:        { type: string(255), notnull: true }
+    description: { type: string }
+  relations:
+    Project:    { local: project_id, foreign: id, foreignAlias: Iterations, onDelete: CASCADE }
+
+Story:
+  actAs:          { Timestampable: ~ }
+  columns:
+    iteration_id: { type: integer, notnull: true }
+    name:         { type: string(255), notnull: true }
+    description:  { type: string }
+    priority:     { type: enum, notnull: true, values: [none, p1, p2, p3, p4, p5, p6] }
+  relations:
+    Iteration:    { local: iteration_id, foreign: id, foreignAlias: Stories, onDelete: CASCADE }
+
+Task:
+  actAs:               { Timestampable: ~ }
+  columns:
+    story_id:          { type: integer, notnull: true }
+    name:              { type: string(255), notnull: true }
+    description:       { type: string }
+    original_estimate: { type: integer, notnull: true }
+    current_estimate:  { type: integer, notnull: true }
+    status:            { type: enum, notnull: true, values: [not_started, started, done] }
+    priority:          { type: enum, notnull: true, values: [none, p1, p2, p3, p4, p5, p6] }
+  relations:
+    Story:             { local: story_id, foreign: id, foreignAlias: Tasks, onDelete: CASCADE }
+
+BacklogTask:
+  actAs:               { Timestampable: ~ }
+  columns:
+    project_id:        { type: integer, notnull: true }
+    name:              { type: string(255), notnull: true }
+    description:       { type: string }
+    estimate:          { type: integer, notnull: true }
+    priority:          { type: enum, notnull: true, values: [none, p1, p2, p3, p4, p5, p6] }
+  relations:
+    Project:           { local: project_id, foreign: id, foreignAlias: BacklogTasks, onDelete: CASCADE }
+
+WorkingUnit:
+  actAs:               { Timestampable: ~ }
+  columns:
+    user_id:          { type: integer, notnull: true }
+    task_id:          { type: integer, notnull: true }
+    effort_spent:     { type: integer, notnull: true }
+  relations:
+    User:             { class: sfGuardUser, local: user_id, foreign: id, foreignAlias: WorkingUnits, onDelete: CASCADE }
+    Task:             { local: task_id, foreign: id, foreignAlias: WorkingUnits, onDelete: CASCADE }
+
+Team:
+  actAs:          { Timestampable: ~ }
+  columns:
+    name:         { type: string(255), notnull: true }
+    email:        { type: string(255) }
+  relations:
+    Users:        { class: UserProfile, refClass: UserPerTeam, local: team_id, foreign: user_id }
+
+UserProfile:
+  actAs:         { Timestampable: ~ }
+  columns:
+    user_id:     { type: integer, notnull: true, unique: true }
+    first_name:  { type: string(255), notnull: true }
+    last_name:   { type: string(255), notnull: true }
+    email:       { type: string(255), notnull: true }
+    picture_url: { type: string(255) }
+  relations:
+    User:        { class: sfGuardUser, type: one, foreignType: one, local: user_id, foreign: id, onDelete: CASCADE }
+    Teams:       { class: Team, refClass: UserPerTeam, local: user_id, foreign: team_id }
+
+UserPerTeam:
+  columns:
+    user_id:     { type: integer, notnull: true, primary: true }
+    team_id:     { type: integer, notnull: true, primary: true }
+  relations:
+    User:        {class: UserProfile, local: user_id, foreign: id, onDelete: CASCADE }
+    Team:        {local: team_id, foreign: id, onDelete: CASCADE }
+

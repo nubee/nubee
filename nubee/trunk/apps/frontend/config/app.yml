@@ -1,0 +1,3 @@
+all:
+  sf_guard_plugin:
+    check_password_callable:   [bhLDAP, checkPassword]

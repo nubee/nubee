@@ -1,0 +1,13 @@
+#picture {
+  float: right;
+  padding: 10px;
+  margin-right: 20px;
+  border: 1px dotted #c9c9c9;
+}
+
+#pictureEdit {
+  position: absolute;
+  padding: 10px;
+  margin-left: 200px;
+  border: 1px dotted #c9c9c9;
+}

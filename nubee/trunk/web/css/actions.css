@@ -1,0 +1,13 @@
+.actions {
+  font-size: 12px;
+  font-weight: bold;
+  float: right;
+}
+.actions img {
+  vertical-align: bottom;
+}
+
+.header-action {
+  font-size: 10px;
+  font-weight: normal;
+}
