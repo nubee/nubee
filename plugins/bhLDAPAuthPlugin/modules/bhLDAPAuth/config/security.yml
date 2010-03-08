@@ -1,0 +1,10 @@
+secure:
+  is_secure: off
+
+signin:
+  is_secure: off
+  require_ssl: true
+
+signout:
+  is_secure: off
+  require_ssl: true

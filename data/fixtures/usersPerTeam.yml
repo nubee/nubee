@@ -1,0 +1,20 @@
+UserPerTeam:
+  upt_1_1:
+    User: adam_profile
+    Team: team_1
+
+  upt_1_2:
+    User: bob_profile
+    Team: team_1
+
+  upt_1_3:
+    User: chloe_profile
+    Team: team_1
+
+  upt_2_1:
+    User: bob_profile
+    Team: team_2
+
+  upt_2_2:
+    User: chloe_profile
+    Team: team_2

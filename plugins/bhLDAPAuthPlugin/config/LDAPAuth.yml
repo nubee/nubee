@@ -1,0 +1,59 @@
+adLDAP:
+# These settings are parameters for the adLDAP library.  See
+# its code (plugins/bhLDAPAuthPlugin/lib/adLDAP.php) and documentation
+# (http://adldap.sourceforge.net) for help.
+
+  # the AD domain's name
+  account_suffix      :  "@mydomain"
+
+  # base for all users and groups
+  base_dn             :  "DC=mydomain,DC=mycompany,DC=com"
+
+  # An array of domain controllers. Specify multiple controllers if you 
+  # would like the class to balance the LDAP queries amongst multiple servers
+  domain_controllers:
+    - 10.41.16.2
+    - 10.41.16.3
+
+  # AD does not return the primary group.
+  # http://support.microsoft.com/?kbid=321360 
+
+  # This tweak will resolve the real primary group, but may be resource
+  # intensive.  Setting to false will fudge "Domain Users" and is much
+  # faster. Keep in mind though that if someone's primary group is NOT
+  # domain users, this is obviously going to bollocks the results
+  real_primarygroup  : true
+
+
+  # Use SSL, but your server needs to be setup.
+  #  see http://adldap.sourceforge.net/ldap_ssl.php
+  use_ssl            : false
+
+
+  # When querying group memberships, do it recursively
+
+  # eg. User Fred is a member of Group A, which is a member of Group B,
+  # which is a member of Group C.
+
+  #         user_ingroup("Fred","C") 
+
+  # will return true with this option turned on, false if turned off
+
+  # WARNING: If you can set up your groups to live without this
+  # (recursive_groups:false), it may be better.  Recursive lookups can
+  # make the login much slower and in some cases even hang PHP
+  # (especially when encountering very large groups)
+
+  recursive_groups      : false
+
+groupMappings:
+#  These settings map symfony credentials to AD groups.
+#  The credentials are applied to actions based on your app's config/security.yml file
+#  See chapter 6 (Inside the Controller Layer) of the book for more about credentials
+
+#   readers :
+#     - Domain Users
+#   admins  :
+#     - Domain Administrators
+#     - myAppGroup
+    

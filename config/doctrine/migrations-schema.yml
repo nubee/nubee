@@ -1,0 +1,4 @@
+MigrationVersion:
+  columns:
+    version: { type: integer(11) }
+

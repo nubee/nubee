@@ -1,0 +1,18 @@
+UserProfile:
+  adam_profile:
+    User:       adam
+    first_name: Adam
+    last_name:  Sandler
+    email:      adam@domain.com
+
+  bob_profile:
+    User:       bob
+    first_name: Bob
+    last_name:  Smith
+    email:      bob@domain.com
+
+  chloe_profile:
+    User:       chloe
+    first_name: Chloe
+    last_name:  Smith
+    email:      chloe@domain.com
