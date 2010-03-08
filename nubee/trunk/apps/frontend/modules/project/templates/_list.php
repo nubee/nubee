@@ -2,8 +2,8 @@
 <table class="list">
   <thead>
     <tr>
-      <th class="left width40">Name</th>
-      <th class="left width20">Version</th>
+      <th class="left width50">Name</th>
+      <th class="center width10">Version</th>
       <th class="center width5">Status</th>
       <th class="center width10">Iterations</th>
       <th class="center width10">Stories</th>

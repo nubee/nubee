@@ -16,6 +16,8 @@ class workingunitActions extends sfActions
     $form->bind($request->getParameter($form->getName()));
 
     $task = Doctrine::getTable('Task')->find($form->getValue('task_id'));
+    print_r($form->getValues());
+    die();
     $this->forward404Unless($task);
 
     if($form->isValid()) {
@@ -27,7 +29,7 @@ class workingunitActions extends sfActions
     }
 
     $this->getUser()->setFlash('error', 'Can\'t add effort');
-    $this->redirect($this->generateUrl('task_show', $this->task));
+    $this->redirect($this->generateUrl('task_show', $task));
   }
 
   public function executeDelete(sfWebRequest $request)

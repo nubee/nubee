@@ -36,6 +36,10 @@ class Task extends BaseTask
     return $effort;
   }
 
+  public function isNotStarted() {
+    return $this->getStatus() == 'not_started';
+  }
+
   public function isStarted() {
     return $this->getStatus() == 'started';
   }
@@ -93,8 +97,6 @@ class Task extends BaseTask
       $this->setCurrentEstimate($this->getOriginalEstimate());
     }
 
-//    echo 'WU: ' . $this->WorkingUnits->count() . "\n";
-//    echo 'EL: ' . $this->getEffortLeft() . "\n";
     $this->updateStatus();
 
     return parent::save($conn);

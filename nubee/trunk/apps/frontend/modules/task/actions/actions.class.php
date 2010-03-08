@@ -73,13 +73,13 @@ class taskActions extends sfActions
     $form = new WorkingUnitForm();
     $form->bind($request->getParameter($form->getName()));
 
-    $this->task = Doctrine::getTable('Task')->find($form->getValue('task_id'));
+    $this->task = Doctrine::getTable('Task')->find($request->getParameter('id'));
     $this->forward404Unless($this->task);
     
     if($form->isValid()) {
       $workingUnit = $form->updateObject();
-      $workingUnit->setUserId($this->getUser()->getId());
-      $workingUnit->save();
+      $workingUnit->setUser($this->getUser()->getGuardUser());
+      $this->task->addWorkingUnit($workingUnit);
 
       $this->redirect($this->generateUrl('task_show', $this->task));
     }

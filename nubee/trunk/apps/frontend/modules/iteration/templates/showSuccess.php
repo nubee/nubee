@@ -21,7 +21,7 @@
 </div>
 
 <div class="section">
-  <?php echo $iteration->getDescription() ?>
+  <?php echo format_text($iteration->getDescription()) ?>
 </div>
 
 <div class="section">
@@ -30,9 +30,18 @@
   </h2>
   <table class="details">
     <tr>
+      <th>Number of stories</th>
+      <td>
+        <?php echo $iteration->getStories()->count() ?>
+      </td>
+    </tr>
+    <tr>
       <th>Number of tasks</th>
       <td>
-        <?php echo $iteration->getTasks()->count() ?>
+        <?php echo __('%available% of %total%', array(
+          '%available%' => $iteration->countAvailableTasks(),
+          '%total%' => $iteration->countTasks()
+        )) ?>
       </td>
     </tr>
   </table>

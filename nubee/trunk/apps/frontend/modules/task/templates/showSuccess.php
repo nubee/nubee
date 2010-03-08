@@ -20,7 +20,7 @@
 </div>
 
 <div class="section">
-  <?php echo $task->getDescription() ?>
+  <?php echo format_text($task->getDescription()) ?>
 </div>
 
 <div class="section">
@@ -55,17 +55,20 @@
   </table>
 </div>
 
-
 <div class="section">
   <h2>
     Working Units
   </h2>
 
-  <?php include_partial('workingunit/list', array('workingUnits' => $task->getWorkingUnits())) ?>
+  <?php if($task->getCurrentEstimate() == 0) : ?>
+    <div class="warning">Task estimate is 0:00</div>
+  <?php else : ?>
+    <?php include_partial('workingunit/list', array('workingUnits' => $task->getWorkingUnits())) ?>
+  <?php endif; ?>
 </div>
 
 <?php if(!$task->isDone()) : ?>
 <div class="section">
-  <?php include_partial('workingunit/form', array('form' => $form)) ?>
+  <?php include_partial('workingunit/form', array('task' => $task, 'form' => $form)) ?>
 </div>
 <?php endif; ?>

@@ -6,8 +6,10 @@
   <h3>Stories</h3>
   <ul>
     <?php foreach ($stories as $story): ?>
-    <li>
-      <?php echo link_to($story, 'story_show', $story) ?>
+    <li class="<?php echo ($story->countAvailableTasks() == 0 ? 'done' : '') ?>">
+      <?php echo link_to($story . sprintf(' (%s of %s)',
+          $story->countAvailableTasks(), $story->countTasks()),
+        'story_show', $story) ?>
     </li>
     <?php endforeach; ?>
   </ul>

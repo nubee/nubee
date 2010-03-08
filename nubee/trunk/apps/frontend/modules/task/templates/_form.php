@@ -24,18 +24,3 @@
     </tfoot>
   </table>
 </form>
-
-<script type="text/javascript">
-// Create the tooltips only on document load
-$(document).ready(function()
-{
-   // Notice the use of the each() method to acquire access to each elements attributes
-   $('#content img[tooltip]').each(function()
-   {
-      $(this).qtip({
-         content: $(this).attr('tooltip'),
-         style: 'blue'
-      });
-   });
-});
-</script>

@@ -6,7 +6,7 @@ class TaskTable extends Doctrine_Table
 {
   public function construct()
   {
-    $this->setOption('orderBy', 'status ASC and priority ASC');
+//    $this->setOption('orderBy', 'status ASC and priority ASC');
   }
 
   public function findByProduct($product) {
@@ -36,11 +36,54 @@ class TaskTable extends Doctrine_Table
     return $q->execute();
   }
 
+  public function countByIteration($iteration) {
+    $q = $this->createQuery('t')
+      ->leftJoin('t.Story s')
+      ->where('s.iteration_id = ?', $iteration->getId());
+
+    return $q->count();
+  }
+
+  public function countAvailableByIteration($iteration) {
+    $q = $this->createQuery('t')
+      ->leftJoin('t.Story s')
+      ->where('s.iteration_id = ?', $iteration->getId())
+      ->andWhere('t.status <> ?', 'done');
+
+    return $q->count();
+  }
+
   public function findByStory($story) {
     $q = $this->createQuery('t')
       ->where('t.story_id = ?', $story->getId())
       ->orderBy('t.priority DESC');
 
     return $q->execute();
+  }
+
+  public function findAvailableByStory($story) {
+    $q = $this->createQuery('t')
+      ->where('t.story_id = ?', $story->getId())
+      ->andWhere('t.status <> ?', 'done')
+      ->orderBy('t.priority DESC');
+
+    return $q->execute();
+  }
+
+  public function countByStory($story) {
+    $q = $this->createQuery('t')
+      ->where('t.story_id = ?', $story->getId())
+      ->orderBy('t.priority DESC');
+
+    return $q->count();
+  }
+
+  public function countAvailableByStory($story) {
+    $q = $this->createQuery('t')
+      ->where('t.story_id = ?', $story->getId())
+      ->andWhere('t.status <> ?', 'done')
+      ->orderBy('t.priority DESC');
+
+    return $q->count();
   }
 }

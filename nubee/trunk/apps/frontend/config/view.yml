@@ -31,6 +31,8 @@ default:
     - jquery.cookie.js
     - jquery.qtip-1.0.0-rc3.min.js
     - jquery.treeview.js
+    - splitter.js
+    - jquery.progressbar.min.js
 
   has_layout:     true
   layout:         layout

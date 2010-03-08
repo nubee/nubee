@@ -13,6 +13,14 @@ class Iteration extends BaseIteration
     return Doctrine::getTable('Task')->findByIteration($this);
   }
 
+  public function countTasks() {
+    return Doctrine::getTable('Task')->countByIteration($this);
+  }
+
+  public function countAvailableTasks() {
+    return Doctrine::getTable('Task')->countAvailableByIteration($this);
+  }
+
   public function getStories() {
     return Doctrine::getTable('Story')->findByIteration($this);
   }

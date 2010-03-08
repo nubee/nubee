@@ -23,6 +23,7 @@ class TaskForm extends BaseTaskForm
 
     $this->widgetSchema['priority'] = new sfWidgetFormChoice(
       array('choices' => NB::getPriorities()));
+    $this->setDefault('priority', 'p4');
 
     $this->validatorSchema['story_id'] = new sfValidatorDoctrineChoice(array(
       'model' => 'Story',
@@ -37,13 +38,15 @@ class TaskForm extends BaseTaskForm
       unset($this['current_estimate']);
       $this->widgetSchema['original_estimate'] = new mdWidgetFormEstimate();
       $this->validatorSchema['original_estimate'] = new mdEstimateValidator();
+      $this->setDefault('original_estimate', 30);
     }
     else {
       unset($this['original_estimate']);
       $this->widgetSchema['current_estimate'] = new mdWidgetFormEstimate();
       $this->validatorSchema['current_estimate'] = new mdEstimateValidator();
-//      $this->validatorSchema['effort_spent'] = new mdEstimateValidator();
     }
+
+    $this->widgetSchema['name']->setAttribute('class', 'width90');
   
     $this->validatorSchema['priority'] = new sfValidatorChoice(
       array('choices' => array_keys(NB::getPriorities())));

@@ -3,7 +3,8 @@
   <?php echo link_to('&laquo; Back to story', 'story_show', $story) ?>
   <br />
   <br />
-  <h3>Tasks</h3>
+  <?php if(count($tasks) > 0) : ?>
+  <h3>Available Tasks</h3>
   <ul>
     <?php foreach ($tasks as $task): ?>
     <li>
@@ -12,6 +13,7 @@
     <?php endforeach; ?>
   </ul>
   <br />
+  <?php endif; ?>
   <?php echo link_to('Add a new task', '@task_new?story_id=' . $story->getId()) ?>
 
 </div>

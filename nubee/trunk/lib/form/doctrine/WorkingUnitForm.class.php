@@ -13,6 +13,9 @@ class WorkingUnitForm extends BaseWorkingUnitForm
   {
     unset($this['created_at'], $this['updated_at'], $this['user_id']);
 
+    $this->widgetSchema['effort_spent'] = new mdWidgetFormEstimate();
+    $this->validatorSchema['effort_spent'] = new mdEstimateValidator();
+
     $this->widgetSchema['task_id'] = new sfWidgetFormInputHidden();
     $this->widgetSchema->setFormFormatterName('Div');
   }

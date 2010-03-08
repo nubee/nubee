@@ -21,7 +21,7 @@
 </div>
 
 <div class="section">
-  <?php echo $story->getDescription() ?>
+  <?php echo format_text($story->getDescription()) ?>
 </div>
 
 <div class="section">

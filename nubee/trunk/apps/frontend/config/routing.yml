@@ -143,14 +143,14 @@ workingunit:
     actions: [ delete ]
     
 workingunit_create:
-  url:   /workingunit/create
+  url:   /task/:id/add-workingunit/
   class:   sfDoctrineRoute
   options:
-    model:  WorkingUnit
+    model:  Task
     type: object
-  param: { module: workingunit, action: create }
+  param: { module: task, action: addWorkingUnit }
   requirements:
-    sf_method: post
+    sf_method: put
 
 login:
   url:   /login
@@ -162,4 +162,4 @@ logout:
 
 homepage:
   url:   /
-  param: { module: product, action: index }
+  param: { module: content, action: dashboard }

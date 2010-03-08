@@ -17,6 +17,14 @@ class Story extends BaseStory
     return Doctrine::getTable('Task')->findByStory($this);
   }
 
+  public function countTasks() {
+    return Doctrine::getTable('Task')->countByStory($this);
+  }
+
+  public function countAvailableTasks() {
+    return Doctrine::getTable('Task')->countAvailableByStory($this);
+  }
+
   public function getEffortLeft() {
     $timestamp = 0;
     foreach($this->getTasks() as $task)

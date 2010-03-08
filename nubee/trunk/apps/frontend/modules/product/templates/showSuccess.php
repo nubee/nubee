@@ -21,7 +21,7 @@
 </div>
 
 <div class="section">
-  <?php echo $product->getDescription() ?>
+  <?php echo format_text($product->getDescription()) ?>
 </div>
 
 <div class="section">

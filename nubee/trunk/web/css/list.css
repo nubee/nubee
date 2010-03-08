@@ -37,8 +37,8 @@
   padding-top: 10px;
 }
 
+.done,
 .done a:link, .done a:visited,
 .done a:hover, .done a:active {
-  color: #999;
-  background: transparent url(../images/gray_dot.gif) center left repeat-x;
+  color: #aaa;
 }

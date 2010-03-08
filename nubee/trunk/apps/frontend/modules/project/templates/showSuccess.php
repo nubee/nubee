@@ -21,7 +21,7 @@
 </div>
 
 <div class="section">
-  <?php echo $project->getDescription() ?>
+  <?php echo format_text($project->getDescription()) ?>
 </div>
 
 <div class="section">

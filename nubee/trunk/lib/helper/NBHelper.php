@@ -44,20 +44,20 @@ function delete_link_to2($title, $url, $object, $attributes = array()) {
 
 function format_priority($priority) {
   switch($priority) {
-    case 'p1' : $i = 1; break;
-    case 'p2' : $i = 2; break;
-    case 'p3' : $i = 3; break;
-    case 'p4' : $i = 4; break;
-    case 'p5' : $i = 5; break;
-    case 'p6' : $i = 6; break;
-    default   : $i = 0; break;//return 'None';
+    case 'p1' : $num = 1; break;
+    case 'p2' : $num = 2; break;
+    case 'p3' : $num = 3; break;
+    case 'p4' : $num = 4; break;
+    case 'p5' : $num = 5; break;
+    case 'p6' : $num = 6; break;
+    default   : $num = 0; break;//return 'None';
   }
 
   $str = '';
-  for($j = 6; $j > $i; --$j)
-    $str .= image_tag('icons/disabled-star.png');
-  for(; $i > 0; --$i)
+  for($i = $num; $i > 0; --$i)
     $str .= image_tag('icons/star.png');
+  for($j = 6; $j > $num; --$j)
+    $str .= image_tag('icons/disabled-star.png');
 
   return $str;
 }
@@ -81,4 +81,8 @@ function format_task_status($status) {
     case 'started'    : return image_tag('icons/started.png', array('alt_title' => 'Started'));
     case 'done'       : return image_tag('icons/done.png', array('alt_title' => 'Done'));
   }
+}
+
+function format_text($text) {
+  return nl2br($text);
 }

@@ -14,4 +14,22 @@ class ProjectTable extends Doctrine_Table
       ->where('p.product_id = ?', $product->getId());
     return $q;
   }
+
+  public function findMostActive($limit) {
+    $q = Doctrine_Query::create()
+      ->select('p.*')
+      ->addSelect('(SELECT count(*) FROM Task t1 WHERE t1.story_id = s.id) as count_tasks')
+      ->addSelect('(SELECT count(*) FROM Story s1 WHERE s1.iteration_id = i.id) as count_stories')
+      ->addSelect('(SELECT count(*) FROM Iteration i1 WHERE i1.project_id = p.id) as count_iterations')
+      ->from('Project p')
+      ->leftJoin('p.Iterations i')
+      ->leftJoin('i.Stories s')
+      ->where('(p.status = ?)', 'enabled')
+      ->having('count_tasks > 0')
+      ->orderBy('count_tasks DESC')
+      ->addOrderBy('count_stories DESC')
+      ->addOrderBy('count_iterations DESC');
+
+    return $q->execute();
+  }
 }

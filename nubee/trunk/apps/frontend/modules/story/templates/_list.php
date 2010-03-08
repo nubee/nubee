@@ -14,40 +14,27 @@
   </thead>
   <tbody>
     <?php foreach ($stories as $i => $story): ?>
-    <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">
-      <td colspan="8">
-        <ul class="story">
-          <li>
-            <table style="width: 100%">
-              <tr>
-                <td class="left width40"><?php echo link_to($story, 'story_show', $story) ?></td>
-                <td class="center width10"><?php echo format_priority($story->getPriority()) ?></td>
-                <td class="center width10"><?php echo $story->getTasks()->count() ?></td>
-                <td class="center width5"><?php echo format_timestamp($story->getOriginalEstimate()) ?></td>
-                <td class="center width5"><?php echo format_timestamp($story->getCurrentEstimate()) ?></td>
-                <td class="center width5"><?php echo format_timestamp($story->getEffortLeft()) ?></td>
-                <td class="center width5"><?php echo format_timestamp($story->getEffortSpent()) ?></td>
-                <td class="center width5">
-                  <?php echo edit_link_to('story_edit', $story) ?>
-                  <?php echo delete_link_to('story_delete', $story) ?>
-                </td>
-              </tr>
-            </table>
-            <ul>
-                <?php foreach($story->getTasks() as $i => $task) : ?>
-              <li>
-                <table style="width: 100%">
-                  <tr class="<?php echo $task->getStatus() ?>">
-                    <td class="left" colspan="8"><?php echo link_to($task, 'task_show', $task) ?></td>
-                  </tr>
-                </table>
-              </li>
-                <?php endforeach; ?>
-            </ul>
-          </li>
-        </ul>
-      </td>
-    </tr>
+      <tr class="<?php echo ($story->countAvailableTasks() == 0 ? 'done' : '') ?>">
+        <td class="left"><?php echo link_to($story, 'story_show', $story) ?></td>
+        <td class="center"><?php echo format_priority($story->getPriority()) ?></td>
+        <td class="center">
+          <span class="progressbar" id="pb<?php echo $story->getId() ?>">
+            <?php
+              $total = $story->countTasks();
+              $available = $story->countAvailableTasks();
+              echo (($total - $available)/ $total) * 100;
+            ?>
+          </span>
+        </td>
+        <td class="center"><?php echo format_timestamp($story->getOriginalEstimate()) ?></td>
+        <td class="center"><?php echo format_timestamp($story->getCurrentEstimate()) ?></td>
+        <td class="center"><?php echo format_timestamp($story->getEffortLeft()) ?></td>
+        <td class="center"><?php echo format_timestamp($story->getEffortSpent()) ?></td>
+        <td class="center">
+          <?php echo edit_link_to('story_edit', $story) ?>
+          <?php echo delete_link_to('story_delete', $story) ?>
+        </td>
+      </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
@@ -55,14 +42,19 @@
   <?php echo __('No stories yet') ?>
 <?php endif; ?>
 
-
 <script type="text/javascript">
-$(document).ready(function(){
-	$(".story").treeview({
-		animated: "fast",
-		collapsed: true,
-		unique: true,
-		persist: "cookie"
+  $().ready(function() {
+    $('.progressbar').each(function() {
+      $(this).progressBar({
+        showText: false,
+        steps: 5,
+        boxImage		: '/images/progressbar.gif',
+        barImage		: {
+          0:  '/images/progressbg_red.gif',
+          30: '/images/progressbg_orange.gif',
+          70: '/images/progressbg_green.gif'
+        }
+      });
+    });
   });
-});
 </script>

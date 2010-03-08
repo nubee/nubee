@@ -31,4 +31,22 @@ class StoryTable extends Doctrine_Table
   public function findByIteration($iteration) {
     return $this->findByIterationQuery($iteration)->execute();
   }
+
+  public function findMostActive($user, $limit) {
+    $q = Doctrine_Query::create()
+      ->select('s.*')
+      ->addSelect('(SELECT count(*) FROM WorkingUnit w1 WHERE w1.task_id = t.id and w1.user_id = u.id) as count_working_units')
+      ->addSelect('(SELECT count(*) FROM Task t1 WHERE t1.story_id = s.id) as count_tasks')
+      ->from('Story s')
+      ->where('u.id  = ?', $user->getId())
+      ->andWhere('w.user_id  = ?', $user->getId())
+      ->leftJoin('s.Tasks t')
+      ->leftJoin('t.WorkingUnits w')
+      ->leftJoin('w.User u')
+      ->having('count_working_units > 0')
+      ->orderBy('count_working_units DESC')
+      ->addOrderBy('count_tasks DESC');
+
+    return $q->execute();
+  }
 }

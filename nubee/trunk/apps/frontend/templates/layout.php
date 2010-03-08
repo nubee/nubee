@@ -40,23 +40,42 @@
             <?php include_partial('content/breadcrumbs') ?>
           <?php endif; ?>
         </div>
-        <div id="leftColumn">
-          <?php if($sf_user->isAuthenticated()) : ?>
-            <?php if(!include_slot('leftMenu')) : ?>
-              <?php include_component('content', 'leftMenu') ?>
+        <div id="splitter">
+          <div id="leftColumn">
+            <?php if($sf_user->isAuthenticated()) : ?>
+              <?php if(!include_slot('leftMenu')) : ?>
+                <?php include_component('content', 'leftMenu') ?>
+              <?php endif; ?>
             <?php endif; ?>
-          <?php endif; ?>
-        </div>
-        <div id="centerColumn">
-          <?php echo $sf_content ?>
+          </div>
+          <div id="centerColumn">
+            <?php echo $sf_content ?>
+          </div>
         </div>
       </div>
       <div id="footer">
         <ul>
-          <li>&copy; <?php echo date('Y') ?> MondiDinamici s.r.l.</li>
+          <li>&copy; <?php echo date('Y') ?> nubee.org</li>
         </ul>
       </div>
     </div>
 
+    <script type="text/javascript">
+     $().ready(function(){
+       $("#splitter").splitter({
+         cookie: "splitter",
+         minLeft: 150, sizeLeft: 250, maxLeft: 250
+       });
+
+       $('#content img[tooltip]').each(function() {
+          $(this).qtip({
+             content: $(this).attr('tooltip'),
+             style: 'blue'
+          });
+       });
+    });
+
+    </script>
   </body>
 </html>
+
