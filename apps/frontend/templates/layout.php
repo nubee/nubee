@@ -10,7 +10,7 @@
   <body>
     <div id="page">
       <div id="header">
-        <div id="logo"><?php echo link_to(image_tag('logo.png'), 'homepage') ?></div>
+        <div id="logo"><?php echo link_to(image_tag('logo2.png'), 'homepage') ?></div>
       </div>
         <div id="topMenu">
           <?php if($sf_user->isAuthenticated()) : ?>
