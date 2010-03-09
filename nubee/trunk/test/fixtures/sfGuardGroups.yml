@@ -1,9 +1,0 @@
-sfGuardGroup:
-  admin_group:
-    name: Administrator
-
-  manager_group:
-    name: Manager
-
-  developer_group:
-    name: Developer
