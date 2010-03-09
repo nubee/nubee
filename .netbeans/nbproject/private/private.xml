@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/D:/githome/nubee/data/fixtures/sfGuardUsers.yml</file>
+        <file>file:/D:/githome/nubee/apps/frontend/templates/layout.php</file>
+        <file>file:/D:/githome/nubee/data/fixtures/sfGuardUserGroups.yml</file>
+        <file>file:/D:/githome/nubee/lib/form/doctrine/sfDoctrineGuardPlugin/sfGuardUserForm.class.php</file>
+        <file>file:/D:/githome/nubee/lib/form/doctrine/UserProfileForm.class.php</file>
+        <file>file:/D:/githome/nubee/data/prod-fixtures/sfGuardUsers.yml</file>
+        <file>file:/D:/githome/nubee/data/prod-fixtures/sfGuardGroups.yml</file>
+        <file>file:/D:/githome/nubee/data/prod-fixtures/sfGuardUserGroups.yml</file>
+        <file>file:/D:/githome/nubee/apps/frontend/lib/myUser.class.php</file>
+    </open-files>
+</project-private>
