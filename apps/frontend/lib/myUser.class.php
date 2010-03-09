@@ -17,4 +17,19 @@ class myUser extends sfGuardSecurityUser
   {
     return $this->getGuardUser()->getUserProfile();
   }
+
+  public function isAdministrator()
+  {
+    return $this->hasCredential('Administrator');
+  }
+
+  public function isManager()
+  {
+    return $this->isAdministrator() || $this->hasCredential('Manager');
+  }
+
+  public function isDeveloper()
+  {
+    return $this->isManager() || $this->hasCredential('Developer');
+  }
 }

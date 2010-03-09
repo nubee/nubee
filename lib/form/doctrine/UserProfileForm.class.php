@@ -13,9 +13,9 @@ class UserProfileForm extends BaseUserProfileForm
   {
     unset($this['user_id'], $this['created_at'], $this['updated_at']);
 
-/*    $userForm = new sfGuardUserForm($this->getObject()->getUser());
+    $userForm = new sfGuardUserForm($this->getObject()->getUser());
     $this->mergeForm($userForm);
-*/
+
     if($this->isNew()) {
       $this->widgetSchema->moveField('username', sfWidgetFormSchema::FIRST);
       $this->widgetSchema->moveField('password', sfWidgetFormSchema::AFTER, 'username');
