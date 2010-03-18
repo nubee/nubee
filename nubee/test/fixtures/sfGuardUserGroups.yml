@@ -1,12 +1,8 @@
 sfGuardUserGroup:
-  adam_admin_group:
-    sfGuardUser: adam
-    sfGuardGroup: admin_group
+  sgug_admin:
+    sfGuardUser:  sgu_adam
+    sfGuardGroup: sgg_admin
 
-  bob_manager_group:
-    sfGuardUser: bob
-    sfGuardGroup: manager_group
-
-  chloe_developer_group:
-    sfGuardUser: chloe
-    sfGuardGroup: developer_group
+  sgug_manager:
+    sfGuardUser:  sgu_bob
+    sfGuardGroup: sgg_manager

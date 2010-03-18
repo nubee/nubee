@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 nubee/cache/**/*
 nubee/cache/*
 nubee/log/**/*
 nubee/log/*
+=======
+cache/**/*
+cache/*
+log/**/*
+log/*
+>>>>>>> b7fe4d76e0b577bf249ecc5cb334ad32c63ca0f6
 .netbeans/nbproject/private/*

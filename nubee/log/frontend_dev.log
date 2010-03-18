@@ -21903,56 +21903,6 @@ Mar 08 15:07:40 symfony [info] {sfWebDebugLogger} Partial "project/_leftMenu" 2.
 Mar 08 15:07:40 symfony [info] {sfWebDebugLogger} Partial "iteration/_list" 19.49 ms (1)
 Mar 08 15:07:40 symfony [info] {sfWebDebugLogger} Partial "backlogtask/_list" 3.44 ms (1)
 Mar 08 15:07:40 symfony [info] {sfWebResponse} Send content (83391 o)
-<<<<<<< HEAD:nubee/log/frontend_dev.log
-Mar 18 13:14:41 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
-Mar 18 13:14:41 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
-Mar 18 13:14:41 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
-Mar 18 13:14:41 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'content',  'action' => 'dashboard',)
-Mar 18 13:14:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
-Mar 18 13:14:41 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
-Mar 18 13:14:41 symfony [info] {sfGuardBasicSecurityFilter} Action "content/dashboard" requires authentication, forwarding to "sfGuardAuth/signin"
-Mar 18 13:14:41 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
-Mar 18 13:14:41 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
-Mar 18 13:14:41 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
-Mar 18 13:14:41 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
-Mar 18 13:14:41 symfony [info] {sfPHPView} Render "F:/githome/nubee/nubee/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
-Mar 18 13:14:41 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
-Mar 18 13:14:41 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
-Mar 18 13:14:41 symfony [info] {main} Get slot "breadcrumbs"
-Mar 18 13:14:41 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
-Mar 18 13:14:41 symfony [info] {sfWebResponse} Send status "HTTP/1.0 401 Unauthorized"
-Mar 18 13:14:41 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
-Mar 18 13:14:41 symfony [info] {sfWebDebugLogger} Configuration 210.12 ms (12)
-Mar 18 13:14:41 symfony [info] {sfWebDebugLogger} Factories 71.89 ms (1)
-Mar 18 13:14:41 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 7.87 ms (1)
-Mar 18 13:14:41 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 33.09 ms (1)
-Mar 18 13:14:41 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.65 ms (1)
-Mar 18 13:14:41 symfony [info] {sfWebResponse} Send content (40137 o)
-Mar 18 13:15:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
-Mar 18 13:15:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
-Mar 18 13:15:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
-Mar 18 13:15:52 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'content',  'action' => 'dashboard',)
-Mar 18 13:15:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
-Mar 18 13:15:52 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
-Mar 18 13:15:52 symfony [info] {sfGuardBasicSecurityFilter} Action "content/dashboard" requires authentication, forwarding to "sfGuardAuth/signin"
-Mar 18 13:15:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
-Mar 18 13:15:52 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
-Mar 18 13:15:52 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
-Mar 18 13:15:52 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
-Mar 18 13:15:52 symfony [info] {sfPHPView} Render "F:/githome/nubee/nubee/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
-Mar 18 13:15:52 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
-Mar 18 13:15:52 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
-Mar 18 13:15:52 symfony [info] {main} Get slot "breadcrumbs"
-Mar 18 13:15:52 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
-Mar 18 13:15:52 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
-Mar 18 13:15:52 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
-Mar 18 13:15:52 symfony [info] {sfWebDebugLogger} Configuration 9.76 ms (12)
-Mar 18 13:15:52 symfony [info] {sfWebDebugLogger} Factories 59.24 ms (1)
-Mar 18 13:15:52 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 7.51 ms (1)
-Mar 18 13:15:52 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 28.04 ms (1)
-Mar 18 13:15:52 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.90 ms (1)
-Mar 18 13:15:52 symfony [info] {sfWebResponse} Send content (37959 o)
-=======
 Mar 09 07:17:57 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
 Mar 09 07:17:57 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
 Mar 09 07:17:57 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
@@ -23093,4 +23043,218 @@ Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.
 Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.79 ms (1)
 Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 2.26 ms (1)
 Mar 09 07:44:06 symfony [info] {sfWebResponse} Send content (63178 o)
->>>>>>> b7fe4d76e0b577bf249ecc5cb334ad32c63ca0f6:log/frontend_dev.log
+Mar 18 13:32:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 13:32:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 13:32:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 13:32:00 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'content',  'action' => 'dashboard',)
+Mar 18 13:32:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 13:32:00 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 18 13:32:00 symfony [info] {sfGuardBasicSecurityFilter} Action "content/dashboard" requires authentication, forwarding to "sfGuardAuth/signin"
+Mar 18 13:32:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 13:32:00 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 13:32:00 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 13:32:00 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 18 13:32:00 symfony [info] {sfPHPView} Render "F:/githome/nubee/nubee/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Mar 18 13:32:00 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 13:32:00 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 13:32:00 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 13:32:00 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 18 13:32:00 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Mar 18 13:32:00 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 13:32:00 symfony [info] {sfWebDebugLogger} Configuration 305.22 ms (12)
+Mar 18 13:32:00 symfony [info] {sfWebDebugLogger} Factories 181.52 ms (1)
+Mar 18 13:32:00 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 7.67 ms (1)
+Mar 18 13:32:00 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 33.02 ms (1)
+Mar 18 13:32:00 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.55 ms (1)
+Mar 18 13:32:00 symfony [info] {sfWebResponse} Send content (38444 o)
+Mar 18 13:32:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 13:32:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 13:32:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 13:32:12 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Mar 18 13:32:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 13:32:12 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 13:32:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 13:32:12 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 18 13:32:13 symfony [err] {Doctrine_Connection_Exception} PDO Connection Error: SQLSTATE[28000] [1045] Access denied for user 'nubeeadmin'@'localhost' (using password: YES)
+Mar 18 13:32:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Mar 18 13:32:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 13:32:13 symfony [info] {sfWebDebugLogger} Configuration 8.27 ms (8)
+Mar 18 13:32:13 symfony [info] {sfWebDebugLogger} Factories 79.12 ms (1)
+Mar 18 13:32:13 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 201.71 ms (1)
+Mar 18 13:33:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 13:33:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 13:33:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 13:33:49 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Mar 18 13:33:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 13:33:49 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 13:33:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 13:33:49 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 18 13:33:49 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 18 13:33:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ?) LIMIT 1 - (adam)
+Mar 18 13:33:49 symfony [info] {myUser} User is authenticated
+Mar 18 13:33:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Mar 18 13:33:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Mar 18 13:33:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Mar 18 13:33:49 symfony [info] {myUser} Add credential(s) "Administrator"
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-03-18 01:33:49, 2010-03-18 13:33:50, 1)
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 18 13:33:50 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/"
+Mar 18 13:33:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 18 13:33:50 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/"
+Mar 18 13:33:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Configuration 8.23 ms (8)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Factories 42.61 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 199.43 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (7)
+Mar 18 13:33:50 symfony [info] {sfWebResponse} Send content (111 o)
+Mar 18 13:33:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 13:33:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 13:33:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 13:33:50 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'content',  'action' => 'dashboard',)
+Mar 18 13:33:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 13:33:50 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 18 13:33:50 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 13:33:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 13:33:50 symfony [info] {contentActions} Call "contentActions->executeDashboard()"
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.product_id AS p__product_id, p.name AS p__name, p.description AS p__description, p.version AS p__version, p.website AS p__website, p.status AS p__status, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug, (SELECT COUNT(*) AS t__0 FROM task t WHERE (t.story_id = s.id) ORDER BY p.name ASC) AS p__0, (SELECT COUNT(*) AS s2__0 FROM story s2 WHERE (s2.iteration_id = i.id) ORDER BY p.name ASC) AS p__1, (SELECT COUNT(*) AS i2__0 FROM iteration i2 WHERE (i2.project_id = p.id) ORDER BY p.name ASC) AS p__2 FROM project p LEFT JOIN iteration i ON p.id = i.project_id LEFT JOIN story s ON i.id = s.iteration_id WHERE (p.status = ?) HAVING p__0 > 0 ORDER BY p__0 DESC, p__1 DESC, p__2 DESC, p.name ASC - (enabled)
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, (SELECT COUNT(*) AS w2__0 FROM working_unit w2 WHERE (w2.task_id = t.id AND w2.user_id = s2.id)) AS s__0, (SELECT COUNT(*) AS t2__0 FROM task t2 WHERE (t2.story_id = s.id)) AS s__1 FROM story s LEFT JOIN task t ON s.id = t.story_id LEFT JOIN working_unit w ON t.id = w.task_id LEFT JOIN sf_guard_user s2 ON w.user_id = s2.id WHERE (s2.id = ? AND w.user_id = ?) HAVING s__0 > 0 ORDER BY s__0 DESC, s__1 DESC - (1, 1)
+Mar 18 13:33:50 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/dashboardSuccess.php"
+Mar 18 13:33:50 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/project/templates/_list.php"
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM iteration i WHERE (i.project_id IN (?)) - (1)
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM story s LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at, s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM task t LEFT JOIN story s ON t.story_id = s.id LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 18 13:33:50 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/story/templates/_list.php"
+Mar 18 13:33:50 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 13:33:50 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 18 13:33:50 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 13:33:50 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 18 13:33:50 symfony [info] {main} Get slot "leftMenu"
+Mar 18 13:33:50 symfony [info] {main} Call "content->executeLeftMenu()"
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.description AS p__description, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM product p ORDER BY p.name ASC - ()
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 18 13:33:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s - ()
+Mar 18 13:33:50 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_leftMenu.php"
+Mar 18 13:33:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 18 13:33:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Configuration 26.97 ms (11)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Factories 42.07 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Action "content/dashboard" 165.15 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (11)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} View "Success" for "content/dashboard" 99.41 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Partial "project/_list" 24.88 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Partial "story/_list" 0.69 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.59 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Component "content/leftMenu" 17.32 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebDebugLogger} Partial "content/_leftMenu" 1.05 ms (1)
+Mar 18 13:33:50 symfony [info] {sfWebResponse} Send content (73480 o)
+Mar 18 13:33:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 13:33:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 13:33:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 13:33:53 symfony [info] {sfPatternRouting} Match route "project_show" (/project/:id.:sf_format) for /project/1 with parameters array (  'module' => 'project',  'action' => 'show',  'sf_format' => 'html',  'id' => '1',)
+Mar 18 13:33:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 13:33:53 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 18 13:33:53 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 13:33:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 13:33:53 symfony [info] {projectActions} Call "projectActions->executeShow()"
+Mar 18 13:33:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 18 13:33:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.product_id AS p__product_id, p.name AS p__name, p.description AS p__description, p.version AS p__version, p.website AS p__website, p.status AS p__status, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM project p WHERE (p.id = ?) ORDER BY p.name ASC LIMIT 1 - (1)
+Mar 18 13:33:53 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\modules/project/templates/showSuccess.php"
+Mar 18 13:33:53 symfony [info] {main} Set slot "breadcrumbs"
+Mar 18 13:33:53 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/project/templates/_breadcrumbs.php"
+Mar 18 13:33:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.name AS p__name, p.description AS p__description, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM product p WHERE (p.id = ?) ORDER BY p.name ASC - (1)
+Mar 18 13:33:53 symfony [info] {main} Set slot "leftMenu"
+Mar 18 13:33:53 symfony [info] {main} Call "project->executeLeftMenu()"
+Mar 18 13:33:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.product_id AS p__product_id, p.name AS p__name, p.description AS p__description, p.version AS p__version, p.website AS p__website, p.status AS p__status, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM project p WHERE (p.product_id = ?) ORDER BY p.name ASC - (1)
+Mar 18 13:33:53 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/project/templates/_leftMenu.php"
+Mar 18 13:33:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM iteration i WHERE (i.project_id IN (?)) - (1)
+Mar 18 13:33:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM story s LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 18 13:33:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at, s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM task t LEFT JOIN story s ON t.story_id = s.id LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 18 13:33:54 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/iteration/templates/_list.php"
+Mar 18 13:33:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM story s WHERE (s.iteration_id = ?) ORDER BY s.priority DESC - (1)
+Mar 18 13:33:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at, s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM task t LEFT JOIN story s ON t.story_id = s.id WHERE (s.iteration_id = ?) - (1)
+Mar 18 13:33:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM story s WHERE (s.iteration_id = ?) ORDER BY s.priority DESC - (2)
+Mar 18 13:33:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at, s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM task t LEFT JOIN story s ON t.story_id = s.id WHERE (s.iteration_id = ?) - (2)
+Mar 18 13:33:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT b.id AS b__id, b.project_id AS b__project_id, b.name AS b__name, b.description AS b__description, b.estimate AS b__estimate, b.priority AS b__priority, b.created_at AS b__created_at, b.updated_at AS b__updated_at FROM backlog_task b WHERE (b.project_id IN (?)) - (1)
+Mar 18 13:33:54 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/backlogtask/templates/_list.php"
+Mar 18 13:33:54 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 13:33:54 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 13:33:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 18 13:33:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 18 13:33:54 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 13:33:54 symfony [info] {main} Get slot "leftMenu"
+Mar 18 13:33:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 18 13:33:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} Configuration 35.97 ms (11)
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} Factories 42.97 ms (1)
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} Action "project/show" 50.84 ms (1)
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.06 ms (14)
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} View "Success" for "project/show" 130.65 ms (1)
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} Partial "project/_breadcrumbs" 10.26 ms (1)
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} Component "project/leftMenu" 4.61 ms (1)
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} Partial "project/_leftMenu" 1.92 ms (1)
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} Partial "iteration/_list" 19.33 ms (1)
+Mar 18 13:33:54 symfony [info] {sfWebDebugLogger} Partial "backlogtask/_list" 2.75 ms (1)
+Mar 18 13:33:54 symfony [info] {sfWebResponse} Send content (83103 o)
+Mar 18 13:33:56 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 13:33:56 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 13:33:56 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 13:33:56 symfony [info] {sfPatternRouting} Match route "iteration_show" (/iteration/:id.:sf_format) for /iteration/1 with parameters array (  'module' => 'iteration',  'action' => 'show',  'sf_format' => 'html',  'id' => '1',)
+Mar 18 13:33:56 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 13:33:56 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 18 13:33:56 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 13:33:56 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 13:33:56 symfony [info] {iterationActions} Call "iterationActions->executeShow()"
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM iteration i WHERE (i.id = ?) LIMIT 1 - (1)
+Mar 18 13:33:56 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\modules/iteration/templates/showSuccess.php"
+Mar 18 13:33:56 symfony [info] {main} Set slot "breadcrumbs"
+Mar 18 13:33:56 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/iteration/templates/_breadcrumbs.php"
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.product_id AS p__product_id, p.name AS p__name, p.description AS p__description, p.version AS p__version, p.website AS p__website, p.status AS p__status, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM project p WHERE (p.id = ?) ORDER BY p.name ASC - (1)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.name AS p__name, p.description AS p__description, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM product p WHERE (p.id = ?) ORDER BY p.name ASC - (1)
+Mar 18 13:33:56 symfony [info] {main} Set slot "leftMenu"
+Mar 18 13:33:56 symfony [info] {main} Call "iteration->executeLeftMenu()"
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM iteration i WHERE (i.project_id = ?) - (1)
+Mar 18 13:33:56 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/iteration/templates/_leftMenu.php"
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM story s WHERE (s.iteration_id = ?) ORDER BY s.priority DESC - (1)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT t.id FROM task t LEFT JOIN story s ON t.story_id = s.id WHERE s.iteration_id = ? AND t.status <> ? GROUP BY t.id) dctrn_count_query - (1, done)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT t.id FROM task t LEFT JOIN story s ON t.story_id = s.id WHERE s.iteration_id = ? GROUP BY t.id) dctrn_count_query - (1)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM story s WHERE (s.iteration_id = ?) ORDER BY s.priority DESC - (1)
+Mar 18 13:33:56 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/story/templates/_list.php"
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM task t WHERE t.story_id = ? AND t.status <> ? - (2, done)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM task t WHERE t.story_id = ? - (2)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM task t WHERE t.story_id = ? AND t.status <> ? - (2, done)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM task t WHERE (t.story_id = ?) ORDER BY t.priority DESC - (2)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM task t WHERE (t.story_id = ?) ORDER BY t.priority DESC - (2)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM task t WHERE (t.story_id = ?) ORDER BY t.priority DESC - (2)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT w.id AS w__id, w.user_id AS w__user_id, w.task_id AS w__task_id, w.effort_spent AS w__effort_spent, w.created_at AS w__created_at, w.updated_at AS w__updated_at FROM working_unit w WHERE (w.task_id IN (?)) - (3)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM task t WHERE (t.story_id = ?) ORDER BY t.priority DESC - (2)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM task t WHERE t.story_id = ? AND t.status <> ? - (1, done)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM task t WHERE t.story_id = ? - (1)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM task t WHERE t.story_id = ? AND t.status <> ? - (1, done)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM task t WHERE (t.story_id = ?) ORDER BY t.priority DESC - (1)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM task t WHERE (t.story_id = ?) ORDER BY t.priority DESC - (1)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM task t WHERE (t.story_id = ?) ORDER BY t.priority DESC - (1)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT w.id AS w__id, w.user_id AS w__user_id, w.task_id AS w__task_id, w.effort_spent AS w__effort_spent, w.created_at AS w__created_at, w.updated_at AS w__updated_at FROM working_unit w WHERE (w.task_id IN (?)) - (1)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT w.id AS w__id, w.user_id AS w__user_id, w.task_id AS w__task_id, w.effort_spent AS w__effort_spent, w.created_at AS w__created_at, w.updated_at AS w__updated_at FROM working_unit w WHERE (w.task_id IN (?)) - (2)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM task t WHERE (t.story_id = ?) ORDER BY t.priority DESC - (1)
+Mar 18 13:33:56 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 13:33:56 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 18 13:33:56 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 18 13:33:56 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 13:33:56 symfony [info] {main} Get slot "leftMenu"
+Mar 18 13:33:56 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 18 13:33:56 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 13:33:56 symfony [info] {sfWebDebugLogger} Configuration 35.05 ms (11)
+Mar 18 13:33:56 symfony [info] {sfWebDebugLogger} Factories 42.86 ms (1)
+Mar 18 13:33:56 symfony [info] {sfWebDebugLogger} Action "iteration/show" 47.54 ms (1)
+Mar 18 13:33:56 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.12 ms (28)
+Mar 18 13:33:56 symfony [info] {sfWebDebugLogger} View "Success" for "iteration/show" 163.46 ms (1)
+Mar 18 13:33:56 symfony [info] {sfWebDebugLogger} Partial "iteration/_breadcrumbs" 17.75 ms (1)
+Mar 18 13:33:56 symfony [info] {sfWebDebugLogger} Component "iteration/leftMenu" 3.80 ms (1)
+Mar 18 13:33:56 symfony [info] {sfWebDebugLogger} Partial "iteration/_leftMenu" 1.83 ms (1)
+Mar 18 13:33:56 symfony [info] {sfWebDebugLogger} Partial "story/_list" 63.45 ms (1)
+Mar 18 13:33:56 symfony [info] {sfWebResponse} Send content (100065 o)
