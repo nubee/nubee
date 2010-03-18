@@ -47,8 +47,8 @@
         </div>
         <div id="splitter">
           <div id="leftColumn">
-            <?php if($sf_user->isAuthenticated()) : ?>
-              <?php if(!include_slot('leftMenu')) : ?>
+            <?php if(!include_slot('leftMenu')) : ?>
+              <?php if($sf_user->isAuthenticated()) : ?>
                 <?php include_component('content', 'leftMenu') ?>
               <?php endif; ?>
             <?php endif; ?>

@@ -24133,3 +24133,215 @@ Mar 18 14:18:12 symfony [info] {sfWebDebugLogger} Component "docs/leftMenu" 0.02
 Mar 18 14:18:12 symfony [info] {sfWebDebugLogger} Partial "docs/_leftMenu" 0.58 ms (1)
 Mar 18 14:18:12 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.60 ms (1)
 Mar 18 14:18:12 symfony [info] {sfWebResponse} Send content (36983 o)
+Mar 18 14:21:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 14:21:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 14:21:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 14:21:16 symfony [info] {sfPatternRouting} Match route "docs" (/docs) for /docs with parameters array (  'module' => 'docs',  'action' => 'index',)
+Mar 18 14:21:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 14:21:16 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 14:21:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 14:21:16 symfony [info] {docsActions} Call "docsActions->executeIndex()"
+Mar 18 14:21:16 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\modules/docs/templates/indexSuccess.php"
+Mar 18 14:21:16 symfony [info] {main} Set slot "leftMenu"
+Mar 18 14:21:16 symfony [info] {main} Call "docs->executeLeftMenu()"
+Mar 18 14:21:16 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/docs/templates/_leftMenu.php"
+Mar 18 14:21:16 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:21:16 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:21:16 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 14:21:16 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 18 14:21:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 18 14:21:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 14:21:16 symfony [info] {sfWebDebugLogger} Configuration 290.09 ms (10)
+Mar 18 14:21:16 symfony [info] {sfWebDebugLogger} Factories 180.44 ms (1)
+Mar 18 14:21:16 symfony [info] {sfWebDebugLogger} Action "docs/index" 0.12 ms (1)
+Mar 18 14:21:16 symfony [info] {sfWebDebugLogger} View "Success" for "docs/index" 33.28 ms (1)
+Mar 18 14:21:16 symfony [info] {sfWebDebugLogger} Component "docs/leftMenu" 0.01 ms (1)
+Mar 18 14:21:16 symfony [info] {sfWebDebugLogger} Partial "docs/_leftMenu" 0.58 ms (1)
+Mar 18 14:21:16 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.53 ms (1)
+Mar 18 14:21:16 symfony [info] {sfWebResponse} Send content (36980 o)
+Mar 18 14:22:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 14:22:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 14:22:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 14:22:02 symfony [info] {sfPatternRouting} Match route "docs" (/docs) for /docs with parameters array (  'module' => 'docs',  'action' => 'index',)
+Mar 18 14:22:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 14:22:02 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 14:22:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 14:22:02 symfony [info] {docsActions} Call "docsActions->executeIndex()"
+Mar 18 14:22:02 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\modules/docs/templates/indexSuccess.php"
+Mar 18 14:22:02 symfony [info] {main} Set slot "leftMenu"
+Mar 18 14:22:02 symfony [info] {main} Call "docs->executeLeftMenu()"
+Mar 18 14:22:02 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/docs/templates/_leftMenu.php"
+Mar 18 14:22:02 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:02 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:02 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 14:22:02 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 18 14:22:02 symfony [info] {main} Get slot "leftMenu"
+Mar 18 14:22:02 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 18 14:22:02 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 14:22:02 symfony [info] {sfWebDebugLogger} Configuration 8.24 ms (10)
+Mar 18 14:22:02 symfony [info] {sfWebDebugLogger} Factories 80.85 ms (1)
+Mar 18 14:22:02 symfony [info] {sfWebDebugLogger} Action "docs/index" 0.18 ms (1)
+Mar 18 14:22:02 symfony [info] {sfWebDebugLogger} View "Success" for "docs/index" 22.31 ms (1)
+Mar 18 14:22:02 symfony [info] {sfWebDebugLogger} Component "docs/leftMenu" 0.01 ms (1)
+Mar 18 14:22:02 symfony [info] {sfWebDebugLogger} Partial "docs/_leftMenu" 0.50 ms (1)
+Mar 18 14:22:02 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.50 ms (1)
+Mar 18 14:22:02 symfony [info] {sfWebResponse} Send content (37280 o)
+Mar 18 14:22:07 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 14:22:07 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 14:22:07 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 14:22:07 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Mar 18 14:22:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 14:22:07 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 14:22:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 14:22:07 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 18 14:22:07 symfony [info] {sfPHPView} Render "F:/githome/nubee/nubee/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Mar 18 14:22:07 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:07 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:07 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 14:22:07 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 18 14:22:07 symfony [info] {main} Get slot "leftMenu"
+Mar 18 14:22:07 symfony [info] {main} Call "content->executeLeftMenu()"
+Mar 18 14:22:07 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 18 14:22:07 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.description AS p__description, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM product p ORDER BY p.name ASC - ()
+Mar 18 14:22:07 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 18 14:22:07 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s - ()
+Mar 18 14:22:07 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_leftMenu.php"
+Mar 18 14:22:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Mar 18 14:22:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 14:22:07 symfony [info] {sfWebDebugLogger} Configuration 42.50 ms (11)
+Mar 18 14:22:07 symfony [info] {sfWebDebugLogger} Factories 42.03 ms (1)
+Mar 18 14:22:07 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 7.75 ms (1)
+Mar 18 14:22:07 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 101.06 ms (1)
+Mar 18 14:22:07 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.55 ms (1)
+Mar 18 14:22:07 symfony [info] {sfWebDebugLogger} Component "content/leftMenu" 55.61 ms (1)
+Mar 18 14:22:07 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (4)
+Mar 18 14:22:07 symfony [info] {sfWebDebugLogger} Partial "content/_leftMenu" 1.83 ms (1)
+Mar 18 14:22:07 symfony [info] {sfWebResponse} Send content (46726 o)
+Mar 18 14:22:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 14:22:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 14:22:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 14:22:43 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Mar 18 14:22:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 14:22:43 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 14:22:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 14:22:43 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 18 14:22:43 symfony [info] {sfPHPView} Render "F:/githome/nubee/nubee/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Mar 18 14:22:43 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:43 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:43 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 14:22:43 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 18 14:22:43 symfony [info] {main} Get slot "leftMenu"
+Mar 18 14:22:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Mar 18 14:22:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 14:22:43 symfony [info] {sfWebDebugLogger} Configuration 9.25 ms (9)
+Mar 18 14:22:43 symfony [info] {sfWebDebugLogger} Factories 42.67 ms (1)
+Mar 18 14:22:43 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 7.90 ms (1)
+Mar 18 14:22:43 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 46.98 ms (1)
+Mar 18 14:22:43 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.63 ms (1)
+Mar 18 14:22:43 symfony [info] {sfWebResponse} Send content (37725 o)
+Mar 18 14:22:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 14:22:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 14:22:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 14:22:49 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Mar 18 14:22:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 14:22:49 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 14:22:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 14:22:49 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ?) LIMIT 1 - (adam)
+Mar 18 14:22:50 symfony [info] {myUser} User is authenticated
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Mar 18 14:22:50 symfony [info] {myUser} Add credential(s) "Administrator"
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-03-18 02:22:50, 2010-03-18 14:22:50, 1)
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-03-03 14:22:50)
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (2d8be18ff6d58cb5bad814232ceb3fbf, 1, 127.0.0.1, 2010-03-18 14:22:50, 2010-03-18 14:22:50)
+Mar 18 14:22:50 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/docs"
+Mar 18 14:22:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 18 14:22:50 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/docs"
+Mar 18 14:22:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 14:22:50 symfony [info] {sfWebResponse} Send cookie "sfRemember": "2d8be18ff6d58cb5bad814232ceb3fbf"
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Configuration 7.38 ms (8)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Factories 40.99 ms (1)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 176.13 ms (1)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (10)
+Mar 18 14:22:50 symfony [info] {sfWebResponse} Send content (115 o)
+Mar 18 14:22:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 14:22:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 14:22:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 14:22:50 symfony [info] {sfPatternRouting} Match route "docs" (/docs) for /docs with parameters array (  'module' => 'docs',  'action' => 'index',)
+Mar 18 14:22:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 14:22:50 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 14:22:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 14:22:50 symfony [info] {docsActions} Call "docsActions->executeIndex()"
+Mar 18 14:22:50 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\modules/docs/templates/indexSuccess.php"
+Mar 18 14:22:50 symfony [info] {main} Set slot "leftMenu"
+Mar 18 14:22:50 symfony [info] {main} Call "docs->executeLeftMenu()"
+Mar 18 14:22:50 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/docs/templates/_leftMenu.php"
+Mar 18 14:22:50 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:50 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 18 14:22:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 18 14:22:50 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 14:22:50 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 18 14:22:50 symfony [info] {main} Get slot "leftMenu"
+Mar 18 14:22:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 18 14:22:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Configuration 6.80 ms (10)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Factories 39.93 ms (1)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Action "docs/index" 0.11 ms (1)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} View "Success" for "docs/index" 81.47 ms (1)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Component "docs/leftMenu" 0.01 ms (1)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Partial "docs/_leftMenu" 0.56 ms (1)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (3)
+Mar 18 14:22:50 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.73 ms (1)
+Mar 18 14:22:50 symfony [info] {sfWebResponse} Send content (43862 o)
+Mar 18 14:22:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 14:22:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 14:22:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 14:22:53 symfony [info] {sfPatternRouting} Match route "sf_guard_signout" (/logout) for /logout with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signout',)
+Mar 18 14:22:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 14:22:53 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 14:22:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 14:22:53 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignout()"
+Mar 18 14:22:53 symfony [info] {myUser} User is not authenticated
+Mar 18 14:22:53 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/docs"
+Mar 18 14:22:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 18 14:22:53 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/docs"
+Mar 18 14:22:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 14:22:53 symfony [info] {sfWebResponse} Send cookie "sfRemember": ""
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} Configuration 5.43 ms (8)
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} Factories 39.90 ms (1)
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signout" 0.89 ms (1)
+Mar 18 14:22:53 symfony [info] {sfWebResponse} Send content (115 o)
+Mar 18 14:22:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 18 14:22:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 18 14:22:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 18 14:22:53 symfony [info] {sfPatternRouting} Match route "docs" (/docs) for /docs with parameters array (  'module' => 'docs',  'action' => 'index',)
+Mar 18 14:22:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 18 14:22:53 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 18 14:22:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 18 14:22:53 symfony [info] {docsActions} Call "docsActions->executeIndex()"
+Mar 18 14:22:53 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\modules/docs/templates/indexSuccess.php"
+Mar 18 14:22:53 symfony [info] {main} Set slot "leftMenu"
+Mar 18 14:22:53 symfony [info] {main} Call "docs->executeLeftMenu()"
+Mar 18 14:22:53 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/docs/templates/_leftMenu.php"
+Mar 18 14:22:53 symfony [info] {sfPHPView} Decorate content with "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:53 symfony [info] {sfPHPView} Render "F:\githome\nubee\nubee\apps\frontend\templates/layout.php"
+Mar 18 14:22:53 symfony [info] {main} Get slot "breadcrumbs"
+Mar 18 14:22:53 symfony [info] {sfPartialView} Render "F:\githome\nubee\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 18 14:22:53 symfony [info] {main} Get slot "leftMenu"
+Mar 18 14:22:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 18 14:22:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} Configuration 6.30 ms (10)
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} Factories 40.48 ms (1)
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} Action "docs/index" 0.11 ms (1)
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} View "Success" for "docs/index" 15.81 ms (1)
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} Component "docs/leftMenu" 0.01 ms (1)
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} Partial "docs/_leftMenu" 0.57 ms (1)
+Mar 18 14:22:53 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.70 ms (1)
+Mar 18 14:22:53 symfony [info] {sfWebResponse} Send content (37225 o)
