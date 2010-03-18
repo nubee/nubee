@@ -11,7 +11,7 @@
   <body>
     <div id="page">
       <div id="header">
-        <div id="logo"><?php echo link_to(image_tag('logo2.png'), 'homepage') ?></div>
+        <div id="logo"><?php echo link_to(image_tag('logo2.png', array('alt' => 'Nubee Homepage')), 'homepage') ?></div>
       </div>
         <div id="topMenu">
           <?php if($sf_user->isAuthenticated()) : ?>
@@ -34,6 +34,8 @@
               <?php endif; ?>
               <li>|</li>
               <li><?php echo link_to('Documentation', '@docs') ?></li>
+            <?php else: ?>
+              <li><?php echo link_to('Login', '@login') ?></li>
             <?php endif; ?>
           </ul>
         </div>
