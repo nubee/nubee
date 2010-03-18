@@ -32,6 +32,8 @@
                 <li>|</li>
                 <li><?php echo link_to('Users', '@user') ?></li>
               <?php endif; ?>
+              <li>|</li>
+              <li><?php echo link_to('Documentation', '@docs') ?></li>
             <?php endif; ?>
           </ul>
         </div>
