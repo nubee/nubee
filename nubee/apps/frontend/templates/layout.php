@@ -32,11 +32,11 @@
                 <li>|</li>
                 <li><?php echo link_to('Users', '@user') ?></li>
               <?php endif; ?>
-              <li>|</li>
-              <li><?php echo link_to('Documentation', '@docs') ?></li>
             <?php else: ?>
               <li><?php echo link_to('Login', '@login') ?></li>
             <?php endif; ?>
+            <li>|</li>
+            <li><?php echo link_to('Documentation', '@docs') ?></li>
           </ul>
         </div>
       <div id="content">

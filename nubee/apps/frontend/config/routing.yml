@@ -166,4 +166,4 @@ logout:
 
 homepage:
   url:   /
-  param: { module: content, action: dashboard }
+  param: { module: content, action: home }

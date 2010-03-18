@@ -10,6 +10,10 @@
  */
 class contentActions extends sfActions
 {
+  public function executeHome(sfWebRequest $request)
+  {
+  }
+
   public function executeDashboard(sfWebRequest $request)
   {
     $this->projects = Doctrine::getTable('Project')->findMostActive(5);
