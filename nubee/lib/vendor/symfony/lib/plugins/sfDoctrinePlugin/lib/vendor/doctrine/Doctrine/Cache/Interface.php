@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: Interface.php 7074 2010-01-28 22:10:33Z hobodave $
+ *  $Id: Interface.php 6821 2009-11-30 17:32:21Z jwage $
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,11 +27,11 @@
  * @license     http://www.opensource.org/licenses/lgpl-license.php LGPL
  * @link        www.phpdoctrine.org
  * @since       1.0
- * @version     $Revision: 7074 $
+ * @version     $Revision: 6821 $
  * @author      Konsta Vesterinen <kvesteri@cc.hut.fi>
  * @author      Jonathan H. Wage <jonwage@gmail.com>
  */
-interface Doctrine_Cache_Interface
+interface Doctrine_Cache_Interface 
 {
     /**
      * Fetch a cache record from this cache driver instance
@@ -56,13 +56,14 @@ interface Doctrine_Cache_Interface
      * @param string $id        cache id
      * @param string $data      data to cache
      * @param int $lifeTime     if != false, set a specific lifetime for this cache record (null => infinite lifeTime)
+     * @param boolean $saveKey  Whether or not to save the key in the cache key index
      * @return boolean true if no problem
      */
-    public function save($id, $data, $lifeTime = false);
+    public function save($id, $data, $lifeTime = false, $saveKey = true);
 
     /**
      * Remove a cache record
-     *
+     * 
      * @param string $id cache id
      * @return boolean true if no problem
      */

@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: Mysql.php 7077 2010-01-29 03:35:10Z hobodave $
+ *  $Id: Mysql.php 6805 2009-11-24 21:14:51Z jwage $
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -25,7 +25,7 @@
  * @license     http://www.opensource.org/licenses/lgpl-license.php LGPL
  * @author      Konsta Vesterinen <kvesteri@cc.hut.fi>
  * @author      Lukas Smith <smith@pooteeweet.org> (PEAR MDB2 library)
- * @version     $Revision: 7077 $
+ * @version     $Revision: 6805 $
  * @link        www.phpdoctrine.org
  * @since       1.0
  */
@@ -163,6 +163,8 @@ class Doctrine_DataDict_Mysql extends Doctrine_DataDict
                     $field['length'] = isset($field['length']) && $field['length'] ? $field['length']:255;
                 }
             case 'varchar':
+            case 'array':
+            case 'object':
             case 'string':
             case 'gzip':
                 if ( ! isset($field['length'])) {
@@ -178,8 +180,6 @@ class Doctrine_DataDict_Mysql extends Doctrine_DataDict
 
                 return $fixed ? ($length ? 'CHAR(' . $length . ')' : 'CHAR(255)')
                     : ($length ? 'VARCHAR(' . $length . ')' : 'TEXT');
-            case 'array':
-            case 'object':
             case 'clob':
                 if ( ! empty($field['length'])) {
                     $length = $field['length'];

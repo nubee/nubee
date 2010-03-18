@@ -1,6 +1,6 @@
 <?php
 /*
- *  $Id: Db.php 7074 2010-01-28 22:10:33Z hobodave $
+ *  $Id: Db.php 6821 2009-11-30 17:32:21Z jwage $
  *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -27,11 +27,11 @@
  * @license     http://www.opensource.org/licenses/lgpl-license.php LGPL
  * @link        www.phpdoctrine.org
  * @since       1.0
- * @version     $Revision: 7074 $
+ * @version     $Revision: 6821 $
  * @author      Konsta Vesterinen <kvesteri@cc.hut.fi>
  * @author      Jonathan H. Wage <jonwage@gmail.com>
  */
-class Doctrine_Cache_Db extends Doctrine_Cache_Driver
+class Doctrine_Cache_Db extends Doctrine_Cache_Driver implements Countable
 {
     /**
      * Configure Database cache driver. Specify instance of Doctrine_Connection
@@ -39,20 +39,20 @@ class Doctrine_Cache_Db extends Doctrine_Cache_Driver
      *
      * @param array $_options      an array of options
      */
-    public function __construct($options = array())
+    public function __construct($options = array()) 
     {
-        if ( ! isset($options['connection']) ||
+        if ( ! isset($options['connection']) || 
              ! ($options['connection'] instanceof Doctrine_Connection)) {
 
             throw new Doctrine_Cache_Exception('Connection option not set.');
         }
-
+        
         if ( ! isset($options['tableName']) ||
              ! is_string($options['tableName'])) {
-
+             
              throw new Doctrine_Cache_Exception('Table name option not set.');
         }
-
+        
 
         $this->_options = $options;
     }
@@ -62,7 +62,7 @@ class Doctrine_Cache_Db extends Doctrine_Cache_Driver
      *
      * @return Doctrine_Connection $connection
      */
-    public function getConnection()
+    public function getConnection() 
     {
         return $this->_options['connection'];
     }
@@ -98,7 +98,7 @@ class Doctrine_Cache_Db extends Doctrine_Cache_Driver
      * @param string $id cache id
      * @return mixed false (a cache is not available) or "last modified" timestamp (int) of the available cache record
      */
-    protected function _doContains($id)
+    protected function _doContains($id) 
     {
         $sql = 'SELECT id, expire FROM ' . $this->_options['tableName']
              . ' WHERE id = ?';
@@ -155,11 +155,11 @@ class Doctrine_Cache_Db extends Doctrine_Cache_Driver
     /**
      * Remove a cache record directly. This method is implemented by the cache
      * drivers and used in Doctrine_Cache_Driver::delete()
-     *
+     * 
      * @param string $id cache id
      * @return boolean true if no problem
      */
-    protected function _doDelete($id)
+    protected function _doDelete($id) 
     {
         $sql = 'DELETE FROM ' . $this->_options['tableName'] . ' WHERE id = ?';
         return $this->getConnection()->exec($sql, array($id));
@@ -173,7 +173,7 @@ class Doctrine_Cache_Db extends Doctrine_Cache_Driver
     public function createTable()
     {
         $name = $this->_options['tableName'];
-
+        
         $fields = array(
             'id' => array(
                 'type'   => 'string',
@@ -186,11 +186,11 @@ class Doctrine_Cache_Db extends Doctrine_Cache_Driver
                 'type'    => 'timestamp'
             )
         );
-
+        
         $options = array(
             'primary' => array('id')
         );
-
+        
         $this->getConnection()->export->createTable($name, $fields, $options);
     }
 
@@ -198,7 +198,7 @@ class Doctrine_Cache_Db extends Doctrine_Cache_Driver
      * Convert hex data to binary data. If passed data is not hex then
      * it is returned as is.
      *
-     * @param string $hex
+     * @param string $hex 
      * @return string $binary
      */
     protected function _hex2bin($hex)
@@ -217,21 +217,5 @@ class Doctrine_Cache_Db extends Doctrine_Cache_Driver
         }
 
         return $bin;
-    }
-
-    /**
-     * Fetch an array of all keys stored in cache
-     *
-     * @return array Returns the array of cache keys
-     */
-    protected function _getCacheKeys()
-    {
-        $sql = 'SELECT id FROM ' . $this->_options['tableName'];
-        $keys = array();
-        $results = $this->getConnection()->execute($sql)->fetchAll(Doctrine_Core::FETCH_NUM);
-        for ($i = 0, $count = count($results); $i < $count; $i++) {
-            $keys[] = $results[$i][0];
-        }
-        return $keys;
     }
 }
