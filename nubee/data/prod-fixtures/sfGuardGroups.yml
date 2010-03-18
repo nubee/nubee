@@ -1,9 +1,9 @@
 sfGuardGroup:
-  admin_group:
+  sgg_admin:
     name: Administrator
 
-  manager_group:
+  sgg_manager:
     name: Manager
 
-  developer_group:
+  sgg_developer:
     name: Developer

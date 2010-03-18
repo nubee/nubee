@@ -17,6 +17,7 @@ class bhLDAP
       self::debugDump(self::$ldap, 'configured adLDAP object');
 
     }
+    
     return self::$ldap;
   }
 
@@ -24,11 +25,12 @@ class bhLDAP
   public static function getConfig()
   {
     if (self::$config === null) {
-      $config = sfYaml::load(sfConfig::get('sf_config_dir').'/LDAPAuth.yml');
+      $config = sfYaml::load(sfConfig::get('sf_config_dir') . '/LDAPAuth.yml');
       self::debugDump($config, 'original parsed yaml');
 
       self::$config = $config;
     }
+    
     return self::$config;
   }
 
@@ -124,7 +126,7 @@ class bhLDAP
     $fields = array("memberuid");
 
     $ldap = self::getLDAP();
-    $sr = ldap_search($ldap->_conn,'ou=Groups,dc=mondidinamici,dc=tld', $filter, $fields);
+    $sr = ldap_search($ldap->_conn, 'ou=Groups,dc=domain,dc=com', $filter, $fields);
 
 //    self::debugDump($sr, 'Result: ');
     if (!$sr)

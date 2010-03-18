@@ -1,34 +1,34 @@
 Project:
   project_1_1:
-    Manager: adam
+    Manager: sgu_adam
     Product: product_1
     name:    First Project
     version: '1.0'
     status:  enabled
 
   project_1_2:
-    Manager: adam
+    Manager: sgu_adam
     Product: product_1
     name:    Second Project
     version: '1.0'
     status:  disabled
 
   project_2_1:
-    Manager: adam
+    Manager: sgu_adam
     Product: product_2
     name:    First Project
     version: '1.0'
     status:  enabled
 
   project_2_2:
-    Manager: adam
+    Manager: sgu_adam
     Product: product_2
     name:    Second Project
     version: '1.0'
     status:  enabled
 
   project_2_3:
-    Manager: adam
+    Manager: sgu_adam
     Product: product_2
     name:    Third Project
     version: '1.0'
@@ -45,8 +45,8 @@ ProjectRelation:
 ProjectMember:
   prj_member_1_1:
     Project: project_1_1
-    Member:  adam
+    Member:  sgu_adam
   prj_member_1_2:
     Project: project_1_1
-    Member:  chloe
+    Member:  sgu_chloe
 

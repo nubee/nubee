@@ -1,4 +1,5 @@
 sfGuardUser:
-  admin:
+  sgu_admin:
     username: admin
-    password: admin
+    password: I@mAdm1n
+    is_super_admin: true

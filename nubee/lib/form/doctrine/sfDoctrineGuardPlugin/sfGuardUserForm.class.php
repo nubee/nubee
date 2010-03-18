@@ -12,8 +12,14 @@ class sfGuardUserForm extends PluginsfGuardUserForm
   public function configure()
   {
     unset($this['algorithm'], $this['salt'], 
-      $this['last_login'], $this['created_at'], $this['updated_at'],
-      $this['is_super_admin'], $this['groups_list'], $this['permissions_list']);
+      $this['last_login'], $this['created_at'], $this['updated_at']);
+
+    $user = sfContext::getInstance()->getUser();
+    if(!$user->isSuperAdmin())
+      unset($this['is_super_admin']);
+
+    if(!$user->isAdministrator())
+      unset($this['is_super_admin'], $this['groups_list'], $this['permissions_list']);
 
     if($this->isNew()) {
 

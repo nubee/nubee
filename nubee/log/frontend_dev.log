@@ -21903,6 +21903,7 @@ Mar 08 15:07:40 symfony [info] {sfWebDebugLogger} Partial "project/_leftMenu" 2.
 Mar 08 15:07:40 symfony [info] {sfWebDebugLogger} Partial "iteration/_list" 19.49 ms (1)
 Mar 08 15:07:40 symfony [info] {sfWebDebugLogger} Partial "backlogtask/_list" 3.44 ms (1)
 Mar 08 15:07:40 symfony [info] {sfWebResponse} Send content (83391 o)
+<<<<<<< HEAD:nubee/log/frontend_dev.log
 Mar 18 13:14:41 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
 Mar 18 13:14:41 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
 Mar 18 13:14:41 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
@@ -21951,3 +21952,1145 @@ Mar 18 13:15:52 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 7.
 Mar 18 13:15:52 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 28.04 ms (1)
 Mar 18 13:15:52 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.90 ms (1)
 Mar 18 13:15:52 symfony [info] {sfWebResponse} Send content (37959 o)
+=======
+Mar 09 07:17:57 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:17:57 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:17:57 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:17:57 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'content',  'action' => 'dashboard',)
+Mar 09 07:17:57 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:17:57 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:17:57 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:17:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM (SELECT s.id, s.ip_address FROM sf_guard_remember_key s INNER JOIN sf_guard_user s2 ON s.user_id = s2.id WHERE s.remember_key = ? GROUP BY s.id, s.ip_address) dctrn_count_query - (fdbe518615b2d8464be155b3f109c8c1)
+Mar 09 07:17:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.user_id AS s__user_id, s.remember_key AS s__remember_key, s.ip_address AS s__ip_address, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.id AS s2__id, s2.username AS s2__username, s2.algorithm AS s2__algorithm, s2.salt AS s2__salt, s2.password AS s2__password, s2.is_active AS s2__is_active, s2.is_super_admin AS s2__is_super_admin, s2.last_login AS s2__last_login, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_remember_key s INNER JOIN sf_guard_user s2 ON s.user_id = s2.id WHERE (s.remember_key = ?) - (fdbe518615b2d8464be155b3f109c8c1)
+Mar 09 07:17:57 symfony [info] {myUser} User is authenticated
+Mar 09 07:17:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Mar 09 07:17:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Mar 09 07:17:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Mar 09 07:17:57 symfony [info] {myUser} Add credential(s) ""
+Mar 09 07:17:57 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-03-09 07:17:57, 2010-03-09 07:17:57, 1)
+Mar 09 07:17:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:17:57 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:17:57 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:17:57 symfony [info] {contentActions} Call "contentActions->executeDashboard()"
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.product_id AS p__product_id, p.name AS p__name, p.description AS p__description, p.version AS p__version, p.website AS p__website, p.status AS p__status, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug, (SELECT COUNT(*) AS t__0 FROM task t WHERE (t.story_id = s.id) ORDER BY p.name ASC) AS p__0, (SELECT COUNT(*) AS s2__0 FROM story s2 WHERE (s2.iteration_id = i.id) ORDER BY p.name ASC) AS p__1, (SELECT COUNT(*) AS i2__0 FROM iteration i2 WHERE (i2.project_id = p.id) ORDER BY p.name ASC) AS p__2 FROM project p LEFT JOIN iteration i ON p.id = i.project_id LEFT JOIN story s ON i.id = s.iteration_id WHERE (p.status = ?) HAVING p__0 > 0 ORDER BY p__0 DESC, p__1 DESC, p__2 DESC, p.name ASC - (enabled)
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, (SELECT COUNT(*) AS w2__0 FROM working_unit w2 WHERE (w2.task_id = t.id AND w2.user_id = s2.id)) AS s__0, (SELECT COUNT(*) AS t2__0 FROM task t2 WHERE (t2.story_id = s.id)) AS s__1 FROM story s LEFT JOIN task t ON s.id = t.story_id LEFT JOIN working_unit w ON t.id = w.task_id LEFT JOIN sf_guard_user s2 ON w.user_id = s2.id WHERE (s2.id = ? AND w.user_id = ?) HAVING s__0 > 0 ORDER BY s__0 DESC, s__1 DESC - (1, 1)
+Mar 09 07:17:58 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/dashboardSuccess.php"
+Mar 09 07:17:58 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/project/templates/_list.php"
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Statement} execute : SELECT i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM iteration i WHERE (i.project_id IN (?)) - (1)
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM story s LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at, s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM task t LEFT JOIN story s ON t.story_id = s.id LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 09 07:17:58 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/story/templates/_list.php"
+Mar 09 07:17:58 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:17:58 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:17:58 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:17:58 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 09 07:17:58 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:17:58 symfony [info] {main} Call "content->executeLeftMenu()"
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.description AS p__description, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM product p ORDER BY p.name ASC - ()
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:17:58 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s - ()
+Mar 09 07:17:58 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/_leftMenu.php"
+Mar 09 07:17:58 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:17:58 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} Configuration 18.55 ms (10)
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} Factories 56.51 ms (1)
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.08 ms (18)
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} Action "content/dashboard" 126.54 ms (1)
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} View "Success" for "content/dashboard" 96.73 ms (1)
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} Partial "project/_list" 30.39 ms (1)
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} Partial "story/_list" 1.85 ms (1)
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 1.71 ms (1)
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} Component "content/leftMenu" 14.25 ms (1)
+Mar 09 07:17:58 symfony [info] {sfWebDebugLogger} Partial "content/_leftMenu" 2.40 ms (1)
+Mar 09 07:17:58 symfony [info] {sfWebResponse} Send content (89512 o)
+Mar 09 07:23:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:23:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:23:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:23:52 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'content',  'action' => 'dashboard',)
+Mar 09 07:23:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:23:52 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:23:52 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:23:52 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:23:52 symfony [info] {contentActions} Call "contentActions->executeDashboard()"
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.product_id AS p__product_id, p.name AS p__name, p.description AS p__description, p.version AS p__version, p.website AS p__website, p.status AS p__status, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug, (SELECT COUNT(*) AS t__0 FROM task t WHERE (t.story_id = s.id) ORDER BY p.name ASC) AS p__0, (SELECT COUNT(*) AS s2__0 FROM story s2 WHERE (s2.iteration_id = i.id) ORDER BY p.name ASC) AS p__1, (SELECT COUNT(*) AS i2__0 FROM iteration i2 WHERE (i2.project_id = p.id) ORDER BY p.name ASC) AS p__2 FROM project p LEFT JOIN iteration i ON p.id = i.project_id LEFT JOIN story s ON i.id = s.iteration_id WHERE (p.status = ?) HAVING p__0 > 0 ORDER BY p__0 DESC, p__1 DESC, p__2 DESC, p.name ASC - (enabled)
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, (SELECT COUNT(*) AS w2__0 FROM working_unit w2 WHERE (w2.task_id = t.id AND w2.user_id = s2.id)) AS s__0, (SELECT COUNT(*) AS t2__0 FROM task t2 WHERE (t2.story_id = s.id)) AS s__1 FROM story s LEFT JOIN task t ON s.id = t.story_id LEFT JOIN working_unit w ON t.id = w.task_id LEFT JOIN sf_guard_user s2 ON w.user_id = s2.id WHERE (s2.id = ? AND w.user_id = ?) HAVING s__0 > 0 ORDER BY s__0 DESC, s__1 DESC - (1, 1)
+Mar 09 07:23:52 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/dashboardSuccess.php"
+Mar 09 07:23:52 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/project/templates/_list.php"
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM iteration i WHERE (i.project_id IN (?)) - (1)
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM story s LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at, s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM task t LEFT JOIN story s ON t.story_id = s.id LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 09 07:23:52 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/story/templates/_list.php"
+Mar 09 07:23:52 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:23:52 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:23:52 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:23:52 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 09 07:23:52 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:23:52 symfony [info] {main} Call "content->executeLeftMenu()"
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.description AS p__description, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM product p ORDER BY p.name ASC - ()
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:23:52 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s - ()
+Mar 09 07:23:52 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/_leftMenu.php"
+Mar 09 07:23:52 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:23:52 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} Configuration 17.20 ms (10)
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} Factories 69.02 ms (1)
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} Action "content/dashboard" 152.83 ms (1)
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (11)
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} View "Success" for "content/dashboard" 88.81 ms (1)
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} Partial "project/_list" 27.94 ms (1)
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} Partial "story/_list" 1.91 ms (1)
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 1.62 ms (1)
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} Component "content/leftMenu" 11.93 ms (1)
+Mar 09 07:23:52 symfony [info] {sfWebDebugLogger} Partial "content/_leftMenu" 2.17 ms (1)
+Mar 09 07:23:52 symfony [info] {sfWebResponse} Send content (73553 o)
+Mar 09 07:23:57 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:23:57 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:23:57 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:23:57 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/1/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '1',)
+Mar 09 07:23:57 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:23:57 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:23:57 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:23:57 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:23:57 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:23:57 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (1)
+Mar 09 07:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (1)
+Mar 09 07:23:57 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:23:57 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:23:57 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:23:57 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:23:57 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:23:57 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:23:57 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:23:57 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:23:57 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:23:57 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:23:57 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:23:57 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:23:57 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:23:57 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:23:57 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:23:57 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:23:57 symfony [info] {sfWebDebugLogger} Configuration 106.60 ms (11)
+Mar 09 07:23:57 symfony [info] {sfWebDebugLogger} Factories 56.13 ms (1)
+Mar 09 07:23:57 symfony [info] {sfWebDebugLogger} Action "user/edit" 106.85 ms (1)
+Mar 09 07:23:57 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:23:57 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 97.15 ms (1)
+Mar 09 07:23:57 symfony [info] {sfWebDebugLogger} Partial "user/_form" 25.94 ms (1)
+Mar 09 07:23:57 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 1.35 ms (1)
+Mar 09 07:23:57 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.65 ms (1)
+Mar 09 07:23:57 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.41 ms (1)
+Mar 09 07:23:57 symfony [info] {sfWebResponse} Send content (61324 o)
+Mar 09 07:25:09 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:25:09 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:25:09 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:25:09 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/1/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '1',)
+Mar 09 07:25:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:25:09 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:25:09 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:25:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:25:09 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:25:09 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:25:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (1)
+Mar 09 07:25:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (1)
+Mar 09 07:25:09 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:25:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:25:09 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:25:09 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:25:09 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:25:09 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:25:09 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:25:09 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:25:09 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:25:09 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:25:09 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:25:09 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:25:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:25:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:25:09 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:25:09 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:25:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:25:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:25:09 symfony [info] {sfWebDebugLogger} Configuration 14.56 ms (10)
+Mar 09 07:25:09 symfony [info] {sfWebDebugLogger} Factories 54.92 ms (1)
+Mar 09 07:25:09 symfony [info] {sfWebDebugLogger} Action "user/edit" 124.87 ms (1)
+Mar 09 07:25:09 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:25:09 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 77.36 ms (1)
+Mar 09 07:25:09 symfony [info] {sfWebDebugLogger} Partial "user/_form" 29.33 ms (1)
+Mar 09 07:25:09 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.26 ms (1)
+Mar 09 07:25:09 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.77 ms (1)
+Mar 09 07:25:09 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 2.33 ms (1)
+Mar 09 07:25:09 symfony [info] {sfWebResponse} Send content (61590 o)
+Mar 09 07:25:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:25:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:25:43 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:25:43 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/1/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '1',)
+Mar 09 07:25:43 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:25:43 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:25:43 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:25:43 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:25:43 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:25:43 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:25:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (1)
+Mar 09 07:25:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (1)
+Mar 09 07:25:44 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:25:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:25:44 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:25:44 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:25:44 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:25:44 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:25:44 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:25:44 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:25:44 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:25:44 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:25:44 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:25:44 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:25:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:25:44 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:25:44 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:25:44 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:25:44 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:25:44 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:25:44 symfony [info] {sfWebDebugLogger} Configuration 14.72 ms (10)
+Mar 09 07:25:44 symfony [info] {sfWebDebugLogger} Factories 55.21 ms (1)
+Mar 09 07:25:44 symfony [info] {sfWebDebugLogger} Action "user/edit" 114.78 ms (1)
+Mar 09 07:25:44 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (8)
+Mar 09 07:25:44 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 73.16 ms (1)
+Mar 09 07:25:44 symfony [info] {sfWebDebugLogger} Partial "user/_form" 29.76 ms (1)
+Mar 09 07:25:44 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.50 ms (1)
+Mar 09 07:25:44 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.63 ms (1)
+Mar 09 07:25:44 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 2.48 ms (1)
+Mar 09 07:25:44 symfony [info] {sfWebResponse} Send content (61606 o)
+Mar 09 07:37:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:37:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:37:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:37:00 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/1/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '1',)
+Mar 09 07:37:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:37:00 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:37:00 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:37:00 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:37:00 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:37:00 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:37:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (1)
+Mar 09 07:37:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (1)
+Mar 09 07:37:00 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:37:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:37:00 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:37:00 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:37:00 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:37:00 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:37:00 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:37:00 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:37:00 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:37:00 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:37:00 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:37:00 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:37:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:37:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:37:00 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:37:00 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:37:00 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:37:00 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:37:00 symfony [info] {sfWebDebugLogger} Configuration 18.62 ms (10)
+Mar 09 07:37:00 symfony [info] {sfWebDebugLogger} Factories 66.59 ms (1)
+Mar 09 07:37:00 symfony [info] {sfWebDebugLogger} Action "user/edit" 119.36 ms (1)
+Mar 09 07:37:00 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:37:00 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 63.08 ms (1)
+Mar 09 07:37:00 symfony [info] {sfWebDebugLogger} Partial "user/_form" 24.16 ms (1)
+Mar 09 07:37:00 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 1.33 ms (1)
+Mar 09 07:37:00 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.55 ms (1)
+Mar 09 07:37:00 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.78 ms (1)
+Mar 09 07:37:00 symfony [info] {sfWebResponse} Send content (61606 o)
+Mar 09 07:37:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:37:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:37:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:37:05 symfony [info] {sfPatternRouting} Match route "sf_guard_signout" (/logout) for /logout with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signout',)
+Mar 09 07:37:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:37:05 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:37:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:37:05 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignout()"
+Mar 09 07:37:05 symfony [info] {myUser} User is not authenticated
+Mar 09 07:37:05 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/user/1/edit"
+Mar 09 07:37:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 09 07:37:05 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/user/1/edit"
+Mar 09 07:37:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:37:05 symfony [info] {sfWebResponse} Send cookie "sfRemember": ""
+Mar 09 07:37:05 symfony [info] {sfWebDebugLogger} Configuration 14.73 ms (8)
+Mar 09 07:37:05 symfony [info] {sfWebDebugLogger} Factories 55.02 ms (1)
+Mar 09 07:37:05 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signout" 0.93 ms (1)
+Mar 09 07:37:05 symfony [info] {sfWebResponse} Send content (122 o)
+Mar 09 07:37:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:37:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:37:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:37:05 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/1/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '1',)
+Mar 09 07:37:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:37:05 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:37:05 symfony [info] {sfGuardBasicSecurityFilter} Action "user/edit" requires authentication, forwarding to "sfGuardAuth/signin"
+Mar 09 07:37:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:37:05 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:37:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:37:05 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 09 07:37:05 symfony [info] {sfPHPView} Render "D:/githome/nubee/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Mar 09 07:37:05 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:37:05 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:37:05 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:37:05 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 09 07:37:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Mar 09 07:37:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:37:05 symfony [info] {sfWebDebugLogger} Configuration 58.09 ms (13)
+Mar 09 07:37:05 symfony [info] {sfWebDebugLogger} Factories 52.26 ms (1)
+Mar 09 07:37:05 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 10.57 ms (1)
+Mar 09 07:37:05 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 71.87 ms (1)
+Mar 09 07:37:05 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 0.68 ms (1)
+Mar 09 07:37:05 symfony [info] {sfWebResponse} Send content (39068 o)
+Mar 09 07:37:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:37:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:37:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:37:11 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Mar 09 07:37:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:37:11 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:37:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:37:11 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ?) LIMIT 1 - (adam)
+Mar 09 07:37:12 symfony [info] {myUser} User is authenticated
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Mar 09 07:37:12 symfony [info] {myUser} Add credential(s) "Administrator"
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-03-09 07:37:12, 2010-03-09 07:37:12, 1)
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:37:12 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/user/1/edit"
+Mar 09 07:37:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 09 07:37:12 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/user/1/edit"
+Mar 09 07:37:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Configuration 16.39 ms (8)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Factories 56.23 ms (1)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 204.20 ms (1)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (7)
+Mar 09 07:37:12 symfony [info] {sfWebResponse} Send content (122 o)
+Mar 09 07:37:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:37:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:37:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:37:12 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/1/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '1',)
+Mar 09 07:37:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:37:12 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:37:12 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:37:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:37:12 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (1)
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (1)
+Mar 09 07:37:12 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:37:12 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:37:12 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:37:12 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:37:12 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:37:12 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:37:12 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:37:12 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:37:12 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:37:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:37:12 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:37:12 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:37:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:37:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Configuration 19.32 ms (10)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Factories 54.95 ms (1)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Action "user/edit" 137.98 ms (1)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (8)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 115.47 ms (1)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Partial "user/_form" 29.66 ms (1)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.12 ms (1)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.70 ms (1)
+Mar 09 07:37:12 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 2.34 ms (1)
+Mar 09 07:37:12 symfony [info] {sfWebResponse} Send content (61796 o)
+Mar 09 07:37:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:37:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:37:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:37:15 symfony [info] {sfPatternRouting} Match route "user" (/user.:sf_format) for /user with parameters array (  'module' => 'user',  'action' => 'index',  'sf_format' => 'html',)
+Mar 09 07:37:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:37:15 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:37:15 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:37:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:37:15 symfony [info] {userActions} Call "userActions->executeIndex()"
+Mar 09 07:37:15 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:37:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u ORDER BY Email ASC - ()
+Mar 09 07:37:15 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/indexSuccess.php"
+Mar 09 07:37:15 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:37:15 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:37:15 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:37:15 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:37:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:37:15 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:37:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:37:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:37:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (3)
+Mar 09 07:37:15 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:37:15 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:37:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:37:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:37:15 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:37:15 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:37:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:37:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:37:15 symfony [info] {sfWebDebugLogger} Configuration 19.64 ms (10)
+Mar 09 07:37:15 symfony [info] {sfWebDebugLogger} Factories 55.63 ms (1)
+Mar 09 07:37:15 symfony [info] {sfWebDebugLogger} Action "user/index" 78.64 ms (1)
+Mar 09 07:37:15 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:37:15 symfony [info] {sfWebDebugLogger} View "Success" for "user/index" 89.60 ms (1)
+Mar 09 07:37:15 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 1.49 ms (1)
+Mar 09 07:37:15 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.52 ms (1)
+Mar 09 07:37:15 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.69 ms (1)
+Mar 09 07:37:15 symfony [info] {sfWebResponse} Send content (59720 o)
+Mar 09 07:37:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:37:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:37:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:37:19 symfony [info] {sfPatternRouting} Match route "user_new" (/user/new.:sf_format) for /user/new with parameters array (  'module' => 'user',  'action' => 'new',  'sf_format' => 'html',)
+Mar 09 07:37:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:37:19 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:37:19 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:37:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:37:19 symfony [info] {userActions} Call "userActions->executeNew()"
+Mar 09 07:37:19 symfony [err] {InvalidArgumentException} Field "username" does not exist.
+Mar 09 07:37:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Mar 09 07:37:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:37:19 symfony [info] {sfWebDebugLogger} Configuration 15.40 ms (8)
+Mar 09 07:37:19 symfony [info] {sfWebDebugLogger} Factories 54.88 ms (1)
+Mar 09 07:37:19 symfony [info] {sfWebDebugLogger} Action "user/new" 123.77 ms (1)
+Mar 09 07:38:09 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:38:09 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:38:09 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:38:09 symfony [info] {sfPatternRouting} Match route "user_new" (/user/new.:sf_format) for /user/new with parameters array (  'module' => 'user',  'action' => 'new',  'sf_format' => 'html',)
+Mar 09 07:38:09 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:38:09 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:38:09 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:38:09 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:38:09 symfony [info] {userActions} Call "userActions->executeNew()"
+Mar 09 07:38:09 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/newSuccess.php"
+Mar 09 07:38:10 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:38:10 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:38:10 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:38:10 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:38:10 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:38:10 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:38:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:38:10 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:38:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:38:10 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:38:10 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:38:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:38:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:38:10 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:38:10 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:38:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:38:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:38:10 symfony [info] {sfWebDebugLogger} Configuration 22.04 ms (10)
+Mar 09 07:38:10 symfony [info] {sfWebDebugLogger} Factories 55.58 ms (1)
+Mar 09 07:38:10 symfony [info] {sfWebDebugLogger} Action "user/new" 86.30 ms (1)
+Mar 09 07:38:10 symfony [info] {sfWebDebugLogger} View "Success" for "user/new" 115.13 ms (1)
+Mar 09 07:38:10 symfony [info] {sfWebDebugLogger} Partial "user/_form" 69.80 ms (1)
+Mar 09 07:38:10 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.76 ms (1)
+Mar 09 07:38:10 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 41.97 ms (1)
+Mar 09 07:38:10 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (5)
+Mar 09 07:38:10 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.89 ms (1)
+Mar 09 07:38:10 symfony [info] {sfWebResponse} Send content (57554 o)
+Mar 09 07:38:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:38:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:38:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:38:50 symfony [info] {sfPatternRouting} Match route "user_create" (/user.:sf_format) for /user with parameters array (  'module' => 'user',  'action' => 'create',  'sf_format' => 'html',)
+Mar 09 07:38:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:38:50 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:38:50 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:38:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:38:50 symfony [info] {userActions} Call "userActions->executeCreate()"
+Mar 09 07:38:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:38:50 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_user (algorithm, is_active, is_super_admin, username, salt, password, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?) - (sha1, 1, 0, andrea.puggioni, 98a23deeb9e6cb766ec48e8b9412fd66, 7b010a26d29930aecf3bfde1741a0753f025d748, 2010-03-09 07:38:50, 2010-03-09 07:38:50)
+Mar 09 07:38:50 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO user_profile (user_id, first_name, last_name, email, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?) - (4, A, P, apug@domain.com, 2010-03-09 07:38:50, 2010-03-09 07:38:50)
+Mar 09 07:38:50 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:38:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 09 07:38:50 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:38:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:38:50 symfony [info] {sfWebDebugLogger} Configuration 13.67 ms (8)
+Mar 09 07:38:50 symfony [info] {sfWebDebugLogger} Factories 55.89 ms (1)
+Mar 09 07:38:50 symfony [info] {sfWebDebugLogger} Action "user/create" 209.01 ms (1)
+Mar 09 07:38:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (3)
+Mar 09 07:38:50 symfony [info] {sfWebResponse} Send content (115 o)
+Mar 09 07:38:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:38:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:38:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:38:51 symfony [info] {sfPatternRouting} Match route "user" (/user.:sf_format) for /user with parameters array (  'module' => 'user',  'action' => 'index',  'sf_format' => 'html',)
+Mar 09 07:38:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:38:51 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:38:51 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:38:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:38:51 symfony [info] {userActions} Call "userActions->executeIndex()"
+Mar 09 07:38:51 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:38:51 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u ORDER BY Email ASC - ()
+Mar 09 07:38:51 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/indexSuccess.php"
+Mar 09 07:38:51 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:38:51 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:38:51 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:38:51 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:38:51 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:38:51 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:38:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:38:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (4)
+Mar 09 07:38:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:38:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (3)
+Mar 09 07:38:51 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:38:51 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:38:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:38:51 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:38:51 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:38:51 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:38:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:38:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:38:51 symfony [info] {sfWebDebugLogger} Configuration 14.15 ms (10)
+Mar 09 07:38:51 symfony [info] {sfWebDebugLogger} Factories 73.50 ms (1)
+Mar 09 07:38:51 symfony [info] {sfWebDebugLogger} Action "user/index" 73.70 ms (1)
+Mar 09 07:38:51 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (9)
+Mar 09 07:38:51 symfony [info] {sfWebDebugLogger} View "Success" for "user/index" 97.44 ms (1)
+Mar 09 07:38:51 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 1.66 ms (1)
+Mar 09 07:38:51 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.70 ms (1)
+Mar 09 07:38:51 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.89 ms (1)
+Mar 09 07:38:51 symfony [info] {sfWebResponse} Send content (62760 o)
+Mar 09 07:38:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:38:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:38:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:38:55 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/4/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '4',)
+Mar 09 07:38:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:38:55 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:38:55 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:38:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:38:55 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:38:55 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:38:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (4)
+Mar 09 07:38:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (4)
+Mar 09 07:38:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (4)
+Mar 09 07:38:55 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:38:55 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:38:55 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:38:55 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:38:55 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:38:55 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:38:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:38:55 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:38:55 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:38:55 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:38:55 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:38:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:38:55 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:38:55 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:38:55 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:38:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:38:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:38:55 symfony [info] {sfWebDebugLogger} Configuration 13.95 ms (10)
+Mar 09 07:38:55 symfony [info] {sfWebDebugLogger} Factories 55.03 ms (1)
+Mar 09 07:38:55 symfony [info] {sfWebDebugLogger} Action "user/edit" 133.00 ms (1)
+Mar 09 07:38:55 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:38:55 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 68.94 ms (1)
+Mar 09 07:38:55 symfony [info] {sfWebDebugLogger} Partial "user/_form" 30.54 ms (1)
+Mar 09 07:38:55 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.23 ms (1)
+Mar 09 07:38:55 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.78 ms (1)
+Mar 09 07:38:55 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 2.29 ms (1)
+Mar 09 07:38:55 symfony [info] {sfWebResponse} Send content (63318 o)
+Mar 09 07:40:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:40:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:40:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:40:00 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/4/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '4',)
+Mar 09 07:40:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:40:00 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:40:00 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:40:00 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:40:00 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:40:00 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:40:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (4)
+Mar 09 07:40:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (4)
+Mar 09 07:40:00 symfony [notice] {sfWebDebugLogger}  Notice at D:\githome\nubee\lib\form\doctrine\sfDoctrineGuardPlugin\sfGuardUserForm.class.php on line 17 (Undefined variable: sf_user)
+Mar 09 07:40:24 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:40:24 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:40:24 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:40:24 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/4/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '4',)
+Mar 09 07:40:24 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:40:24 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:40:24 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:40:24 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:40:24 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (4)
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (4)
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (4)
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (4)
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (4)
+Mar 09 07:40:24 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:40:24 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:40:24 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:40:24 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:40:24 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:40:24 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:40:24 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_group s - ()
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_permission s - ()
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:40:24 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:40:24 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:40:24 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:40:24 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:40:24 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:40:24 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:40:24 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:40:24 symfony [info] {sfWebDebugLogger} Configuration 14.00 ms (10)
+Mar 09 07:40:24 symfony [info] {sfWebDebugLogger} Factories 54.72 ms (1)
+Mar 09 07:40:24 symfony [info] {sfWebDebugLogger} Action "user/edit" 153.44 ms (1)
+Mar 09 07:40:24 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (12)
+Mar 09 07:40:24 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 73.73 ms (1)
+Mar 09 07:40:24 symfony [info] {sfWebDebugLogger} Partial "user/_form" 35.25 ms (1)
+Mar 09 07:40:24 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.27 ms (1)
+Mar 09 07:40:24 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.77 ms (1)
+Mar 09 07:40:24 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 2.27 ms (1)
+Mar 09 07:40:24 symfony [info] {sfWebResponse} Send content (72671 o)
+Mar 09 07:42:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:42:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:42:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:42:12 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/4/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '4',)
+Mar 09 07:42:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:42:12 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:42:12 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:42:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:42:12 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:42:12 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:42:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (4)
+Mar 09 07:42:12 symfony [err] {sfError404Exception} This request has been forwarded to a 404 error page by the action "user/edit".
+Mar 09 07:42:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Mar 09 07:42:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:42:12 symfony [info] {sfWebDebugLogger} Configuration 15.12 ms (8)
+Mar 09 07:42:12 symfony [info] {sfWebDebugLogger} Factories 54.12 ms (1)
+Mar 09 07:42:12 symfony [info] {sfWebDebugLogger} Action "user/edit" 131.30 ms (1)
+Mar 09 07:42:12 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.01 ms (2)
+Mar 09 07:42:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:42:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:42:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:42:17 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'content',  'action' => 'dashboard',)
+Mar 09 07:42:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:42:17 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:42:17 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:42:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:42:17 symfony [info] {contentActions} Call "contentActions->executeDashboard()"
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT p.id AS p__id, p.user_id AS p__user_id, p.product_id AS p__product_id, p.name AS p__name, p.description AS p__description, p.version AS p__version, p.website AS p__website, p.status AS p__status, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug, (SELECT COUNT(*) AS t__0 FROM task t WHERE (t.story_id = s.id) ORDER BY p.name ASC) AS p__0, (SELECT COUNT(*) AS s2__0 FROM story s2 WHERE (s2.iteration_id = i.id) ORDER BY p.name ASC) AS p__1, (SELECT COUNT(*) AS i2__0 FROM iteration i2 WHERE (i2.project_id = p.id) ORDER BY p.name ASC) AS p__2 FROM project p LEFT JOIN iteration i ON p.id = i.project_id LEFT JOIN story s ON i.id = s.iteration_id WHERE (p.status = ?) HAVING p__0 > 0 ORDER BY p__0 DESC, p__1 DESC, p__2 DESC, p.name ASC - (enabled)
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, (SELECT COUNT(*) AS w2__0 FROM working_unit w2 WHERE (w2.task_id = t.id AND w2.user_id = s2.id)) AS s__0, (SELECT COUNT(*) AS t2__0 FROM task t2 WHERE (t2.story_id = s.id)) AS s__1 FROM story s LEFT JOIN task t ON s.id = t.story_id LEFT JOIN working_unit w ON t.id = w.task_id LEFT JOIN sf_guard_user s2 ON w.user_id = s2.id WHERE (s2.id = ? AND w.user_id = ?) HAVING s__0 > 0 ORDER BY s__0 DESC, s__1 DESC - (1, 1)
+Mar 09 07:42:17 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/dashboardSuccess.php"
+Mar 09 07:42:17 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/project/templates/_list.php"
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM iteration i WHERE (i.project_id IN (?)) - (1)
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM story s LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.story_id AS t__story_id, t.name AS t__name, t.description AS t__description, t.original_estimate AS t__original_estimate, t.current_estimate AS t__current_estimate, t.status AS t__status, t.priority AS t__priority, t.created_at AS t__created_at, t.updated_at AS t__updated_at, s.id AS s__id, s.iteration_id AS s__iteration_id, s.name AS s__name, s.description AS s__description, s.priority AS s__priority, s.created_at AS s__created_at, s.updated_at AS s__updated_at, i.id AS i__id, i.project_id AS i__project_id, i.name AS i__name, i.description AS i__description, i.created_at AS i__created_at, i.updated_at AS i__updated_at FROM task t LEFT JOIN story s ON t.story_id = s.id LEFT JOIN iteration i ON s.iteration_id = i.id WHERE (i.project_id = ?) - (1)
+Mar 09 07:42:17 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/story/templates/_list.php"
+Mar 09 07:42:17 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:42:17 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:42:17 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:42:17 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 09 07:42:17 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:42:17 symfony [info] {main} Call "content->executeLeftMenu()"
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Mysql} query : SELECT p.id AS p__id, p.name AS p__name, p.description AS p__description, p.created_at AS p__created_at, p.updated_at AS p__updated_at, p.slug AS p__slug FROM product p ORDER BY p.name ASC - ()
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:42:17 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s - ()
+Mar 09 07:42:17 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/_leftMenu.php"
+Mar 09 07:42:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:42:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} Configuration 16.67 ms (10)
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} Factories 52.25 ms (1)
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} Action "content/dashboard" 145.98 ms (1)
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.05 ms (11)
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} View "Success" for "content/dashboard" 81.42 ms (1)
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} Partial "project/_list" 26.88 ms (1)
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} Partial "story/_list" 1.66 ms (1)
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 1.46 ms (1)
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} Component "content/leftMenu" 10.83 ms (1)
+Mar 09 07:42:17 symfony [info] {sfWebDebugLogger} Partial "content/_leftMenu" 1.99 ms (1)
+Mar 09 07:42:17 symfony [info] {sfWebResponse} Send content (73714 o)
+Mar 09 07:42:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:42:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:42:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:42:19 symfony [info] {sfPatternRouting} Match route "user" (/user.:sf_format) for /user with parameters array (  'module' => 'user',  'action' => 'index',  'sf_format' => 'html',)
+Mar 09 07:42:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:42:19 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:42:19 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:42:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:42:19 symfony [info] {userActions} Call "userActions->executeIndex()"
+Mar 09 07:42:19 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:42:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u ORDER BY Email ASC - ()
+Mar 09 07:42:19 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/indexSuccess.php"
+Mar 09 07:42:19 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:42:19 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:42:19 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:42:19 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:42:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:42:19 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:42:19 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:42:19 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:42:19 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (3)
+Mar 09 07:42:19 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:42:19 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:42:19 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:42:19 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:42:19 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:42:19 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:42:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:42:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:42:19 symfony [info] {sfWebDebugLogger} Configuration 12.61 ms (10)
+Mar 09 07:42:19 symfony [info] {sfWebDebugLogger} Factories 61.14 ms (1)
+Mar 09 07:42:19 symfony [info] {sfWebDebugLogger} Action "user/index" 60.11 ms (1)
+Mar 09 07:42:19 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:42:19 symfony [info] {sfWebDebugLogger} View "Success" for "user/index" 81.51 ms (1)
+Mar 09 07:42:19 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 1.24 ms (1)
+Mar 09 07:42:19 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.56 ms (1)
+Mar 09 07:42:19 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.34 ms (1)
+Mar 09 07:42:19 symfony [info] {sfWebResponse} Send content (59479 o)
+Mar 09 07:42:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:42:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:42:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:42:22 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/2/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '2',)
+Mar 09 07:42:22 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:42:22 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:42:22 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:42:22 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:42:22 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:42:22 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:42:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (2)
+Mar 09 07:42:23 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:42:23 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:42:23 symfony [err] {sfException} Call to undefined method myUser::isAdministrator.
+Mar 09 07:42:23 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Mar 09 07:42:23 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:42:23 symfony [info] {sfWebDebugLogger} Configuration 10.74 ms (8)
+Mar 09 07:42:23 symfony [info] {sfWebDebugLogger} Factories 54.65 ms (1)
+Mar 09 07:42:23 symfony [info] {sfWebDebugLogger} Action "user/edit" 198.64 ms (1)
+Mar 09 07:42:23 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.02 ms (4)
+Mar 09 07:42:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:42:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:42:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:42:49 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/2/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '2',)
+Mar 09 07:42:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:42:49 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:42:49 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:42:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:42:49 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:42:49 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:42:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (2)
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (2)
+Mar 09 07:42:50 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:42:50 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:42:50 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:42:50 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:42:50 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:42:50 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:42:50 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_group s - ()
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_permission s - ()
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:42:50 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:42:50 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:42:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:42:50 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:42:50 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:42:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:42:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:42:50 symfony [info] {sfWebDebugLogger} Configuration 12.37 ms (10)
+Mar 09 07:42:50 symfony [info] {sfWebDebugLogger} Factories 53.77 ms (1)
+Mar 09 07:42:50 symfony [info] {sfWebDebugLogger} Action "user/edit" 155.94 ms (1)
+Mar 09 07:42:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (12)
+Mar 09 07:42:50 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 63.19 ms (1)
+Mar 09 07:42:50 symfony [info] {sfWebDebugLogger} Partial "user/_form" 36.77 ms (1)
+Mar 09 07:42:50 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 1.85 ms (1)
+Mar 09 07:42:50 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.53 ms (1)
+Mar 09 07:42:50 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.31 ms (1)
+Mar 09 07:42:50 symfony [info] {sfWebResponse} Send content (73355 o)
+Mar 09 07:43:28 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:43:28 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:43:28 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:43:28 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/2/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '2',)
+Mar 09 07:43:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:43:28 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:43:28 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:43:28 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:43:28 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (2)
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (2)
+Mar 09 07:43:28 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:43:28 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:43:28 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:43:28 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:43:28 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:43:28 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:43:28 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_group s - ()
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_permission s - ()
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:43:28 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:28 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:43:28 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:43:28 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:43:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:43:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:43:28 symfony [info] {sfWebDebugLogger} Configuration 19.50 ms (10)
+Mar 09 07:43:28 symfony [info] {sfWebDebugLogger} Factories 57.03 ms (1)
+Mar 09 07:43:28 symfony [info] {sfWebDebugLogger} Action "user/edit" 155.91 ms (1)
+Mar 09 07:43:28 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.05 ms (12)
+Mar 09 07:43:28 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 65.95 ms (1)
+Mar 09 07:43:28 symfony [info] {sfWebDebugLogger} Partial "user/_form" 34.68 ms (1)
+Mar 09 07:43:28 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.18 ms (1)
+Mar 09 07:43:28 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.61 ms (1)
+Mar 09 07:43:28 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 2.12 ms (1)
+Mar 09 07:43:28 symfony [info] {sfWebResponse} Send content (73354 o)
+Mar 09 07:43:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:43:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:43:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:43:42 symfony [info] {sfPatternRouting} Match route "user_update" (/user/:id.:sf_format) for /user/2 with parameters array (  'module' => 'user',  'action' => 'update',  'sf_format' => 'html',  'id' => '2',)
+Mar 09 07:43:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:43:42 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:43:42 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:43:42 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:43:42 symfony [info] {userActions} Call "userActions->executeUpdate()"
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (2)
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (2)
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM sf_guard_group s WHERE s.id IN (?) - (2)
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM sf_guard_permission s WHERE s.id IN (?) - (2)
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM team t WHERE t.id IN (?, ?) - (1, 2)
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM sf_guard_user s WHERE s.id = ? - (2)
+Mar 09 07:43:42 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:43:42 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 09 07:43:42 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:43:42 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:43:42 symfony [info] {sfWebDebugLogger} Configuration 14.35 ms (8)
+Mar 09 07:43:42 symfony [info] {sfWebDebugLogger} Factories 54.71 ms (1)
+Mar 09 07:43:42 symfony [info] {sfWebDebugLogger} Action "user/update" 192.47 ms (1)
+Mar 09 07:43:42 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.05 ms (11)
+Mar 09 07:43:42 symfony [info] {sfWebResponse} Send content (115 o)
+Mar 09 07:43:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:43:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:43:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:43:42 symfony [info] {sfPatternRouting} Match route "user" (/user.:sf_format) for /user with parameters array (  'module' => 'user',  'action' => 'index',  'sf_format' => 'html',)
+Mar 09 07:43:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:43:42 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:43:42 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:43:42 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:43:42 symfony [info] {userActions} Call "userActions->executeIndex()"
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:43:42 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u ORDER BY Email ASC - ()
+Mar 09 07:43:43 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/indexSuccess.php"
+Mar 09 07:43:43 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:43:43 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:43:43 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:43:43 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:43:43 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:43:43 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:43:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:43:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:43:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (3)
+Mar 09 07:43:43 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:43 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:43:43 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:43:43 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:43:43 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:43:43 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:43:43 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:43:43 symfony [info] {sfWebDebugLogger} Configuration 13.62 ms (10)
+Mar 09 07:43:43 symfony [info] {sfWebDebugLogger} Factories 70.52 ms (1)
+Mar 09 07:43:43 symfony [info] {sfWebDebugLogger} Action "user/index" 71.73 ms (1)
+Mar 09 07:43:43 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:43:43 symfony [info] {sfWebDebugLogger} View "Success" for "user/index" 84.78 ms (1)
+Mar 09 07:43:43 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 1.52 ms (1)
+Mar 09 07:43:43 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.65 ms (1)
+Mar 09 07:43:43 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.76 ms (1)
+Mar 09 07:43:43 symfony [info] {sfWebResponse} Send content (59490 o)
+Mar 09 07:43:44 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:43:44 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:43:44 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:43:44 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/2/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '2',)
+Mar 09 07:43:44 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:43:44 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:43:44 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:43:44 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:43:44 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (2)
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (2)
+Mar 09 07:43:45 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:43:45 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:43:45 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:43:45 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:43:45 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:43:45 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:43:45 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_group s - ()
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Mysql} query : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_permission s - ()
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:43:45 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:45 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:45 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:43:45 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:43:45 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:43:45 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:43:45 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:43:45 symfony [info] {sfWebDebugLogger} Configuration 13.13 ms (10)
+Mar 09 07:43:45 symfony [info] {sfWebDebugLogger} Factories 53.14 ms (1)
+Mar 09 07:43:45 symfony [info] {sfWebDebugLogger} Action "user/edit" 158.73 ms (1)
+Mar 09 07:43:45 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.04 ms (12)
+Mar 09 07:43:45 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 60.76 ms (1)
+Mar 09 07:43:45 symfony [info] {sfWebDebugLogger} Partial "user/_form" 33.91 ms (1)
+Mar 09 07:43:45 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.19 ms (1)
+Mar 09 07:43:45 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.57 ms (1)
+Mar 09 07:43:45 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 2.12 ms (1)
+Mar 09 07:43:45 symfony [info] {sfWebResponse} Send content (73315 o)
+Mar 09 07:43:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:43:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:43:52 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:43:52 symfony [info] {sfPatternRouting} Match route "user_update" (/user/:id.:sf_format) for /user/2 with parameters array (  'module' => 'user',  'action' => 'update',  'sf_format' => 'html',  'id' => '2',)
+Mar 09 07:43:52 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:43:52 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:43:52 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:43:52 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:43:52 symfony [info] {userActions} Call "userActions->executeUpdate()"
+Mar 09 07:43:52 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:43:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (2)
+Mar 09 07:43:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:43:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:43:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:43:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (2)
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM sf_guard_group s WHERE s.id IN (?) - (1)
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM team t WHERE t.id IN (?, ?) - (1, 2)
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT COUNT(*) AS num_results FROM sf_guard_user s WHERE s.id = ? - (2)
+Mar 09 07:43:53 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:43:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 09 07:43:53 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:43:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Configuration 10.59 ms (8)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Factories 51.20 ms (1)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Action "user/update" 188.45 ms (1)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.05 ms (10)
+Mar 09 07:43:53 symfony [info] {sfWebResponse} Send content (115 o)
+Mar 09 07:43:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:43:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:43:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:43:53 symfony [info] {sfPatternRouting} Match route "user" (/user.:sf_format) for /user with parameters array (  'module' => 'user',  'action' => 'index',  'sf_format' => 'html',)
+Mar 09 07:43:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:43:53 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:43:53 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:43:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:43:53 symfony [info] {userActions} Call "userActions->executeIndex()"
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u ORDER BY Email ASC - ()
+Mar 09 07:43:53 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/indexSuccess.php"
+Mar 09 07:43:53 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:43:53 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:43:53 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:43:53 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:43:53 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (3)
+Mar 09 07:43:53 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:53 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (1)
+Mar 09 07:43:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (1)
+Mar 09 07:43:53 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:43:53 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:43:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:43:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Configuration 13.60 ms (10)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Factories 54.75 ms (1)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Action "user/index" 63.63 ms (1)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} View "Success" for "user/index" 83.78 ms (1)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 1.44 ms (1)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.85 ms (1)
+Mar 09 07:43:53 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.83 ms (1)
+Mar 09 07:43:53 symfony [info] {sfWebResponse} Send content (59490 o)
+Mar 09 07:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:43:55 symfony [info] {sfPatternRouting} Match route "sf_guard_signout" (/logout) for /logout with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signout',)
+Mar 09 07:43:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:43:55 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:43:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:43:55 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignout()"
+Mar 09 07:43:55 symfony [info] {myUser} User is not authenticated
+Mar 09 07:43:55 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:43:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 09 07:43:55 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:43:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:43:55 symfony [info] {sfWebResponse} Send cookie "sfRemember": ""
+Mar 09 07:43:55 symfony [info] {sfWebDebugLogger} Configuration 12.54 ms (8)
+Mar 09 07:43:55 symfony [info] {sfWebDebugLogger} Factories 69.13 ms (1)
+Mar 09 07:43:55 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signout" 0.86 ms (1)
+Mar 09 07:43:55 symfony [info] {sfWebResponse} Send content (115 o)
+Mar 09 07:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:43:55 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:43:55 symfony [info] {sfPatternRouting} Match route "user" (/user.:sf_format) for /user with parameters array (  'module' => 'user',  'action' => 'index',  'sf_format' => 'html',)
+Mar 09 07:43:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:43:55 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:43:55 symfony [info] {sfGuardBasicSecurityFilter} Action "user/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Mar 09 07:43:55 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:43:55 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:43:55 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:43:55 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 09 07:43:55 symfony [info] {sfPHPView} Render "D:/githome/nubee/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Mar 09 07:43:55 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:55 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:43:55 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:43:55 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/content/templates/_breadcrumbs.php"
+Mar 09 07:43:55 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Mar 09 07:43:55 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:43:55 symfony [info] {sfWebDebugLogger} Configuration 16.28 ms (12)
+Mar 09 07:43:55 symfony [info] {sfWebDebugLogger} Factories 49.99 ms (1)
+Mar 09 07:43:55 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 10.13 ms (1)
+Mar 09 07:43:55 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 26.13 ms (1)
+Mar 09 07:43:55 symfony [info] {sfWebDebugLogger} Partial "content/_breadcrumbs" 1.50 ms (1)
+Mar 09 07:43:55 symfony [info] {sfWebResponse} Send content (38986 o)
+Mar 09 07:44:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:44:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:44:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:44:02 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Mar 09 07:44:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:44:02 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:44:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:44:02 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ?) LIMIT 1 - (bob)
+Mar 09 07:44:02 symfony [info] {myUser} User is authenticated
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (2)
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (2)
+Mar 09 07:44:02 symfony [info] {myUser} Add credential(s) "Manager"
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-03-09 07:44:02, 2010-03-09 07:44:02, 2)
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:44:02 symfony [info] {sfFrontWebController} Redirect to "http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:44:02 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Mar 09 07:44:02 symfony [info] {sfWebResponse} Send header "Location: http://nubee.localhost/frontend_dev.php/user"
+Mar 09 07:44:02 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:44:02 symfony [info] {sfWebDebugLogger} Configuration 11.76 ms (8)
+Mar 09 07:44:02 symfony [info] {sfWebDebugLogger} Factories 49.74 ms (1)
+Mar 09 07:44:02 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 223.76 ms (1)
+Mar 09 07:44:02 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (7)
+Mar 09 07:44:02 symfony [info] {sfWebResponse} Send content (115 o)
+Mar 09 07:44:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:44:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:44:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:44:02 symfony [info] {sfPatternRouting} Match route "user" (/user.:sf_format) for /user with parameters array (  'module' => 'user',  'action' => 'index',  'sf_format' => 'html',)
+Mar 09 07:44:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:44:02 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:44:02 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:44:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:44:02 symfony [info] {userActions} Call "userActions->executeIndex()"
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u ORDER BY Email ASC - ()
+Mar 09 07:44:02 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/indexSuccess.php"
+Mar 09 07:44:02 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:44:02 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:44:02 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:44:02 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:44:02 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (3)
+Mar 09 07:44:02 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:44:02 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (2)
+Mar 09 07:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (2)
+Mar 09 07:44:02 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:44:02 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:44:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:44:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:44:03 symfony [info] {sfWebDebugLogger} Configuration 13.21 ms (10)
+Mar 09 07:44:03 symfony [info] {sfWebDebugLogger} Factories 49.96 ms (1)
+Mar 09 07:44:03 symfony [info] {sfWebDebugLogger} Action "user/index" 60.61 ms (1)
+Mar 09 07:44:03 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:44:03 symfony [info] {sfWebDebugLogger} View "Success" for "user/index" 79.25 ms (1)
+Mar 09 07:44:03 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 1.45 ms (1)
+Mar 09 07:44:03 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.48 ms (1)
+Mar 09 07:44:03 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 1.73 ms (1)
+Mar 09 07:44:03 symfony [info] {sfWebResponse} Send content (59270 o)
+Mar 09 07:44:06 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Mar 09 07:44:06 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Mar 09 07:44:06 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Mar 09 07:44:06 symfony [info] {sfPatternRouting} Match route "user_edit" (/user/:id/edit.:sf_format) for /user/2/edit with parameters array (  'module' => 'user',  'action' => 'edit',  'sf_format' => 'html',  'id' => '2',)
+Mar 09 07:44:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Mar 09 07:44:06 symfony [info] {sfFilterChain} Executing filter "sfGuardBasicSecurityFilter"
+Mar 09 07:44:06 symfony [info] {sfFilterChain} Executing filter "sfCommonFilter"
+Mar 09 07:44:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Mar 09 07:44:06 symfony [info] {userActions} Call "userActions->executeEdit()"
+Mar 09 07:44:06 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'utf8' - ()
+Mar 09 07:44:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.id = ?) LIMIT 1 - (2)
+Mar 09 07:44:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (2)
+Mar 09 07:44:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) LIMIT 1 - (2)
+Mar 09 07:44:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at, u.user_id AS u__user_id, u.team_id AS u__team_id FROM team t LEFT JOIN user_per_team u ON t.id = u.team_id WHERE (u.user_id IN (?)) - (2)
+Mar 09 07:44:06 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/editSuccess.php"
+Mar 09 07:44:06 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_form.php"
+Mar 09 07:44:06 symfony [info] {main} Set slot "breadcrumbs"
+Mar 09 07:44:06 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_breadcrumbs.php"
+Mar 09 07:44:06 symfony [info] {main} Set slot "leftMenu"
+Mar 09 07:44:06 symfony [info] {main} Call "user->executeLeftMenu()"
+Mar 09 07:44:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u - ()
+Mar 09 07:44:06 symfony [info] {sfPartialView} Render "D:\githome\nubee\apps\frontend\modules/user/templates/_leftMenu.php"
+Mar 09 07:44:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, t.email AS t__email, t.created_at AS t__created_at, t.updated_at AS t__updated_at FROM team t - ()
+Mar 09 07:44:06 symfony [info] {sfPHPView} Decorate content with "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:44:06 symfony [info] {sfPHPView} Render "D:\githome\nubee\apps\frontend\templates/layout.php"
+Mar 09 07:44:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT u.id AS u__id, u.user_id AS u__user_id, u.first_name AS u__first_name, u.last_name AS u__last_name, u.email AS u__email, u.picture_url AS u__picture_url, u.created_at AS u__created_at, u.updated_at AS u__updated_at FROM user_profile u WHERE (u.user_id = ?) - (2)
+Mar 09 07:44:06 symfony [info] {main} Get slot "breadcrumbs"
+Mar 09 07:44:06 symfony [info] {main} Get slot "leftMenu"
+Mar 09 07:44:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Mar 09 07:44:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Configuration 13.72 ms (10)
+Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Factories 50.63 ms (1)
+Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Action "user/edit" 126.19 ms (1)
+Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.03 ms (8)
+Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} View "Success" for "user/edit" 53.48 ms (1)
+Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Partial "user/_form" 28.02 ms (1)
+Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Partial "user/_breadcrumbs" 2.10 ms (1)
+Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Component "user/leftMenu" 2.79 ms (1)
+Mar 09 07:44:06 symfony [info] {sfWebDebugLogger} Partial "user/_leftMenu" 2.26 ms (1)
+Mar 09 07:44:06 symfony [info] {sfWebResponse} Send content (63178 o)
+>>>>>>> b7fe4d76e0b577bf249ecc5cb334ad32c63ca0f6:log/frontend_dev.log

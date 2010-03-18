@@ -1,0 +1,12 @@
+sfGuardPermission:
+  sgp_admin:
+    name:           Administrator
+    description:    Administrator permission
+
+  sgp_manager:
+    name:           Manager
+    description:    Manager permission
+
+  sgp_developer:
+    name:           Developer
+    description:    Developer permission
