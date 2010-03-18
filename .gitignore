@@ -1,0 +1,5 @@
+nubee/cache/**/*
+nubee/cache/*
+nubee/log/**/*
+nubee/log/*
+.netbeans/nbproject/private/*
