@@ -18,7 +18,7 @@
  * @subpackage generator
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
  * @author     Jonathan H. Wage <jonwage@gmail.com>
- * @version    SVN: $Id: sfDoctrineFormGenerator.class.php 27842 2010-02-10 19:42:03Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormGenerator.class.php 32892 2011-08-05 07:53:57Z fabien $
  */
 class sfDoctrineFormGenerator extends sfGenerator
 {
@@ -167,10 +167,14 @@ class sfDoctrineFormGenerator extends sfGenerator
             if ($reflection->isSubClassOf($parent))
             {
               $this->pluginModels[$modelName] = $pluginName;
-              $generators = Doctrine_Core::getTable($modelName)->getGenerators();
-              foreach ($generators as $generator)
+              
+              if ($reflection->isInstantiable())
               {
-                $this->pluginModels[$generator->getOption('className')] = $pluginName;
+                $generators = Doctrine_Core::getTable($modelName)->getGenerators();
+                foreach ($generators as $generator)
+                {
+                  $this->pluginModels[$generator->getOption('className')] = $pluginName;
+                }  
               }
             }
           }
@@ -405,9 +409,13 @@ class sfDoctrineFormGenerator extends sfGenerator
         $validatorSubclass = 'Pass';
     }
 
-    if ($column->isPrimaryKey() || $column->isForeignKey())
+    if ($column->isForeignKey())
     {
       $validatorSubclass = 'DoctrineChoice';
+    }
+    else if ($column->isPrimaryKey())
+    {
+      $validatorSubclass = 'Choice';
     }
 
     return sprintf('sfValidator%s', $validatorSubclass);
@@ -429,7 +437,7 @@ class sfDoctrineFormGenerator extends sfGenerator
     }
     else if ($column->isPrimaryKey())
     {
-      $options[] = sprintf('\'model\' => $this->getModelName(), \'column\' => \'%s\'', $column->getFieldName());
+      $options[] = sprintf('\'choices\' => array($this->getObject()->get(\'%s\')), \'empty_value\' => $this->getObject()->get(\'%1$s\')', $column->getFieldName());
     }
     else
     {
@@ -573,6 +581,8 @@ class sfDoctrineFormGenerator extends sfGenerator
     $indexes = $this->table->getOption('indexes');
     foreach ($indexes as $name => $index)
     {
+      $index['fields'] = (array) $index['fields'];
+
       if (isset($index['type']) && $index['type'] == 'unique')
       {
         $tmp = $index['fields'];

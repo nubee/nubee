@@ -16,7 +16,7 @@
  * @package    symfony
  * @subpackage response
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: sfWebResponse.class.php 24619 2009-11-30 23:14:18Z FabianLange $
+ * @version    SVN: $Id: sfWebResponse.class.php 31399 2010-11-15 16:48:22Z fabien $
  */
 class sfWebResponse extends sfResponse
 {
@@ -795,6 +795,10 @@ class sfWebResponse extends sfResponse
     $this->stylesheets = $response->getStylesheets(self::RAW);
     $this->javascripts = $response->getJavascripts(self::RAW);
     $this->slots       = $response->getSlots();
+
+    // HTTP protocol must be from the current request
+    // this fix is not nice but that's the only way to fix it and keep BC (see #9254)
+    $this->options['http_protocol'] = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.0';
   }
 
   /**
@@ -818,7 +822,7 @@ class sfWebResponse extends sfResponse
    */
   public function serialize()
   {
-    return serialize(array($this->content, $this->statusCode, $this->statusText, $this->options, $this->cookies, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots));
+    return serialize(array($this->content, $this->statusCode, $this->statusText, $this->options, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots));
   }
 
   /**
@@ -826,7 +830,7 @@ class sfWebResponse extends sfResponse
    */
   public function unserialize($serialized)
   {
-    list($this->content, $this->statusCode, $this->statusText, $this->options, $this->cookies, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots) = unserialize($serialized);
+    list($this->content, $this->statusCode, $this->statusText, $this->options, $this->headerOnly, $this->headers, $this->metas, $this->httpMetas, $this->stylesheets, $this->javascripts, $this->slots) = unserialize($serialized);
   }
 
   /**

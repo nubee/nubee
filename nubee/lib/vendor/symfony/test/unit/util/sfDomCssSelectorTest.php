@@ -3,14 +3,14 @@
 /*
  * This file is part of the symfony package.
  * (c) 2004-2006 Fabien Potencier <fabien.potencier@symfony-project.com>
- * 
+ *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 require_once(dirname(__FILE__).'/../../bootstrap/unit.php');
 
-$t = new lime_test(70);
+$t = new lime_test(72);
 
 $html = <<<EOF
 <html>
@@ -26,6 +26,10 @@ $html = <<<EOF
     <p class="myfoo" id="mybar">myfoo bis</p>
 
     <p onclick="javascript:alert('with a . and a # inside an attribute');">works great</p>
+
+    <select>
+      <option value="0">foo input</option>
+    </select>
 
     <div id="simplelist">
       <ul id="list">
@@ -90,6 +94,7 @@ $t->is($c->matchAll('#footer')->getValues(), array('footer'), '->matchAll() supp
 $t->is($c->matchAll('div#footer')->getValues(), array('footer'), '->matchAll() supports searching html elements by id for a tag name');
 $t->is($c->matchAll('*[class="myfoo"]')->getValues(), array('myfoo', 'myfoo bis'), '->matchAll() can take a * to match every elements');
 $t->is($c->matchAll('*[class=myfoo]')->getValues(), array('myfoo', 'myfoo bis'), '->matchAll() can take a * to match every elements');
+$t->is($c->matchAll('*[value="0"]')->getValues(), array('foo input'), '->matchAll() can take a * to match every elements');
 
 $t->is($c->matchAll('.header')->getValues(), array('header'), '->matchAll() supports searching html elements by class name');
 $t->is($c->matchAll('p.header')->getValues(), array('header'), '->matchAll() supports searching html elements by class name for a tag name');
@@ -103,6 +108,8 @@ $t->is($c->matchAll('.foobar')->getValues(), array('multi-classes'), '->matchAll
 $t->is($c->matchAll('ul#mylist ul li')->getValues(), array('element 3', 'element 4'), '->matchAll() supports searching html elements by several selectors');
 
 $t->is($c->matchAll('#nonexistant')->getValues(), array(), '->matchAll() returns an empty array if the id does not exist');
+
+$t->is($c->matchAll('.bar1-foo1')->getValues(), array('link', 'another link'), 'Hyphenated class names are matched correctly');
 
 $t->diag('attribute selectors');
 $t->is($c->matchAll('ul#list li a[href]')->getValues(), array('link'), '->matchAll() supports checking attribute existence');

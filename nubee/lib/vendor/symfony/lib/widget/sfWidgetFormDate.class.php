@@ -14,7 +14,7 @@
  * @package    symfony
  * @subpackage widget
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: sfWidgetFormDate.class.php 24605 2009-11-30 21:20:19Z FabianLange $
+ * @version    SVN: $Id: sfWidgetFormDate.class.php 30762 2010-08-25 12:33:33Z fabien $
  */
 class sfWidgetFormDate extends sfWidgetForm
 {
@@ -49,6 +49,8 @@ class sfWidgetFormDate extends sfWidgetForm
   }
 
   /**
+   * Renders the widget.
+   *
    * @param  string $name        The element name
    * @param  string $value       The date displayed in this widget
    * @param  array  $attributes  An array of HTML attributes to be merged with the default HTML attributes
@@ -82,10 +84,9 @@ class sfWidgetFormDate extends sfWidgetForm
     $date = array();
     $emptyValues = $this->getOption('empty_values');
 
-    $date['%day%'] = $this->renderDayWidget($name.'[day]', $value['day'], array('choices' => $this->getOption('can_be_empty') ? array('' => $emptyValues['day']) + $this->getOption('days') : $this->getOption('days')), array_merge($this->attributes, $attributes));
-    $date['%month%'] = $this->renderMonthWidget($name.'[month]', $value['month'], array('choices' => $this->getOption('can_be_empty') ? array('' => $emptyValues['month']) + $this->getOption('months') : $this->getOption('months')), array_merge($this->attributes, $attributes));
-    $date['%year%'] = $this->renderYearWidget($name.'[year]', $value['year'], array('choices' => $this->getOption('can_be_empty') ? array('' => $emptyValues['year']) + $this->getOption('years') : $this->getOption('years')), array_merge($this->attributes, $attributes));
-
+    $date['%day%'] = $this->renderDayWidget($name.'[day]', $value['day'], array('choices' => $this->getOption('can_be_empty') ? array('' => $emptyValues['day']) + $this->getOption('days') : $this->getOption('days'), 'id_format' => $this->getOption('id_format')), array_merge($this->attributes, $attributes));
+    $date['%month%'] = $this->renderMonthWidget($name.'[month]', $value['month'], array('choices' => $this->getOption('can_be_empty') ? array('' => $emptyValues['month']) + $this->getOption('months') : $this->getOption('months'), 'id_format' => $this->getOption('id_format')), array_merge($this->attributes, $attributes));
+    $date['%year%'] = $this->renderYearWidget($name.'[year]', $value['year'], array('choices' => $this->getOption('can_be_empty') ? array('' => $emptyValues['year']) + $this->getOption('years') : $this->getOption('years'), 'id_format' => $this->getOption('id_format')), array_merge($this->attributes, $attributes));
 
     return strtr($this->getOption('format'), $date);
   }

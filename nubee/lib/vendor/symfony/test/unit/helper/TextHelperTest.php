@@ -13,7 +13,7 @@ require_once(dirname(__FILE__).'/../../../test/bootstrap/unit.php');
 require_once(dirname(__FILE__).'/../../../lib/helper/TagHelper.php');
 require_once(dirname(__FILE__).'/../../../lib/helper/TextHelper.php');
 
-$t = new lime_test(51);
+$t = new lime_test(56);
 
 // truncate_text()
 $t->diag('truncate_text()');
@@ -108,6 +108,7 @@ $t->is(simple_format_text("1\n2\n3"), "<p>1\n<br />2\n<br />3</p>", 'text_simple
 // text_strip_links()
 $t->diag('text_strip_links()');
 $t->is(strip_links_text("<a href='almost'>on my mind</a>"), "on my mind", 'text_strip_links() strips all links in input');
+$t->is(strip_links_text('<a href="first.html">first</a> and <a href="second.html">second</a>'), "first and second", 'text_strip_links() strips all links in input');
 
 // auto_link_text()
 $t->diag('auto_link_text()');
@@ -131,3 +132,7 @@ $t->is(auto_link_text('<p>'.$link2_raw.' Link</p>'), '<p>'.$link2_result.' Link<
 $t->is(auto_link_text('<p>http://www.google.com/?q=symfony Link</p>'), '<p><a href="http://www.google.com/?q=symfony">http://www.google.com/?q=symfony</a> Link</p>', 'auto_link_text() converts URLs to links');
 $t->is(auto_link_text('<p>http://www.google.com/?q=symfony+link</p>', 'all', array(), true), '<p><a href="http://www.google.com/?q=symfony+link">http://www.google.com/?q=symfony+li...</a></p>', 'auto_link_text() truncates URLs in links');
 $t->is(auto_link_text('<p>http://www.google.com/?q=symfony+link</p>', 'all', array(), true, 32, '***'), '<p><a href="http://www.google.com/?q=symfony+link">http://www.google.com/?q=symfony***</a></p>', 'auto_link_text() takes truncation parameters');
+$t->is(auto_link_text('<p>http://twitter.com/#!/fabpot</p>'),'<p><a href="http://twitter.com/#!/fabpot">http://twitter.com/#!/fabpot</a></p>',"auto_link_text() converts URLs with complex fragments to links");
+$t->is(auto_link_text('<p>http://twitter.com/#!/fabpot is Fabien Potencier on Twitter</p>'),'<p><a href="http://twitter.com/#!/fabpot">http://twitter.com/#!/fabpot</a> is Fabien Potencier on Twitter</p>',"auto_link_text() converts URLs with complex fragments and trailing text to links");
+$t->is(auto_link_text('hello '.$email_result, 'email_addresses'), 'hello '.$email_result, "auto_link_text() does not double-link emails");
+$t->is(auto_link_text('<p>Link '.$link_result.'</p>'), '<p>Link '.$link_result.'</p>', "auto_link_text() does not double-link emails");

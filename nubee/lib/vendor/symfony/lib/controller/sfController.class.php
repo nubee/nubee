@@ -16,7 +16,7 @@
  * @subpackage controller
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
  * @author     Sean Kerr <sean@code-box.org>
- * @version    SVN: $Id: sfController.class.php 24265 2009-11-23 11:55:33Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfController.class.php 30912 2010-09-15 11:10:46Z fabien $
  */
 abstract class sfController
 {
@@ -24,7 +24,8 @@ abstract class sfController
     $context           = null,
     $dispatcher        = null,
     $controllerClasses = array(),
-    $renderMode        = sfView::RENDER_CLIENT;
+    $renderMode        = sfView::RENDER_CLIENT,
+    $maxForwards       = 5;
 
   /**
    * Class constructor.
@@ -97,6 +98,9 @@ abstract class sfController
       {
         throw new sfConfigurationException(sprintf('The module "%s" is not enabled.', $moduleName));
       }
+
+      // check for a module generator config file
+      $this->context->getConfigCache()->import('modules/'.$moduleName.'/config/generator.yml', false, true);
 
       // one action per file or one file for all actions
       $classFile   = strtolower($extension);
@@ -172,7 +176,7 @@ abstract class sfController
     $moduleName = preg_replace('/[^a-z0-9_]+/i', '', $moduleName);
     $actionName = preg_replace('/[^a-z0-9_]+/i', '', $actionName);
 
-    if ($this->getActionStack()->getSize() >= 5)
+    if ($this->getActionStack()->getSize() >= $this->maxForwards)
     {
       // let's kill this party before it turns into cpu cycle hell
       throw new sfForwardException('Too many forwards have been detected for this request.');
@@ -199,7 +203,12 @@ abstract class sfController
     $this->getActionStack()->addEntry($moduleName, $actionName, $actionInstance);
 
     // include module configuration
+    $viewClass = sfConfig::get('mod_'.strtolower($moduleName).'_view_class', false);
     require($this->context->getConfigCache()->checkConfig('modules/'.$moduleName.'/config/module.yml'));
+    if (false !== $viewClass)
+    {
+      sfConfig::set('mod_'.strtolower($moduleName).'_view_class', $viewClass);
+    }
 
     // module enabled?
     if (sfConfig::get('mod_'.strtolower($moduleName).'_enabled'))
@@ -397,7 +406,7 @@ abstract class sfController
 
     try
     {
-      // forward to the mail action
+      // forward to the action
       $this->forward($module, $action);
     }
     catch (Exception $e)
@@ -417,7 +426,7 @@ abstract class sfController
     // grab the action entry from this forward
     $actionEntry = $actionStack->getEntry($index);
 
-    // get raw email content
+    // get raw content
     $presentation =& $actionEntry->getPresentation();
 
     // put render mode back

@@ -26,7 +26,6 @@ if (!defined('PREG_BAD_UTF8_OFFSET_ERROR'))
 class sfYamlParser
 {
   protected
-    $value         = '',
     $offset        = 0,
     $lines         = array(),
     $currentLineNb = -1,
@@ -54,10 +53,15 @@ class sfYamlParser
    */
   public function parse($value)
   {
-    $this->value = $this->cleanup($value);
     $this->currentLineNb = -1;
     $this->currentLine = '';
-    $this->lines = explode("\n", $this->value);
+    $this->lines = explode("\n", $this->cleanup($value));
+
+    if (function_exists('mb_internal_encoding') && ((int) ini_get('mbstring.func_overload')) & 2)
+    {
+      $mbEncoding = mb_internal_encoding();
+      mb_internal_encoding('UTF-8');
+    }
 
     $data = array();
     while ($this->moveToNextLine())
@@ -74,9 +78,9 @@ class sfYamlParser
       }
 
       $isRef = $isInPlace = $isProcessed = false;
-      if (preg_match('#^\-(\s+(?P<value>.+?))?\s*$#', $this->currentLine, $values))
+      if (preg_match('#^\-(\s+(?P<value>.+?))?\s*$#u', $this->currentLine, $values))
       {
-        if (isset($values['value']) && preg_match('#^&(?P<ref>[^ ]+) *(?P<value>.*)#', $values['value'], $matches))
+        if (isset($values['value']) && preg_match('#^&(?P<ref>[^ ]+) *(?P<value>.*)#u', $values['value'], $matches))
         {
           $isRef = $matches['ref'];
           $values['value'] = $matches['value'];
@@ -92,7 +96,7 @@ class sfYamlParser
         }
         else
         {
-          if (preg_match('/^([^ ]+)\: +({.*?)$/', $values['value'], $matches))
+          if (preg_match('/^([^ ]+)\: +({.*?)$/u', $values['value'], $matches))
           {
             $data[] = array($matches[1] => sfYamlInline::load($matches[2]));
           }
@@ -102,7 +106,7 @@ class sfYamlParser
           }
         }
       }
-      else if (preg_match('#^(?P<key>'.sfYamlInline::REGEX_QUOTED_STRING.'|[^ ].*?) *\:(\s+(?P<value>.+?))?\s*$#', $this->currentLine, $values))
+      else if (preg_match('#^(?P<key>'.sfYamlInline::REGEX_QUOTED_STRING.'|[^ \{\[].*?) *\:(\s+(?P<value>.+?))?\s*$#u', $this->currentLine, $values))
       {
         $key = sfYamlInline::parseScalar($values['key']);
 
@@ -151,13 +155,13 @@ class sfYamlParser
             else
             {
               // Associative array, merge
-              $merged = array_merge($merge, $parsed);
+              $merged = array_merge($merged, $parsed);
             }
 
             $isProcessed = $merged;
           }
         }
-        else if (isset($values['value']) && preg_match('#^&(?P<ref>[^ ]+) *(?P<value>.*)#', $values['value'], $matches))
+        else if (isset($values['value']) && preg_match('#^&(?P<ref>[^ ]+) *(?P<value>.*)#u', $values['value'], $matches))
         {
           $isRef = $matches['ref'];
           $values['value'] = $matches['value'];
@@ -198,8 +202,8 @@ class sfYamlParser
       }
       else
       {
-        // one liner?
-        if (1 == count(explode("\n", rtrim($this->value, "\n"))))
+        // 1-liner followed by newline
+        if (2 == count($this->lines) && empty($this->lines[1]))
         {
           $value = sfYamlInline::load($this->lines[0]);
           if (is_array($value))
@@ -214,6 +218,11 @@ class sfYamlParser
               }
               $value = $data;
             }
+          }
+
+          if (isset($mbEncoding))
+          {
+            mb_internal_encoding($mbEncoding);
           }
 
           return $value;
@@ -247,6 +256,11 @@ class sfYamlParser
       {
         $this->refs[$isRef] = end($data);
       }
+    }
+
+    if (isset($mbEncoding))
+    {
+      mb_internal_encoding($mbEncoding);
     }
 
     return empty($data) ? null : $data;
@@ -418,7 +432,7 @@ class sfYamlParser
       return '';
     }
 
-    if (!preg_match('#^(?P<indent>'.($indentation ? str_repeat(' ', $indentation) : ' +').')(?P<text>.*)$#', $this->currentLine, $matches))
+    if (!preg_match('#^(?P<indent>'.($indentation ? str_repeat(' ', $indentation) : ' +').')(?P<text>.*)$#u', $this->currentLine, $matches))
     {
       $this->moveToPreviousLine();
 
@@ -433,7 +447,7 @@ class sfYamlParser
     {
       $this->moveToNextLine();
 
-      if (preg_match('#^(?P<indent> {'.strlen($textIndent).',})(?P<text>.+)$#', $this->currentLine, $matches))
+      if (preg_match('#^(?P<indent> {'.strlen($textIndent).',})(?P<text>.+)$#u', $this->currentLine, $matches))
       {
         if (' ' == $separator && $previousIndent != $matches['indent'])
         {
@@ -556,10 +570,30 @@ class sfYamlParser
     }
 
     // strip YAML header
-    preg_replace('#^\%YAML[: ][\d\.]+.*\n#s', '', $value);
+    $count = 0;
+    $value = preg_replace('#^\%YAML[: ][\d\.]+.*\n#su', '', $value, -1, $count);
+    $this->offset += $count;
 
-    // remove ---
-    $value = preg_replace('#^\-\-\-.*?\n#s', '', $value);
+    // remove leading comments
+    $trimmedValue = preg_replace('#^(\#.*?\n)+#s', '', $value, -1, $count);
+    if ($count == 1)
+    {
+      // items have been removed, update the offset
+      $this->offset += substr_count($value, "\n") - substr_count($trimmedValue, "\n");
+      $value = $trimmedValue;
+    }
+
+    // remove start of the document marker (---)
+    $trimmedValue = preg_replace('#^\-\-\-.*?\n#s', '', $value, -1, $count);
+    if ($count == 1)
+    {
+      // items have been removed, update the offset
+      $this->offset += substr_count($value, "\n") - substr_count($trimmedValue, "\n");
+      $value = $trimmedValue;
+
+      // remove end of the document marker (...)
+      $value = preg_replace('#\.\.\.\s*$#s', '', $value);
+    }
 
     return $value;
   }

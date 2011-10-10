@@ -1,3 +1,179 @@
+09/16/11: Version 1.4.14
+------------------------
+
+ * [33025] fixed sfCacheSessionStorage does not always check whether HTTP_USER_AGENT is set (closes #9921, patch from boutell)
+ * [33022] fixed auto_link_text() when an email address is already linked (closes #9915, based on a patch from klemens_u)
+ * [33021] fixed sfCacheSessionStorage does not serialize properly, also uses wrong option name for httponly (closes #9919, based on a patch from boutell)
+ * [32939] fixed memory leak in sfRoute::generate() (closes #9886 - patch from acf0)
+ * [32892] fixed Doctrine form generation when a schema has abstract tables (closes #9885 - patch from chok)
+ * [32891] fixed sfFinder bug when mirroring file with twice the path inside it (closes #9892 - based on a patch from shordeaux)
+ * [32890] fixed bad value of property 'list-style' in css of WebDebug toolbar (closes #9891 - patch from tomi)
+
+08/05/11: Version 1.4.13
+------------------------
+
+ * [32707] fixed project:optimize which did not worked with plugins (closes #8760 - based on a patch from Pavel.Campr)
+ * [32729] updated getHost() to consider a chain of forwarded hosts
+ * [32740] fixed typo in error message (closes #9858)
+ * [32741] removed non-countries from sfCultureInfo::getCountries() (closes #9848)
+ * [32807] fixed parent for choice widgets (closes #8894)
+ * [32808] simplified code from previous commit
+ * [32810] fixed typo (closes #9866)
+ * [32835] fixed previous commit when the renderer does not have the translate_choices option (see sfFormExtraPlugin for some examples)
+ * [32836] fixed guessFromFileBinary in class sfvalidatorFile does not support MIME type including dot (closes #9871)
+ * [32845] removed dead code (closes #9881)
+
+07/01/11: Version 1.4.12
+------------------------
+
+ * [32634] fixed typo in an error message (closes #9762 - based on a patch from garak)
+ * [32635] fixed typo (closes #9682)
+ * [32637] added missing translations for fr (patch from Garfield-fr - closes #9025)
+ * [32638] added missing translations for de (patch from _GeG_ - closes #9659)
+ * [32639] fixed typo (closes #9561, patch from Elvis_the_King)
+ * [32641] fixed extra code in stack trace (closes #9511, patch from tomi)
+ * [32652] fixed sfRoute, which was not serializing some parameters (closes #9833)
+ * [32653] fixed possible PHP notice (closes #9813)
+ * [32654] fixed standard actions in sfObjectRouteCollection (HEAD is equivalent to GET, closes #9669, patch from ganchiku)
+ * [32677] fixed missing information about Swiftmailer version (closes #9838)
+ * [32678] fixed sfNumberFormat::format() when the value has a negative exponent (closes #9836)
+
+03/30/11: Version 1.4.11
+------------------------
+
+ * Switched Doctrine external to our new mirror of the GitHub master branch
+
+03/21/11: Version 1.4.10
+------------------------
+
+ * Updated to Doctrine 1.2.4 (security release)
+
+02/04/11: Version 1.4.9
+-----------------------
+
+ * [31928] copied more values into a cachable partial's cloned response when the partial is marked as contextual in cache.yml (closes #7192)
+ * [31895] fixed _auto_link_urls() does not pick up URLs with complex fragments (as per RFC3986 - closes #9424 - patch from benlancaster)
+ * [31893] fixed sfDomCssSelector on class names with hyphens (patch from richsage, closes #9411)
+ * [31471] changed the default value for session_cache_limiter to 'null'.
+ * [31399] fixed sfViewCacheManager returns incorrect cached http_protocol (closes #9254)
+ * [31254] fixed WDT injection (closes #9107)
+ * [31249] fixed memory leak in Swift_DoctrineSpool
+ * [31248] fixed sfI18nModuleExtract.class.php always assumes a file based message source (closes #9153 - patch from daReaper)
+ * [31247] fixed mbstring problem in sfFilesystem (closes #9139 - based on a patch from nresni)
+ * [31002] added call to parent::preExecute() to generated admin action classes (closes #9099)
+
+
+09/24/10: Version 1.4.8
+-----------------------
+
+ * [30969] added more translations to german and italian translations (closes #9088)
+ * [30968] fixed Persian Translation of admin generator (closes #8960)
+ * [30967] fixed i18n support for traditional chinese (closes #8885)
+ * [30966] updated Slovenian translations for Doctrine and Propel messages (closes #8985)
+ * [30961] fixed missing WDT javascript (closes #9083, refs #9080)
+
+09/21/10: Version 1.4.7
+-----------------------
+
+ * [30951] fixed WDT injects multiple times (closes #9080)
+ * [30915] added support for "image/x-ms-bmp" mime type (closes #9069, patch from pbowyer)
+ * [30912] fixed view class overriding (closes #5097, patch from caefer)
+ * [30901] reverted remove of comments in Doctrine-generated table classes (closes #8880)
+ * [30900] fixed getUriPrefix() when requested is forwarded from a secure one (closes #4723)
+ * [30790] fixed logging of PHP errors to the WDT when error messages include a "%" character
+ * [30563] fixed sfWebController::redirect method does not respect HTTP specification (closes #8952, patch from rande)
+ * [30530] fixed path when a project is created on Windows and used on Linux (closes #8835)
+ * [30529] fixed Swift_PropelSpool when the message is stored in a GLOB column (closes #8869, #8558, patch from netounet)
+ * [30526] updated russian and ukrainian translation for the admin gen (closes #8814)
+ * [30445] added a check whether doctrine is already loaded to allow use of a compiled core (closes #8917, thanks gnukix)
+ * [30444] updated doctrine plugin to load Doctrine_Core rather than Doctrine
+ * [30442] changed remaining calls to `Doctrine` to `Doctrine_Core`
+ * [30441] Changed registration of Doctrine autoloader to use Doctrine_Core.
+
+06/29/10: Version 1.4.6
+-----------------------
+
+ * [30031] added prevention of injected directory traversal in view cache (closes #8805)
+ * [30008] fixed usage of shell_exec when the function is disabled (closes #8758)
+ * [29990] added `sfOutputEscaperObjectDecorator::__isset()` (closes #8793)
+ * [29818] fixed escaping of simple xml in PHP 5.2 (closes #8756)
+ * [29716] Fixing default.css styling (fixes #7750)
+
+05/31/10: Version 1.4.5
+-----------------------
+
+ * [29678] made sfForm::getName() more strict (closes #8318)
+ * [29677] updated doctrine:clean task to delete form classes when generation has been disabled (closes #7777)
+ * [29675] added translation of custom add_empty strings in Doctrine and Propel choice widgets (closes #8571)
+ * [29674] updated date and time widgets so id_format is respected (closes #8446)
+ * [29661] changed generation of (non-foreign key) primary key form fields so validation will fail if the primary key is changed (closes #8639, refs #8704)
+ * [29643] Fixing issue with i18n forms when primary key and i18n field are not the defaults (fixes #8650)
+ * [29641] Making css style in default admin gen css to be more specific (fixes #7750)
+ * [29608] fixed directory permissions issue in sfFinder (closes #8684)
+ * [29570] fixed doctrine form filter m2m query logic
+ * [29553] fixed inconsistent EOL in Doctrine forms (closes #8075)
+ * [29531] updated lime to 1.0.9
+ * [29528] fixed warning in sfBasicSecurityUser when hasCredentials is called before credentials are set (closes #8512)
+ * [29527] fixed notices in sfViewCacheManager::isCacheable() (closes #8527)
+ * [29526] fixed incorrect http status when lockfile present (closes #8536)
+ * [29524] fixed sfWebResponse::sendHttpHeaders() call from sfController::forward() in sfController::getPresentationFor() prevents later call to sendHttpHeaders() within main controller (closes #8568)
+ * [29520] fixed warnings issued by the invalid array_flip() usage in sfI18N (refs #8522)
+ * [29519] marked response as private when using the sfCacheSessionStorage class (closes #8535)
+ * [29490] fixed deprecated delete in sfMemcacheCache (closes #8663)
+ * [29417] fixed strip_links_text() from TextHelpers is defective and does not handle multiple links (closes #8589)
+ * [29416] added admin generator i18n support for traditional chinese (closes #8633)
+ * [29415] fixed sfProjectOptimizeTask on Windows (closes #8640)
+ * [29390] Fixing default_params: { sf_format: xml } for route collections
+ * [29309] fixed: Choices are not always automatically translated. Added option "translate_choices" that defaults to true (closes #7714)
+ * [29285] fixed incorrect splitting of Accept-* headers (closes #8591)
+ * [29218] updated Propel to 1.4.2
+ * [29158] fixed sfDomCssSelector when selecting by attributes evaluating to false (closes #8120)
+ * [29156] Fixed setting of Doctrine's default culture before records are initialized
+
+04/06/10: Version 1.4.4
+-----------------------
+
+ * [29001] fixed sfPropelBaseTask should add propel include path by using sf_propel_runtime_path (thanks agallou, closes #8402)
+ * [29000] fixed sfController::actionExists does not work if module is generated with admin-generator (closes #8427)
+ * [28999] fixed fatal error in WDT when use_database is false but doctrine plugin is enabled
+ * [28996] fixed merge of numeric field defaults, labels and helps in mergeForm
+ * [28994] fixed merging of values from form to field schema (closes #8415)
+ * [28992] updated doctrine form filter to check for NULL or an empty string on text and number fields for parity with the propel form filter (closes #7635)
+ * [28988] fixed upgrade of yaml booleans followed by inline comments (closes #8342)
+ * [28974] fixed merging of short syntax model definitions (refs #8449)
+ * [28962] fixed a warning on lighttpd (closes #8417)
+ * [28961] fixed sfWebController "redirect" method redirects a wrong place when there are more than two GET parameters (closes #8083)
+ * [28958] fixed problem with return values for preDelete behavior for SfPropelBehaviorSymfonyBehaviors (closes #7872)
+ * [28903] Adding missing arguments to embedRelation() (closes #8222)
+ * [28902] Fixing issue with properly shutting down sfDoctrineDatabase and closing the Doctrine connection (closes #7081)
+ * [28900] Fixing issue with form generator and string indexes instead of array (closes #8024)
+ * [28898] Adding datetime to getDateTimeObject() and setDateTimeObject() (fixes #8116)
+ * [28897] Fixing serialization issue with pager (fixes #7987)
+ * [28871] Fixing issue with migrations diff autoloading (fixes #7272)
+ * [28849] moved form_tag from FormHelper to UrlHelper to be consisten with symfony 1.4 (there is no consequence as the UrlHelper is always loaded, closes #7910)
+ * [28848] fixed i18n:extract for generator.yml files (closes #8027, patch from alcaeus)
+ * [28843] fixed i18n extractor keeps acumulating texts when more than 1 Heredoc string is used (closes #8166 - patch from gonrial)
+ * [28840] fixed sfMailer::setDeliveryAddress() (closes #8306)
+ * [28809] Throw exception when routing file cannot be written in doctrine:generate-admin task (fixes #8356)
+ * [28785] fixed sort the parameters in order to compute the cache key the same way when parameters are submited in different order (closes #8457)
+ * [28725] fixed invalid number formatting occurring with currency formats where no explicit negative format was defined (e.g for en_GB) (fixes #8433)
+ * [28715] fixed sfProjectOptimizeTask should optimize only enabled modules (closes #8405)
+ * [28714] fixed caching of 404 pages (closes #8339)
+ * [28713] fixed layout.php is required even if you use decorate_with() to use another layout (closes #8441)
+ * [28712] tweaked the check_configuration.php errors to be more explicit about what to do next (closes #8369)
+ * [28703] fixed setting of culture in sfI18N constructor (closes #8444)
+ * [28702] fixed browser to match more closely the behavior of a real browser (closes #7816)
+ * [28642] added Persian Translation of admin generator (closes #8358)
+ * [28640] fixed overflow for settings in the dev exception page (closes #8430)
+ * [28633] fixed call to custom accessor (closes #8080)
+ * [28632] fixed call to doCount (closes #7196)
+ * [28625] fixed broken reference to response in the cache filter when a page cache is found
+ * [28366] fixed sfGeneratorConfigHandler.class.php doesn't work with Windows path (closes #8301)
+ * [28365] added a way to change the default max forward in the controller for edge cases (#8302)
+ * [28353] fixed escaping of Doctrine query parameters in WDT
+ * [28348] added a check for the php_posix extension as some distrib disable it (closes #8312)
+ * [28347] removed cookies from Response objects serialization as it does not make any sense and can cause weird behaviors
+
 02/25/10: Version 1.4.3
 -----------------------
 

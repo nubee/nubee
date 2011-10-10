@@ -17,12 +17,11 @@
  * @subpackage doctrine
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
  * @author     Jonathan H. Wage <jonwage@gmail.com>
- * @version    SVN: $Id: sfDoctrineRecord.class.php 24703 2009-12-01 18:36:11Z Jonathan.Wage $
+ * @version    SVN: $Id: sfDoctrineRecord.class.php 29659 2010-05-28 16:49:48Z Kris.Wallsmith $
  */
 abstract class sfDoctrineRecord extends Doctrine_Record
 {
   static protected
-    $_initialized    = false,
     $_defaultCulture = 'en';
 
   /**
@@ -34,8 +33,6 @@ abstract class sfDoctrineRecord extends Doctrine_Record
   {
     if ($this->getTable()->hasRelation('Translation'))
     {
-      self::initializeI18n();
-
       // only add filter to each table once
       if (!$this->getTable()->getOption('has_symfony_i18n_filter'))
       {
@@ -44,25 +41,6 @@ abstract class sfDoctrineRecord extends Doctrine_Record
           ->setOption('has_symfony_i18n_filter', true)
         ;
       }
-    }
-  }
-
-  /**
-   * Initializes internationalization.
-   */
-  static public function initializeI18n()
-  {
-    if (!self::$_initialized)
-    {
-      $dispatcher = sfProjectConfiguration::getActive()->getEventDispatcher();
-      $dispatcher->connect('user.change_culture', array('sfDoctrineRecord', 'listenToChangeCultureEvent'));
-
-      if (sfContext::hasInstance() && $user = sfContext::getInstance()->getUser())
-      {
-        self::$_defaultCulture = $user->getCulture();
-      }
-
-      self::$_initialized = true;
     }
   }
 
@@ -83,8 +61,6 @@ abstract class sfDoctrineRecord extends Doctrine_Record
    */
   static public function setDefaultCulture($culture)
   {
-    self::initializeI18n();
-
     self::$_defaultCulture = $culture;
   }
 
@@ -95,8 +71,6 @@ abstract class sfDoctrineRecord extends Doctrine_Record
    */
   static public function getDefaultCulture()
   {
-    self::initializeI18n();
-
     if (!self::$_defaultCulture)
     {
       throw new sfException('The default culture has not been set');
@@ -241,7 +215,7 @@ abstract class sfDoctrineRecord extends Doctrine_Record
   public function getDateTimeObject($dateFieldName)
   {
     $type = $this->getTable()->getTypeOf($dateFieldName);
-    if ($type == 'date' || $type == 'timestamp')
+    if ($type == 'date' || $type == 'timestamp' || $type == 'datetime')
     {
       return new DateTime($this->get($dateFieldName));
     }
@@ -261,7 +235,7 @@ abstract class sfDoctrineRecord extends Doctrine_Record
   public function setDateTimeObject($dateFieldName, DateTime $dateTimeObject)
   {
     $type = $this->getTable()->getTypeOf($dateFieldName);
-    if ($type == 'date' || $type == 'timestamp')
+    if ($type == 'date' || $type == 'timestamp' || $type == 'datetime')
     {
       return $this->set($dateFieldName, $dateTimeObject->format('Y-m-d H:i:s'));
     }

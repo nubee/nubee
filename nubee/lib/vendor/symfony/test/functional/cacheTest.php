@@ -40,8 +40,8 @@ class myTestBrowser extends sfTestBrowser
 
         // contextual partials
         checkElement('#contextualPartial .contextualPartial')->
-        checkElement('#contextualCacheablePartial .contextualCacheablePartial__'.$parameter)->
-        checkElement('#contextualCacheablePartialVarParam .contextualCacheablePartial_varParam_'.$parameter)->
+        checkElement('#contextualCacheablePartial .contextualCacheablePartial__'.$parameter, 'Param: '.$parameter)->
+        checkElement('#contextualCacheablePartialVarParam .contextualCacheablePartial_varParam_'.$parameter, 'Param: '.$parameter)->
 
         // components
         checkElement('#component .component__componentParam_'.$parameter)->
@@ -50,8 +50,8 @@ class myTestBrowser extends sfTestBrowser
         // contextual components
         checkElement('#contextualComponent .contextualComponent__componentParam_'.$parameter)->
         checkElement('#contextualComponentVarParam .contextualComponent_varParam_componentParam_'.$parameter)->
-        checkElement('#contextualCacheableComponent .contextualCacheableComponent__componentParam_'.$parameter)->
-        checkElement('#contextualCacheableComponentVarParam .contextualCacheableComponent_varParam_componentParam_'.$parameter)->
+        checkElement('#contextualCacheableComponent .contextualCacheableComponent__componentParam_'.$parameter, 'Param: '.$parameter)->
+        checkElement('#contextualCacheableComponentVarParam .contextualCacheableComponent_varParam_componentParam_'.$parameter, 'Param: '.$parameter)->
       end()->
 
       with('view_cache')->begin()->
@@ -488,6 +488,17 @@ $b->get('/')
   ->get('/cache/list?page=20')
   ->with('response')->checkElement('#page', '20')
   ->with('view_cache')->isUriCached('cache/list?page=20', true)
+;
+
+// check for 304 response
+sfConfig::set('LAST_MODIFIED', strtotime('2010-01-01'));
+$b->get('/cache/lastModifiedResponse')
+  ->with('response')->isStatusCode(200)
+;
+
+$b->setHttpHeader('If-Modified-Since', sfWebResponse::getDate(sfConfig::get('LAST_MODIFIED')))
+  ->get('/cache/lastModifiedResponse')
+  ->with('response')->isStatusCode(304)
 ;
 
 // test with sfFileCache class (default)

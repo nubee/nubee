@@ -6,7 +6,7 @@
  * @package    project
  * @subpackage cache
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: actions.class.php 24615 2009-11-30 22:30:46Z Kris.Wallsmith $
+ * @version    SVN: $Id: actions.class.php 31928 2011-01-29 16:02:51Z Kris.Wallsmith $
  */
 class cacheActions extends sfActions
 {
@@ -30,6 +30,7 @@ class cacheActions extends sfActions
 
   public function executeMulti()
   {
+    $this->getResponse()->setTitle('Param: '.$this->getRequestParameter('param'));
   }
 
   public function executeMultiBis()
@@ -93,5 +94,11 @@ class cacheActions extends sfActions
     $this->getResponse()->setContentType('image/png');
     $this->image = file_get_contents(dirname(__FILE__).'/../data/ok48.png');
     $this->setTemplate('image');
+  }
+
+  public function executeLastModifiedResponse()
+  {
+    $this->getResponse()->setHttpHeader('Last-Modified', $this->getResponse()->getDate(sfConfig::get('LAST_MODIFIED')));
+    $this->setTemplate('action');
   }
 }

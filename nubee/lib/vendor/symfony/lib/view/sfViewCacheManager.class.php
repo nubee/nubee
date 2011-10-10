@@ -18,7 +18,7 @@
  * @package    symfony
  * @subpackage view
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: sfViewCacheManager.class.php 24615 2009-11-30 22:30:46Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfViewCacheManager.class.php 32699 2011-07-01 06:58:02Z fabien $
  */
 class sfViewCacheManager
 {
@@ -142,6 +142,13 @@ class sfViewCacheManager
       if (!$contextualPrefix)
       {
         list($route_name, $params) = $this->controller->convertUrlStringToParameters($this->routing->getCurrentInternalUri());
+
+        // if there is no module/action, it means that we have a 404 and the user is trying to cache it
+        if (!isset($params['module']) || !isset($params['action']))
+        {
+          $params['module'] = sfConfig::get('sf_error_404_module');
+          $params['action'] = sfConfig::get('sf_error_404_action');
+        }
         $cacheKey = $this->convertParametersToKey($params);
       }
       else
@@ -163,10 +170,37 @@ class sfViewCacheManager
       $cacheKey .= $this->convertParametersToKey($params);
     }
 
-    $cacheKey = sprintf('/%s/%s/%s', $this->getCacheKeyHostNamePart($hostName), $this->getCacheKeyVaryHeaderPart($internalUri, $vary), $cacheKey);
+    // add vary headers
+    if ($varyPart = $this->getCacheKeyVaryHeaderPart($internalUri, $vary))
+    {
+      $cacheKey = '/'.$varyPart.'/'.ltrim($cacheKey, '/');
+    }
 
-    // replace multiple /
-    $cacheKey = preg_replace('#/+#', '/', $cacheKey);
+    // add hostname
+    if ($hostNamePart = $this->getCacheKeyHostNamePart($hostName))
+    {
+      $cacheKey = '/'.$hostNamePart.'/'.ltrim($cacheKey, '/');
+    }
+
+    // normalize to a leading slash
+    if (0 !== strpos($cacheKey, '/'))
+    {
+      $cacheKey = '/'.$cacheKey;
+    }
+
+    // distinguish multiple slashes
+    while (false !== strpos($cacheKey, '//'))
+    {
+      $cacheKey = str_replace('//', '/'.substr(sha1($cacheKey), 0, 7).'/', $cacheKey);
+    }
+
+    // prevent directory traversal
+    $cacheKey = strtr($cacheKey, array(
+      '/.'  => '/_.',
+      '/_'  => '/__',
+      '\\.' => '\\_.',
+      '\\_' => '\\__',
+    ));
 
     return $cacheKey;
   }
@@ -378,6 +412,11 @@ class sfViewCacheManager
   {
     list($route_name, $params) = $this->controller->convertUrlStringToParameters($internalUri);
 
+    if (!isset($params['module']))
+    {
+        return $defaultValue;
+    }
+
     $this->registerConfiguration($params['module']);
 
     $value = $defaultValue;
@@ -414,6 +453,11 @@ class sfViewCacheManager
     }
 
     list($route_name, $params) = $this->controller->convertUrlStringToParameters($internalUri);
+
+    if (!isset($params['module']))
+    {
+        return false;
+    }
 
     $this->registerConfiguration($params['module']);
 
@@ -696,6 +740,7 @@ class sfViewCacheManager
     {
       $this->dispatcher->notify(new sfEvent($this, 'application.log', array('Generate cache key')));
     }
+    ksort($parameters);
 
     return md5(serialize($parameters));
   }
