@@ -1,6 +1,5 @@
 <?php
 
-require_once dirname(__FILE__).'/../lib/BasesfGuardGroupActions.class.php';
 require_once dirname(__FILE__).'/../lib/sfGuardGroupGeneratorConfiguration.class.php';
 require_once dirname(__FILE__).'/../lib/sfGuardGroupGeneratorHelper.class.php';
 
@@ -10,8 +9,8 @@ require_once dirname(__FILE__).'/../lib/sfGuardGroupGeneratorHelper.class.php';
  * @package    sfGuardPlugin
  * @subpackage sfGuardGroup
  * @author     Fabien Potencier
- * @version    SVN: $Id: actions.class.php 12896 2008-11-10 19:02:34Z fabien $
+ * @version    SVN: $Id: actions.class.php 23319 2009-10-25 12:22:23Z Kris.Wallsmith $
  */
-class sfGuardGroupActions extends BasesfGuardGroupActions
+class sfGuardGroupActions extends autosfGuardGroupActions
 {
 }

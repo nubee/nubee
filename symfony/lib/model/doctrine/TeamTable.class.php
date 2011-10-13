@@ -4,9 +4,9 @@
  */
 class TeamTable extends Doctrine_Table
 {
-  public function findAvailable(UserProfile $userProfile) {
+  public function findAvailable(sfGuardUser $user) {
     $q = $this->createQuery('t')
-      ->where('NOT EXISTS (SELECT * FROM UserPerTeam upt WHERE upt.user_id = ? and upt.team_id = t.id)', $userProfile->getId());
+      ->where('NOT EXISTS (SELECT * FROM UserPerTeam upt WHERE upt.user_id = ? and upt.team_id = t.id)', $user->getId());
 
     return $q->execute();
   }

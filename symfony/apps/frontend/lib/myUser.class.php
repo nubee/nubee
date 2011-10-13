@@ -5,7 +5,7 @@ class myUser extends sfGuardSecurityUser
 {
   public function getFullName()
   {
-    return $this->getUserProfile()->getFullName();
+    return $this->getGuardUser()->getFullName();
   }
 
   public function getId()
@@ -13,9 +13,9 @@ class myUser extends sfGuardSecurityUser
     return $this->getGuardUser()->getId();
   }
 
-  public function getUserProfile()
+  public function getProfile()
   {
-    return $this->getGuardUser()->getUserProfile();
+    return $this->getGuardUser()->getProfile();
   }
 
   public function isAdministrator()

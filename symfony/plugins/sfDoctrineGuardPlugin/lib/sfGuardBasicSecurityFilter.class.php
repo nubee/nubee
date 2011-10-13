@@ -2,35 +2,51 @@
 
 /*
  * This file is part of the symfony package.
- * (c) 2004-2006 Fabien Potencier <fabien.potencier@symfony-project.com>
+ * (c) Fabien Potencier <fabien.potencier@symfony-project.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
 
 /**
- *
+ * Processes the "remember me" cookie.
+ * 
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: sfGuardBasicSecurityFilter.class.php 7634 2008-02-27 18:01:40Z fabien $
+ * @version    SVN: $Id: sfGuardBasicSecurityFilter.class.php 27166 2010-01-25 21:04:41Z Kris.Wallsmith $
+ * 
+ * @deprecated Use {@link sfGuardRememberMeFilter} instead
  */
 class sfGuardBasicSecurityFilter extends sfBasicSecurityFilter
 {
-  public function execute ($filterChain)
+  /**
+   * Executes the filter chain.
+   *
+   * @param sfFilterChain $filterChain
+   */
+  public function execute($filterChain)
   {
-    if ($this->isFirstCall() and !$this->getContext()->getUser()->isAuthenticated())
+    $cookieName = sfConfig::get('app_sf_guard_plugin_remember_cookie_name', 'sfRemember');
+
+    if ($this->isFirstCall())
     {
-      if ($cookie = $this->getContext()->getRequest()->getCookie(sfConfig::get('app_sf_guard_plugin_remember_cookie_name', 'sfRemember')))
+      // deprecated notice
+      $this->context->getEventDispatcher()->notify(new sfEvent($this, 'application.log', array(sprintf('The filter "%s" is deprecated. Use "sfGuardRememberMeFilter" instead.', __CLASS__), 'priority' => sfLogger::NOTICE)));
+
+      if (
+        $this->context->getUser()->isAnonymous()
+        &&
+        $cookie = $this->context->getRequest()->getCookie($cookieName)
+      )
       {
-        $q = Doctrine_Query::create()
-              ->from('sfGuardRememberKey r')
-              ->innerJoin('r.sfGuardUser u')
+        $q = Doctrine_Core::getTable('sfGuardRememberKey')->createQuery('r')
+              ->innerJoin('r.User u')
               ->where('r.remember_key = ?', $cookie);
 
         if ($q->count())
         {
-          $this->getContext()->getUser()->signIn($q->fetchOne()->sfGuardUser);
+          $this->context->getUser()->signIn($q->fetchOne()->User);
         }
       }
     }

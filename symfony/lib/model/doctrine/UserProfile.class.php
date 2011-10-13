@@ -5,14 +5,6 @@
  */
 class UserProfile extends BaseUserProfile
 {
-  public function getFullName() {
-    $fullname = $this->getFirstName() . ' ' . $this->getLastName();
-    if(trim($fullname) == '')
-      return $this->getUsername();
-    
-    return $fullname;
-  }
-
   public function getRoles() {
     return $this->getUser()->getGroups();
   }
@@ -26,23 +18,6 @@ class UserProfile extends BaseUserProfile
     if(!empty($lastLogin))
       $lastLogin;
     return 'Never logged in';
-  }
-
-  public function getGroups() {
-    return $this->getUser()->getGroups();
-  }
-
-  public function addTeam(Team $team) {
-    $this->Teams[] = $team;
-    $this->save();
-  }
-
-  public function removeTeam(Team $team) {
-    $this->unlink('Teams', array($team->getId()));
-  }
-
-  public function getAvailableTeams() {
-    return Doctrine::getTable('Team')->findAvailable($this);
   }
 
   public function delete(Doctrine_Connection $conn = null)

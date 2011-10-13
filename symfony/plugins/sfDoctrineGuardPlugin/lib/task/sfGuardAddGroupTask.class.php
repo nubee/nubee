@@ -14,9 +14,9 @@
  * @package    symfony
  * @subpackage task
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id$
+ * @version    SVN: $Id: sfGuardAddGroupTask.class.php 25546 2009-12-17 23:27:55Z Jonathan.Wage $
  */
-class sfGuardAddGroupTask extends sfDoctrineBaseTask
+class sfGuardAddGroupTask extends sfBaseTask
 {
   /**
    * @see sfTask
@@ -31,7 +31,6 @@ class sfGuardAddGroupTask extends sfDoctrineBaseTask
     $this->addOptions(array(
       new sfCommandOption('application', null, sfCommandOption::PARAMETER_OPTIONAL, 'The application name', null),
       new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev'),
-      new sfCommandOption('connection', null, sfCommandOption::PARAMETER_REQUIRED, 'The connection name', 'propel'),
     ));
 
     $this->namespace = 'guard';
@@ -54,7 +53,7 @@ EOF;
   {
     $databaseManager = new sfDatabaseManager($this->configuration);
 
-    $user = Doctrine::getTable('sfGuardUser')->findOneByUsername($arguments['username']);
+    $user = Doctrine_Core::getTable('sfGuardUser')->findOneByUsername($arguments['username']);
     if (!$user)
     {
       throw new sfCommandException(sprintf('User "%s" does not exist.', $arguments['username']));

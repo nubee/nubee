@@ -7,12 +7,12 @@
  * 
  * @property integer $user_id
  * @property integer $team_id
- * @property UserProfile $User
+ * @property sfGuardUser $User
  * @property Team $Team
  * 
  * @method integer     getUserId()  Returns the current record's "user_id" value
  * @method integer     getTeamId()  Returns the current record's "team_id" value
- * @method UserProfile getUser()    Returns the current record's "User" value
+ * @method sfGuardUser getUser()    Returns the current record's "User" value
  * @method Team        getTeam()    Returns the current record's "Team" value
  * @method UserPerTeam setUserId()  Sets the current record's "user_id" value
  * @method UserPerTeam setTeamId()  Sets the current record's "team_id" value
@@ -42,7 +42,7 @@ abstract class BaseUserPerTeam extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('UserProfile as User', array(
+        $this->hasOne('sfGuardUser as User', array(
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));

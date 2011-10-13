@@ -5,5 +5,30 @@
  */
 class sfGuardUser extends PluginsfGuardUser
 {
+  public function getFullName() {
+    $fullname = $this->getFirstName() . ' ' . $this->getLastName();
+    if(trim($fullname) == '')
+      return $this->getUsername();
+    
+    return $fullname;
+  }
+  
+  public function getPicture() {
+    return $this->getProfile()->getPicture();
+  }
+  
+  public function addTeam(Team $team) {
+    $this->Teams[] = $team;
+    $this->save();
+  }
 
+  public function removeTeam(Team $team) {
+    $this->unlink('Teams', array($team->getId()));
+    $this->save();
+  }
+
+  public function getAvailableTeams() {
+    return Doctrine::getTable('Team')->findAvailable($this);
+  }
+  
 }

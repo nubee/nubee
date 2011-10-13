@@ -11,10 +11,16 @@ class sfGuardUserForm extends PluginsfGuardUserForm
 {
   public function configure()
   {
-    unset($this['algorithm'], $this['salt'], 
-      $this['last_login'], $this['created_at'], $this['updated_at']);
+    unset(
+      $this['algorithm'], 
+      $this['salt'], 
+      $this['last_login'], 
+      $this['created_at'], 
+      $this['updated_at']
+    );
 
     $user = sfContext::getInstance()->getUser();
+    
     if(!$user->isSuperAdmin())
       unset($this['is_super_admin']);
 
@@ -35,7 +41,25 @@ class sfGuardUserForm extends PluginsfGuardUserForm
     $this->validatorSchema['confirm_password'] = new sfValidatorString(array(
       'max_length' => 255,
       'required' => false));
+    
+    if($this->isNew()) {
+      $this->widgetSchema->moveField('username', sfWidgetFormSchema::FIRST);
+      $this->widgetSchema->moveField('password', sfWidgetFormSchema::AFTER, 'username');
+      $this->widgetSchema->moveField('confirm_password', sfWidgetFormSchema::AFTER, 'password');
+    }
+    
+    $this->widgetSchema['first_name']->setAttribute('class', 'width200f');
+    $this->widgetSchema['last_name']->setAttribute('class', 'width200f');
+    $this->widgetSchema['email_address']->setAttribute('class', 'width200f');
+//    $this->widgetSchema['password']->setAttribute('class', 'width200f');
+//    $this->widgetSchema['confirm_password']->setAttribute('class', 'width200f');
+
+    $this->widgetSchema['groups_list']->setLabel('Groups');
+    $this->widgetSchema['permissions_list']->setLabel('Permissions');
+    $this->widgetSchema['teams_list']->setLabel('Teams');
 
     $this->validatorSchema->setPostValidator(new sfValidatorSchemaCompare('confirm_password', sfValidatorSchemaCompare::EQUAL, 'password'));
+    
+    $this->embedRelation('Profile');
   }
 }

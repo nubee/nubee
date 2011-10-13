@@ -19,7 +19,7 @@
             <ul style="float:right">
               <li>Welcome, <span class="strong"><?php echo $sf_user->getFullName() ?></span></li>
               <li>|</li>
-              <li><?php echo link_to('Edit profile', 'user_edit', $sf_user->getUserProfile()) ?></li>
+              <li><?php echo link_to('Edit profile', 'user_edit', $sf_user->getGuardUser()) ?></li>
               <li>|</li>
               <li><?php echo link_to('Logout', '@logout') ?></li>
             </ul>

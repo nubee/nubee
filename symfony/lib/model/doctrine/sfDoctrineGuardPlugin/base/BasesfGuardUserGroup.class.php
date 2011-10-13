@@ -7,17 +7,17 @@
  * 
  * @property integer $user_id
  * @property integer $group_id
- * @property sfGuardUser $sfGuardUser
- * @property sfGuardGroup $sfGuardGroup
+ * @property sfGuardUser $User
+ * @property sfGuardGroup $Group
  * 
- * @method integer          getUserId()       Returns the current record's "user_id" value
- * @method integer          getGroupId()      Returns the current record's "group_id" value
- * @method sfGuardUser      getSfGuardUser()  Returns the current record's "sfGuardUser" value
- * @method sfGuardGroup     getSfGuardGroup() Returns the current record's "sfGuardGroup" value
- * @method sfGuardUserGroup setUserId()       Sets the current record's "user_id" value
- * @method sfGuardUserGroup setGroupId()      Sets the current record's "group_id" value
- * @method sfGuardUserGroup setSfGuardUser()  Sets the current record's "sfGuardUser" value
- * @method sfGuardUserGroup setSfGuardGroup() Sets the current record's "sfGuardGroup" value
+ * @method integer          getUserId()   Returns the current record's "user_id" value
+ * @method integer          getGroupId()  Returns the current record's "group_id" value
+ * @method sfGuardUser      getUser()     Returns the current record's "User" value
+ * @method sfGuardGroup     getGroup()    Returns the current record's "Group" value
+ * @method sfGuardUserGroup setUserId()   Sets the current record's "user_id" value
+ * @method sfGuardUserGroup setGroupId()  Sets the current record's "group_id" value
+ * @method sfGuardUserGroup setUser()     Sets the current record's "User" value
+ * @method sfGuardUserGroup setGroup()    Sets the current record's "Group" value
  * 
  * @package    nubee
  * @subpackage model
@@ -37,17 +37,22 @@ abstract class BasesfGuardUserGroup extends sfDoctrineRecord
              'type' => 'integer',
              'primary' => true,
              ));
+
+        $this->option('symfony', array(
+             'form' => false,
+             'filter' => false,
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('sfGuardUser', array(
+        $this->hasOne('sfGuardUser as User', array(
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('sfGuardGroup', array(
+        $this->hasOne('sfGuardGroup as Group', array(
              'local' => 'group_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));

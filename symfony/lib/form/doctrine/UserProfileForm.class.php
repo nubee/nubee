@@ -16,17 +16,6 @@ class UserProfileForm extends BaseUserProfileForm
 //    $userForm = new sfGuardUserForm($this->getObject()->getUser());
 //    $this->mergeForm($userForm);
 
-    if($this->isNew()) {
-      $this->widgetSchema->moveField('username', sfWidgetFormSchema::FIRST);
-      $this->widgetSchema->moveField('password', sfWidgetFormSchema::AFTER, 'username');
-      $this->widgetSchema->moveField('confirm_password', sfWidgetFormSchema::AFTER, 'password');
-    }
-    
-    $this->embedRelation('User');
-
-    $this->widgetSchema['first_name']->setAttribute('class', 'width200f');
-    $this->widgetSchema['last_name']->setAttribute('class', 'width200f');
-    $this->widgetSchema['email']->setAttribute('class', 'width200f');
     $this->widgetSchema['picture_url'] = new sfWidgetFormInputFile(array());
     $this->validatorSchema['picture_url'] = new sfValidatorFile(array(
       'required'   => false,
@@ -41,10 +30,10 @@ class UserProfileForm extends BaseUserProfileForm
       'template'  => '<div id="pictureEdit">%file%</div>%input%',
     ));*/
 
-    $this->widgetSchema->moveField('teams_list', sfWidgetFormSchema::LAST);
-    $this->widgetSchema['teams_list']->setLabel('Teams');
+//    $this->widgetSchema->moveField('teams_list', sfWidgetFormSchema::LAST);
+//    $this->widgetSchema['teams_list']->setLabel('Teams');
   }
-  
+  /*
   public function updateObject($values = null)
   {
     parent::updateObject($values);
@@ -59,5 +48,5 @@ class UserProfileForm extends BaseUserProfileForm
     }
 
     return $this->object;
-  }
+  }*/
 }

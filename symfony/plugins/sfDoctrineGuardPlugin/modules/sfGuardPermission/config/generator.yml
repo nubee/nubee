@@ -8,7 +8,7 @@ generator:
     singular:              ~
     plural:                ~
     route_prefix:          sf_guard_permission
-    with_doctrine_route:     1
+    with_doctrine_route:   true
 
     config:
       list:

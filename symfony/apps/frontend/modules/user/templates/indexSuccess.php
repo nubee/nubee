@@ -16,7 +16,7 @@
     </span>
   </h2>
 
-  <?php if($userProfiles->count() > 0) : ?>
+  <?php if($users->count() > 0) : ?>
   <table class="list">
     <thead>
       <tr>
@@ -29,24 +29,24 @@
       </tr>
     </thead>
     <tbody>
-      <?php foreach ($userProfiles as $userProfile): ?>
+      <?php foreach ($users as $user): ?>
       <tr>
-        <td><?php echo link_to($userProfile->getUsername(), 'user_show', $userProfile) ?></td>
-        <td><?php echo link_to($userProfile->getFullName(), 'user_show', $userProfile) ?></td>
-        <td class="left"><?php echo $userProfile->getEmail() ?></td>
+        <td><?php echo link_to($user->getUsername(), 'user_show', $user) ?></td>
+        <td><?php echo link_to($user->getFullName(), 'user_show', $user) ?></td>
+        <td class="left"><?php echo $user->getEmailAddress() ?></td>
         <td class="left">
-          <?php foreach($userProfile->getTeams() as $team) : ?>
+          <?php foreach($user->getTeams() as $team) : ?>
             <?php echo $team; ?>
           <?php endforeach ?>
         </td>
         <td class="left">
-          <?php foreach($userProfile->getGroups() as $group) : ?>
+          <?php foreach($user->getGroups() as $group) : ?>
             <?php echo $group; ?>
           <?php endforeach ?>
         </td>
         <td class="center">
-          <?php echo edit_link_to('user_edit', $userProfile) ?>
-          <?php echo delete_link_to('user_delete', $userProfile) ?>
+          <?php echo edit_link_to('user_edit', $user) ?>
+          <?php echo delete_link_to('user_delete', $user) ?>
         </td>
       </tr>
       <?php endforeach; ?>

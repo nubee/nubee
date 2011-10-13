@@ -12,25 +12,26 @@ class userActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->userProfiles = Doctrine::getTable('UserProfile')->findAllOrdered();
+    $this->users = Doctrine::getTable('sfGuardUser')->findAllOrdered();
   }
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->userProfile = Doctrine::getTable('UserProfile')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->userProfile);
+    $id = $request->getParameter('id');
+    $this->user = Doctrine::getTable('sfGuardUser')->find($id);
+    $this->forward404Unless($this->user);
   }
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new UserProfileForm();
+    $this->form = new sfGuardUserForm();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod('post'));
 
-    $this->form = new UserProfileForm();
+    $this->form = new sfGuardUserForm();
 
     $this->processForm($request, $this->form);
 
@@ -39,17 +40,19 @@ class userActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->userProfile = Doctrine::getTable('UserProfile')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->userProfile);
-    $this->form = new UserProfileForm($this->userProfile);
+    $id = $request->getParameter('id');
+    $this->user = Doctrine::getTable('sfGuardUser')->find($id);
+    $this->forward404Unless($this->user);
+    $this->form = new sfGuardUserForm($this->user);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
+    $id = $request->getParameter('id');
     $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
-    $this->userProfile = Doctrine::getTable('UserProfile')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->userProfile);
-    $this->form = new UserProfileForm($this->userProfile);
+    $this->user = Doctrine::getTable('sfGuardUser')->find($id);
+    $this->forward404Unless($this->user);
+    $this->form = new sfGuardUserForm($this->user);
 
     $this->processForm($request, $this->form);
 
@@ -60,12 +63,14 @@ class userActions extends sfActions
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($userProfile = Doctrine::getTable('UserProfile')->find(array($request->getParameter('id'))), sprintf('Object userProfile does not exist (%s).', array($request->getParameter('id'))));
-    $userProfile->delete();
+    $id = $request->getParameter('id');
+    $user = Doctrine::getTable('sfGuardUser')->find($id);
+
+    $this->forward404Unless($user);
+    $user->delete();
 
     $this->redirect('@user');
   }
-
 
   public function executeAddTeam(sfWebRequest $request)
   {
@@ -86,7 +91,7 @@ class userActions extends sfActions
 
     $this->user = $this->getRoute()->getObject();
     $this->user->removeTeam($team);
-
+    
     $this->getUser()->setFlash('notice', 'Team removed successfully.');
     $this->redirect($this->generateUrl('user_show', $this->user));
   }
@@ -98,9 +103,9 @@ class userActions extends sfActions
       $request->getFiles($form->getName()));
     
     if ($form->isValid()) {
-      $userProfile = $form->save();
+      $form->save();
 
-      //$this->redirect('@user');
+      $this->redirect('@user');
     }
   }
 }

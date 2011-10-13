@@ -13,6 +13,9 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
+      'first_name'       => new sfWidgetFormFilterInput(),
+      'last_name'        => new sfWidgetFormFilterInput(),
+      'email_address'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'username'         => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'algorithm'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'salt'             => new sfWidgetFormFilterInput(),
@@ -24,9 +27,13 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
       'updated_at'       => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'groups_list'      => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardGroup')),
       'permissions_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardPermission')),
+      'teams_list'       => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Team')),
     ));
 
     $this->setValidators(array(
+      'first_name'       => new sfValidatorPass(array('required' => false)),
+      'last_name'        => new sfValidatorPass(array('required' => false)),
+      'email_address'    => new sfValidatorPass(array('required' => false)),
       'username'         => new sfValidatorPass(array('required' => false)),
       'algorithm'        => new sfValidatorPass(array('required' => false)),
       'salt'             => new sfValidatorPass(array('required' => false)),
@@ -38,6 +45,7 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
       'updated_at'       => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'groups_list'      => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardGroup', 'required' => false)),
       'permissions_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardPermission', 'required' => false)),
+      'teams_list'       => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Team', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('sf_guard_user_filters[%s]');
@@ -85,6 +93,24 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
     ;
   }
 
+  public function addTeamsListColumnQuery(Doctrine_Query $query, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $query
+      ->leftJoin($query->getRootAlias().'.UserPerTeam UserPerTeam')
+      ->andWhereIn('UserPerTeam.team_id', $values)
+    ;
+  }
+
   public function getModelName()
   {
     return 'sfGuardUser';
@@ -94,6 +120,9 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'               => 'Number',
+      'first_name'       => 'Text',
+      'last_name'        => 'Text',
+      'email_address'    => 'Text',
       'username'         => 'Text',
       'algorithm'        => 'Text',
       'salt'             => 'Text',
@@ -105,6 +134,7 @@ abstract class BasesfGuardUserFormFilter extends BaseFormFilterDoctrine
       'updated_at'       => 'Date',
       'groups_list'      => 'ManyKey',
       'permissions_list' => 'ManyKey',
+      'teams_list'       => 'ManyKey',
     );
   }
 }

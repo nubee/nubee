@@ -43,7 +43,7 @@ abstract class BaseTeam extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('UserProfile as Users', array(
+        $this->hasMany('sfGuardUser as Users', array(
              'refClass' => 'UserPerTeam',
              'local' => 'team_id',
              'foreign' => 'user_id'));

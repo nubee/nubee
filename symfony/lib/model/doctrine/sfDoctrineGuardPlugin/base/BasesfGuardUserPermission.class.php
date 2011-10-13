@@ -7,17 +7,17 @@
  * 
  * @property integer $user_id
  * @property integer $permission_id
- * @property sfGuardUser $sfGuardUser
- * @property sfGuardPermission $sfGuardPermission
+ * @property sfGuardUser $User
+ * @property sfGuardPermission $Permission
  * 
- * @method integer               getUserId()            Returns the current record's "user_id" value
- * @method integer               getPermissionId()      Returns the current record's "permission_id" value
- * @method sfGuardUser           getSfGuardUser()       Returns the current record's "sfGuardUser" value
- * @method sfGuardPermission     getSfGuardPermission() Returns the current record's "sfGuardPermission" value
- * @method sfGuardUserPermission setUserId()            Sets the current record's "user_id" value
- * @method sfGuardUserPermission setPermissionId()      Sets the current record's "permission_id" value
- * @method sfGuardUserPermission setSfGuardUser()       Sets the current record's "sfGuardUser" value
- * @method sfGuardUserPermission setSfGuardPermission() Sets the current record's "sfGuardPermission" value
+ * @method integer               getUserId()        Returns the current record's "user_id" value
+ * @method integer               getPermissionId()  Returns the current record's "permission_id" value
+ * @method sfGuardUser           getUser()          Returns the current record's "User" value
+ * @method sfGuardPermission     getPermission()    Returns the current record's "Permission" value
+ * @method sfGuardUserPermission setUserId()        Sets the current record's "user_id" value
+ * @method sfGuardUserPermission setPermissionId()  Sets the current record's "permission_id" value
+ * @method sfGuardUserPermission setUser()          Sets the current record's "User" value
+ * @method sfGuardUserPermission setPermission()    Sets the current record's "Permission" value
  * 
  * @package    nubee
  * @subpackage model
@@ -37,17 +37,22 @@ abstract class BasesfGuardUserPermission extends sfDoctrineRecord
              'type' => 'integer',
              'primary' => true,
              ));
+
+        $this->option('symfony', array(
+             'form' => false,
+             'filter' => false,
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('sfGuardUser', array(
+        $this->hasOne('sfGuardUser as User', array(
              'local' => 'user_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
-        $this->hasOne('sfGuardPermission', array(
+        $this->hasOne('sfGuardPermission as Permission', array(
              'local' => 'permission_id',
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));

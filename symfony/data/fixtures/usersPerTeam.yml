@@ -1,20 +1,20 @@
 UserPerTeam:
   upt_1_1:
-    User: adam_profile
+    User: sgu_adam
     Team: team_1
 
   upt_1_2:
-    User: bob_profile
+    User: sgu_bob
     Team: team_1
 
   upt_1_3:
-    User: chloe_profile
+    User: sgu_chloe
     Team: team_1
 
   upt_2_1:
-    User: bob_profile
+    User: sgu_bob
     Team: team_2
 
   upt_2_2:
-    User: chloe_profile
+    User: sgu_chloe
     Team: team_2

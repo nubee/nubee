@@ -4,5 +4,17 @@
  */
 class sfGuardUserTable extends PluginsfGuardUserTable
 {
+  public function findAvailable(Team $team) {
+    $q = $this->createQuery('u')
+      ->where('NOT EXISTS (SELECT * FROM UserPerTeam upt WHERE upt.team_id = ? and upt.user_id = u.id)', $team->getId());
 
+    return $q->execute();
+  }
+  
+  public function findAllOrdered() {
+    $q = $this->createQuery()
+      ->orderBy('email_address ASC');
+      
+    return $q->execute();
+  }
 }

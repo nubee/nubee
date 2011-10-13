@@ -99,25 +99,22 @@ Team:
     name:         { type: string(255), notnull: true }
     email:        { type: string(255) }
   relations:
-    Users:        { class: UserProfile, refClass: UserPerTeam, local: team_id, foreign: user_id }
+    Users:        { class: sfGuardUser, refClass: UserPerTeam, local: team_id, foreign: user_id }
 
 UserProfile:
   actAs:         { Timestampable: ~ }
   columns:
     user_id:     { type: integer, notnull: true, unique: true }
-    first_name:  { type: string(255), notnull: true }
-    last_name:   { type: string(255), notnull: true }
-    email:       { type: string(255), notnull: true }
     picture_url: { type: string(255) }
   relations:
-    User:        { class: sfGuardUser, type: one, foreignType: one, local: user_id, foreign: id, onDelete: CASCADE }
-    Teams:       { class: Team, refClass: UserPerTeam, local: user_id, foreign: team_id }
+    User:        { class: sfGuardUser, type: one, foreignType: one, local: user_id, foreignAlias: Profile, onDelete: CASCADE }
+#    Teams:       { class: Team, refClass: UserPerTeam, local: user_id, foreign: team_id }
 
 UserPerTeam:
   columns:
     user_id:     { type: integer, notnull: true, primary: true }
     team_id:     { type: integer, notnull: true, primary: true }
   relations:
-    User:        {class: UserProfile, local: user_id, foreign: id, onDelete: CASCADE }
+    User:        {class: sfGuardUser, local: user_id, foreign: id, onDelete: CASCADE }
     Team:        {local: team_id, foreign: id, onDelete: CASCADE }
 

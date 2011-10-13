@@ -133,7 +133,7 @@ team:
 user:
   class:   sfDoctrineRouteCollection
   options:
-    model:  UserProfile
+    model:  sfGuardUser
     column: id
     module: user
     object_actions: { addTeam: put, removeTeam: put }

@@ -8,7 +8,7 @@ generator:
     singular:              ~
     plural:                ~
     route_prefix:          sf_guard_user
-    with_doctrine_route:     1
+    with_doctrine_route:   true
 
     config:
       fields:
@@ -21,7 +21,7 @@ generator:
       form:
         class: sfGuardUserAdminForm
         display:
-          "NONE":                   [username, password, password_again]
+          "User":                   [first_name, last_name, email_address, username, password, password_again]
           "Permissions and groups": [is_active, is_super_admin, groups_list, permissions_list]
 
       edit:

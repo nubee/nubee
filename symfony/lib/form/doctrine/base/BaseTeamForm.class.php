@@ -20,7 +20,7 @@ abstract class BaseTeamForm extends BaseFormDoctrine
       'email'      => new sfWidgetFormInputText(),
       'created_at' => new sfWidgetFormDateTime(),
       'updated_at' => new sfWidgetFormDateTime(),
-      'users_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'UserProfile')),
+      'users_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser')),
     ));
 
     $this->setValidators(array(
@@ -29,7 +29,7 @@ abstract class BaseTeamForm extends BaseFormDoctrine
       'email'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'created_at' => new sfValidatorDateTime(),
       'updated_at' => new sfValidatorDateTime(),
-      'users_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'UserProfile', 'required' => false)),
+      'users_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'sfGuardUser', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('team[%s]');

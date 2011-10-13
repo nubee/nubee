@@ -13,7 +13,7 @@
  * @package    symfony
  * @subpackage plugin
  * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
- * @version    SVN: $Id: BasesfGuardAuthActions.class.php 7745 2008-03-05 11:05:33Z fabien $
+ * @version    SVN: $Id: BasesfGuardAuthActions.class.php 31289 2010-10-29 13:54:30Z gimler $
  */
 class BasesfGuardAuthActions extends sfActions
 {
@@ -30,14 +30,15 @@ class BasesfGuardAuthActions extends sfActions
 
     if ($request->isMethod('post'))
     {
-      $this->form->bind($request->getParameter('signin'));
+      $this->form->bind($request->getParameter($this->form->getName()));
       if ($this->form->isValid())
       {
-        $values   = $this->form->getValues(); 
-       	$remember = isset($values['remember']) ? $values['remember'] : false; 
+        $values = $this->form->getValues(); 
+        $this->getUser()->signin($values['user'], array_key_exists('remember', $values) ? $values['remember'] : false);
 
-       	$this->getUser()->signin($values['user'], $remember);
-
+        // always redirect to a URL set in app.yml
+        // or to the referer
+        // or to the homepage
         $signinUrl = sfConfig::get('app_sf_guard_plugin_success_signin_url', $user->getReferer($request->getReferer()));
 
         return $this->redirect('' != $signinUrl ? $signinUrl : '@homepage');
@@ -53,7 +54,9 @@ class BasesfGuardAuthActions extends sfActions
         return sfView::NONE;
       }
 
-      $user->setReferer($request->getReferer());
+      // if we have been forwarded, then the referer is the current URL
+      // if not, this is the referer of the current request
+      $user->setReferer($this->getContext()->getActionStack()->getSize() > 1 ? $request->getUri() : $request->getReferer());
 
       $module = sfConfig::get('sf_login_module');
       if ($this->getModuleName() != $module)
@@ -69,18 +72,13 @@ class BasesfGuardAuthActions extends sfActions
   {
     $this->getUser()->signOut();
 
-    $signout_url = sfConfig::get('app_sf_guard_plugin_success_signout_url', $request->getReferer());
+    $signoutUrl = sfConfig::get('app_sf_guard_plugin_success_signout_url', $request->getReferer());
 
-    $this->redirect('' != $signout_url ? $signout_url : '@homepage');
+    $this->redirect('' != $signoutUrl ? $signoutUrl : '@homepage');
   }
 
-  public function executeSecure()
+  public function executeSecure($request)
   {
     $this->getResponse()->setStatusCode(403);
-  }
-
-  public function executePassword()
-  {
-    throw new sfException('This method is not yet implemented.');
   }
 }

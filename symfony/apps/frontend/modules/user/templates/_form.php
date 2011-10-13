@@ -16,15 +16,16 @@
     <tbody>
       <?php echo $form['first_name']->renderRow() ?>
       <?php echo $form['last_name']->renderRow() ?>
-      <?php echo $form['email']->renderRow() ?>
-      <?php echo $form['User']['password']->renderRow() ?>
-      <?php echo $form['User']['confirm_password']->renderRow() ?>
-      <?php echo $form['picture_url']->renderRow() ?>
+      <?php echo $form['email_address']->renderRow() ?>
+      <?php echo $form['password']->renderRow() ?>
+      <?php echo $form['confirm_password']->renderRow() ?>
+      <?php echo $form['Profile']['picture_url']->renderRow() ?>
       <?php if($sf_user->isAdministrator()) : ?>
-        <?php echo $form['User']['is_active']->renderRow() ?>
-        <?php echo $form['User']['is_super_admin']->renderRow() ?>
-        <?php echo $form['User']['groups_list']->renderRow() ?>
-        <?php echo $form['User']['permissions_list']->renderRow() ?>
+        <?php echo $form['is_active']->renderRow() ?>
+        <?php echo $form['is_super_admin']->renderRow() ?>
+        <?php echo $form['groups_list']->renderRow() ?>
+        <?php echo $form['permissions_list']->renderRow() ?>
+        <?php echo $form['teams_list']->renderRow() ?>
       <?php endif ?>
     </tbody>
     <tfoot>
