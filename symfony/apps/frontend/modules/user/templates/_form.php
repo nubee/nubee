@@ -14,6 +14,7 @@
 <?php echo form_tag_for($form, '@user') ?>
   <table class="details">
     <tbody>
+      <?php echo $form['username']->renderRow() ?>
       <?php echo $form['first_name']->renderRow() ?>
       <?php echo $form['last_name']->renderRow() ?>
       <?php echo $form['email_address']->renderRow() ?>
