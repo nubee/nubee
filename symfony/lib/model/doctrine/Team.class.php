@@ -15,6 +15,6 @@ class Team extends BaseTeam
   }
 
   public function getAvailableUsers() {
-    return Doctrine::getTable('UserProfile')->findAvailable($this);
+    return Doctrine::getTable('sfGuardUser')->findAvailable($this);
   }
 }
