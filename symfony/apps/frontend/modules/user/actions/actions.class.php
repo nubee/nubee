@@ -97,11 +97,10 @@ class userActions extends sfActions
       $request->getParameter($form->getName()),
       $request->getFiles($form->getName()));
     
-    if ($form->isValid())
-    {
+    if ($form->isValid()) {
       $userProfile = $form->save();
 
-      $this->redirect('@user');
+      //$this->redirect('@user');
     }
   }
 }

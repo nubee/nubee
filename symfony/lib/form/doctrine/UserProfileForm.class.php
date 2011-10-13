@@ -13,14 +13,16 @@ class UserProfileForm extends BaseUserProfileForm
   {
     unset($this['user_id'], $this['created_at'], $this['updated_at']);
 
-    $userForm = new sfGuardUserForm($this->getObject()->getUser());
-    $this->mergeForm($userForm);
+//    $userForm = new sfGuardUserForm($this->getObject()->getUser());
+//    $this->mergeForm($userForm);
 
     if($this->isNew()) {
       $this->widgetSchema->moveField('username', sfWidgetFormSchema::FIRST);
       $this->widgetSchema->moveField('password', sfWidgetFormSchema::AFTER, 'username');
       $this->widgetSchema->moveField('confirm_password', sfWidgetFormSchema::AFTER, 'password');
     }
+    
+    $this->embedRelation('User');
 
     $this->widgetSchema['first_name']->setAttribute('class', 'width200f');
     $this->widgetSchema['last_name']->setAttribute('class', 'width200f');
@@ -39,8 +41,6 @@ class UserProfileForm extends BaseUserProfileForm
       'template'  => '<div id="pictureEdit">%file%</div>%input%',
     ));*/
 
-
-    
     $this->widgetSchema->moveField('teams_list', sfWidgetFormSchema::LAST);
     $this->widgetSchema['teams_list']->setLabel('Teams');
   }
