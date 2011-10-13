@@ -1,0 +1,42 @@
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    #title:        symfony project
+    #description:  symfony project
+    #keywords:     symfony, project
+    #language:     en
+    #robots:       index, follow
+
+  stylesheets:
+    - jquery.treeview.css
+    - jquery.jqplot.min.css
+    - jquery.ui.css
+    - main.css
+    - common.css
+    - layout.css
+    - header.css
+    - footer.css
+    - topmenu.css
+    - leftmenu.css
+    - actions.css
+    - breadcrumbs.css
+    - sections.css
+    - list.css
+    - details.css
+    - wikipage.css
+
+  javascripts:
+    - jquery.min.js
+    - jquery.ui.min.js
+    - jquery.corner.js
+    - jquery.cookie.js
+    - jquery.qtip-1.0.0-rc3.min.js
+    - jquery.treeview.js
+    - jquery.splitter.js
+    - jquery.progressbar.min.js
+    - jquery.jqplot.min.js
+
+  has_layout:     true
+  layout:         layout

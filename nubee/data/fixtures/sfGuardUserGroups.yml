@@ -1,8 +1,0 @@
-sfGuardUserGroup:
-  sgug_admin:
-    sfGuardUser:  sgu_adam
-    sfGuardGroup: sgg_admin
-
-  sgug_manager:
-    sfGuardUser:  sgu_bob
-    sfGuardGroup: sgg_manager

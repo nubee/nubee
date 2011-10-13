@@ -1,0 +1,76 @@
+Task:
+  task_1_1:
+    name:              Task 1.1
+    Story:             story_1_1
+    original_estimate: 150
+    current_estimate:  180
+    status:            started
+    priority:          p1
+
+  task_1_2:
+    name:              Task 1.2
+    Story:             story_1_1
+    original_estimate: 300
+    status:            started
+    priority:          none
+
+  task_2_1:
+    name:              Task 2.1
+    Story:             story_1_2
+    original_estimate: 300
+    status:            not_started
+    priority:          p5
+    
+<?php for($i = 0; $i < 10; $i++) : ?>
+  task_3_<?php echo $i + 1 ?>:
+    name:              Task 3.<?php echo $i + 1 . "\n" ?>
+    Story:             story_1_3
+    original_estimate: 480
+    status:            not_started
+    priority:          p5
+<?php endfor ?>
+
+  task_4_1:
+    name:              Task 4.1
+    Story:             story_1_4
+    original_estimate: 480
+    current_estimate:  480
+    status:            done
+    priority:          p5    
+    WorkingUnits:      { wu_4_1: { User: sgu_adam, effort_spent: 480, date: <?php echo date('Y-m-d') ?> } }
+    
+  task_4_2:
+    name:              Task 4.2
+    Story:             story_1_4
+    original_estimate: 480
+    current_estimate:  720
+    status:            done
+    priority:          p5    
+    WorkingUnits:      { wu_4_2: { User: sgu_adam, effort_spent: 720, date: <?php echo date('Y-m-d') ?> } }    
+    
+  task_4_3:
+    name:              Task 4.3
+    Story:             story_1_4
+    original_estimate: 240
+    current_estimate:  240
+    status:            done
+    priority:          p5    
+    WorkingUnits:      { wu_4_3: { User: sgu_adam, effort_spent: 240, date: <?php echo date('Y-m-d') ?> } }        
+    
+  task_4_4:
+    name:              Task 4.4
+    Story:             story_1_4
+    original_estimate: 960
+    current_estimate:  720
+    status:            done
+    priority:          p5    
+    WorkingUnits:      { wu_4_4: { User: sgu_adam, effort_spent: 720, date: <?php echo date('Y-m-d') ?> } }            
+    
+  task_4_5:
+    name:              Task 4.5
+    Story:             story_1_4
+    original_estimate: 720
+    current_estimate:  720
+    status:            done
+    priority:          p5    
+    WorkingUnits:      { wu_4_5: { User: sgu_adam, effort_spent: 720, date: <?php echo date('Y-m-d') ?> } }        

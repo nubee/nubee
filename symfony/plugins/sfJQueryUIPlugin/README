@@ -1,0 +1,53 @@
+sfJQueryUIPlugin
+================
+
+Description
+-----------
+
+This plugin makes use of jQuery UI library.
+
+Currently available is only one widget, sfWidgetFormDateJQueryUI which uses jQuery DatePicker to choose date. Widget displays **one input tag** (not three seperated input tags for year, month and day like in sfFormExtraPlugin).
+
+This plugin uses awesome [jQuery library](http://www.jquery.com) - so its not compatible with sfProtoculousPlugin (which has to be disabled).
+
+[Try out demonstration](http://sfplugins.infoart.net.pl/ui/test1)
+
+Depedencies
+-----------
+
+This Plugin **requires** JqueryReloadedPlugin or jquery library itself.
+
+Installation
+------------
+
+    $ symfony plugin:install sfJQueryUIPlugin
+    $ symfony cache:clear
+
+sfWidgetFormDateJQueryUI Usage
+------------------------------
+
+In your form class:
+
+    $this->widgetSchema['my_date']= new sfWidgetFormDateJQueryUI(array("change_month" => true, "change_year" => true)),
+ 
+sfWidgetFormDateJQueryUI Customization
+--------------------------------------
+    
+Yuo can configure Widget with following options:
+
+  *  culture :           configure culture for the widget, defaults to sfContext::getInstance()->getUser()->getCulture()
+  *  change_month :      if date chooser attached to widget has month dropdown, defaults to false
+  *  change_year :       if date chooser attached to widget has year dropdown, defaults to false
+  *  number_of_months :  number of months visible in date chooser, defaults to 1
+  *  show_button_panel : if date chooser shows panel with 'today' and 'done' buttons, defaults to false
+  *  theme :             css theme for jquery ui interface, defaults to '/sfJQueryUIPlugin/css/ui-lightness/jquery-ui.css', if you want another theme you have to download it by hand from [here](http://jqueryui.com/themeroller/)
+
+Notes
+-----
+
+Widget is simple text input tag, date chooser appears after input is focused/clicked. User can still input date by hand. I recommend to use date validator.
+
+When using widget, do not forget to use css and javascript in your form template:
+
+    <?php include_stylesheets_for_form($your_form) ?>
+    <?php include_javascripts_for_form($your_form) ?>

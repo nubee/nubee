@@ -1,0 +1,14 @@
+sfGuardUser:
+  sgu_adam:
+    username: adam
+    password: adamsecret
+    is_super_admin: true
+
+  sgu_bob:
+    username: bob
+    password: bobsecret
+
+  sgu_chloe:
+    username: chloe
+    password: chloesecret
+

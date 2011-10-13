@@ -1,0 +1,4 @@
+sfGuardUserGroup:
+  sgug_admin:
+    sfGuardUser:  sgu_admin
+    sfGuardGroup: sgg_admin

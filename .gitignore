@@ -3,3 +3,6 @@ nubee/cache/*
 nubee/log/**/*
 nubee/log/*
 .netbeans/nbproject/private/*
+/symfony/cache/.pear/
+/symfony/plugins/.channels/
+/symfony/plugins/.registry/

@@ -1,0 +1,51 @@
+.list {
+  width: 100%;
+  background: #fff;
+}
+.list th {
+  color: #0057BF;
+  padding: 5px 5px;
+  background: #f9fcff;
+  border-bottom: 1px dotted #c9c9c9;
+  font-weight: bold;
+  height: 24px;
+}
+
+.list td {
+  padding: 2px 5px;
+}
+.list tr:hover {
+  background-color: #DFF4FF;
+  background-color: #FFF1AF;
+}
+.list .disabled {
+  color: #bbb;
+}
+.list .disabled a:link,
+.list .disabled a:visited {
+  color: #bbb;
+}
+.list .disabled a:hover,
+.list .disabled a:active {
+  color: #666;
+}
+.list .even {
+  background-color: #fafafa;
+}
+.list td.top {
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+.done,
+.done a:link, .done a:visited,
+.done a:hover, .done a:active {
+  color: #aaa;
+}
+
+.list .red {
+  color: red;
+}
+.list .green {
+  color: green;
+}

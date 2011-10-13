@@ -1,0 +1,26 @@
+Story:
+  story_1_1:
+    name:      First Story
+    Iteration: iteration_1_1
+    priority:  none
+
+  story_1_2:
+    name:      Second Story
+    Iteration: iteration_1_1
+    priority:  p1
+    
+  story_1_3:
+    name:      Third Story
+    Iteration: iteration_1_1
+    priority:  p1    
+    
+  story_1_4:
+    name:      Fourth Story
+    Iteration: iteration_1_1
+    priority:  p5   
+
+  story_2_1:
+    name:      First Story
+    Iteration: iteration_1_2
+    priority:  p2
+
