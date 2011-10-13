@@ -66,26 +66,26 @@ class teamActions extends sfActions
 
   public function executeAddUser(sfWebRequest $request)
   {
-    $user = Doctrine::getTable('UserProfile')->find($request->getParameter('userId'));
+    $user = Doctrine::getTable('sfGuardUser')->find($request->getParameter('userId'));
     $this->forward404Unless($user);
 
     $this->team = $this->getRoute()->getObject();
     $this->team->addUser($user);
 
     $this->getUser()->setFlash('notice', 'User added successfully.');
-    $this->redirect('@team');
+    $this->redirect('@team_show?id=' . $this->team->getId());
   }
 
   public function executeRemoveUser(sfWebRequest $request)
   {
-    $user = Doctrine::getTable('UserProfile')->find($request->getParameter('userId'));
+    $user = Doctrine::getTable('sfGuardUser')->find($request->getParameter('userId'));
     $this->forward404Unless($user);
 
     $this->team = $this->getRoute()->getObject();
     $this->team->removeUser($user);
 
     $this->getUser()->setFlash('notice', 'User removed successfully.');
-    $this->redirect('@team');
+    $this->redirect('@team_show?id=' . $this->team->getId());
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

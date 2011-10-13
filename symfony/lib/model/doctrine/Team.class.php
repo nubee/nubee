@@ -5,13 +5,14 @@
  */
 class Team extends BaseTeam
 {
-  public function addUser(UserProfile $user) {
+  public function addUser(sfGuardUser $user) {
     $this->Users[] = $user;
     $this->save();
   }
 
-  public function removeUser(UserProfile $user) {
+  public function removeUser(sfGuardUser $user) {
     $this->unlink('Users', array($user->getId()));
+    $this->save();
   }
 
   public function getAvailableUsers() {
