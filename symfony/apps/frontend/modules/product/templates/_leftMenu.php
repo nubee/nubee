@@ -11,6 +11,8 @@
     </li>
     <?php endforeach; ?>
   </ul>
+  <br />
+  <?php echo link_to('Add a new product', '@product_new') ?>
 
 </div>
 
