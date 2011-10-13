@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd" >
+<xliff version="1.0">
+  <file original="global" source-language="en" datatype="plaintext">
+    <header/>
+    <body>
+      <trans-unit>
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Username or E-Mail</source>
+        <target>Identifiant ou email</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password again</source>
+        <target>Répétez votre mot de passe</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Remember</source>
+        <target>Se rappeler</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Register</source>
+        <target>Créer un compte</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Signin</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Forgot your password?</source>
+        <target>Mot de passe oublié ?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Want to register?</source>
+        <target>Créer un compte?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>You don't have the required permission to access this page.</source>
+        <target>Vous n'avez pas les permissions nécessaires pour accéder à cette page.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Login below to gain access</source>
+        <target>Enregistrez vous ci dessous pour accéder a cette page</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Oops! The page you asked for is secure and you do not have proper credentials.</source>
+        <target>Oups! La page que vous avez demandé est sécurisée et vous n'avez pas les autorisations nécessaires</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Hi %first_name%</source>
+        <target>Bonjour %first_name%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>This e-mail is being sent because you requested information on how to reset your password.</source>
+        <target>Cet email vous est envoyé parce que vous avez demandé des informations pour réinitialiser votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>You can change your password by clicking the below link which is only valid for 24 hours:</source>
+        <target>Vous pouvez modifier votre mot de passe en cliquant sur le lien ci dessous qui n'est valide que pendant 24 heures:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Click to change password</source>
+        <target>Cliquez pour modifier votre mot de passe</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Below you will your username and new password:</source>
+        <target>Veuillez trouver ci dessous votre identifiant ainsi que votre nouveau mot de passe:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Below you will find your username and new password:</source>
+        <target>Veuillez trouver ci dessous votre identifiant ainsi que votre nouveau mot de passe:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Do not worry, we can help you get back in to your account safely!</source>
+        <target>Ne vous inquiétez pas, nous allons vous aider a retrouver votre compte en toute sécurité!</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Fill out the form below to request an e-mail with information on how to reset your password.</source>
+        <target>Remplissez le formulaire ci dessous pour recevoir un email avec la procédure pour renouveller votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Request</source>
+        <target>Envoyer</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Hello %name%</source>
+        <target>Bonjour %name%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Enter your new password in the form below.</source>
+        <target>Entrez votre nouveau mot de passe dans le formulaire ci dessous.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Change</source>
+        <target>Modifier</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Forgot Password Request for %name%</source>
+        <target>Demande de nouveau mot de passe pour %name%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>New Password for %name%</source>
+        <target>Nouveau mot de passe pour %name%</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

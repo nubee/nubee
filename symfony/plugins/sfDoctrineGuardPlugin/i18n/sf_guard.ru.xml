@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd" >
+<xliff version="1.0">
+  <file original="global" source-language="en" datatype="plaintext">
+    <header/>
+    <body>
+      <trans-unit>
+        <source>Username</source>
+        <target>Имя</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Username or E-Mail</source>
+        <target>Имя или E-mail</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password</source>
+        <target>Пароль</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Password again</source>
+        <target>Повторите пароль</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Remember</source>
+        <target>Запомнить меня</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Register</source>
+        <target>Зарегистрироваться</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Signin</source>
+        <target>Авторизоваться</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Forgot your password?</source>
+        <target>Я забыл пароль</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Want to register?</source>
+        <target>Хотите зарегистрироваться?</target>
+      </trans-unit>
+      <trans-unit>
+        <source>You don't have the required permission to access this page.</source>
+        <target>У вас недостаточно привилегий для доступа к этой странице.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Login below to gain access</source>
+        <target>Авторизуйтесь, чтобы получить доступ к этой странице</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Oops! The page you asked for is secure and you do not have proper credentials.</source>
+        <target>Упс! Запрашиваемая вами страница требует привилегий доступа, которых у вас нет.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Hi %first_name%</source>
+        <target>Здравствуйте, %first_name%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>This e-mail is being sent because you requested information on how to reset your password.</source>
+        <target>Это письмо отправлено вам потому, что вы запрашивали информацию о восстановлении пароля.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>You can change your password by clicking the below link which is only valid for 24 hours:</source>
+        <target>Вы можете изменить пароль, перейдя по ссылке ниже. Ссылка действительна в течение 24 часов:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Click to change password</source>
+        <target>Нажмите здесь, чтобы сменить пароль.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Below you will your username and new password:</source>
+        <target>Ниже вы найдете ваше имя пользователя и новый пароль:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Below you will find your username and new password:</source>
+        <target>Ниже вы найдете ваше имя пользователя и новый пароль:</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Do not worry, we can help you get back in to your account safely!</source>
+        <target>Не волнуйтесь, мы поможем вам вернуть доступ к своей учетной записи!</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Fill out the form below to request an e-mail with information on how to reset your password.</source>
+        <target>Заполните форму ниже, чтобы получить письмо с информацией о восстановлении пароля.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Request</source>
+        <target>Запросить</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Hello %name%</source>
+        <target>Здравствуйте, %name%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Enter your new password in the form below.</source>
+        <target>Введите ваш новый пароль в форме ниже.</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Change</source>
+        <target>Изменить</target>
+      </trans-unit>
+      <trans-unit>
+        <source>Forgot Password Request for %name%</source>
+        <target>Запрос на восстановление пароля для пользователя %name%</target>
+      </trans-unit>
+      <trans-unit>
+        <source>New Password for %name%</source>
+        <target>Новый пароль для пользователя %name%</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
