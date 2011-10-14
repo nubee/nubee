@@ -9,13 +9,32 @@ product:
     column: id
     module: product
 
+project_new:
+  url:   /:product_id/project/new
+  class:   sfDoctrineRoute
+  options:
+    model:  Project
+    type: object
+  param: { module: project, action: new }
+  
 project:
   class:   sfDoctrineRouteCollection
   options:
     model:  Project
     column: id
     module: project
-
+    actions: [ edit, update, show, delete ]
+    
+project_create:
+  url:   /:product_id/project/create
+  class:   sfDoctrineRoute
+  options:
+    model:  project
+    type: object
+  param: { module: project, action: create }
+  requirements:
+    sf_method: post
+    
 iteration_new:
   url:   /:project_id/iteration/new
   class:   sfDoctrineRoute

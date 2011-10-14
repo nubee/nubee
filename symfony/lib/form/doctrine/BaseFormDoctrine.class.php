@@ -10,6 +10,8 @@ abstract class BaseFormDoctrine extends sfFormDoctrine
 {
   public function setup()
   {
-    sfWidgetFormSchema::setDefaultFormFormatterName('customTable');
+    $decorator = new sfWidgetFormSchemaFormatterCustomTable($this->widgetSchema, $this->validatorSchema);
+    $this->widgetSchema->addFormFormatter('customTable', $decorator);
+    $this->widgetSchema->setFormFormatterName('customTable');
   }
 }

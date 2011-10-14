@@ -19,6 +19,7 @@ class projectActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
     $product = Doctrine::getTable('Product')->find($request->getParameter('product_id'));
+    $this->forward404Unless($product);
     $project = new Project();
     $project->setProduct($product);
     $this->form = new ProjectForm($project);
@@ -28,7 +29,11 @@ class projectActions extends sfActions
   {
     $this->forward404Unless($request->isMethod('post'));
 
-    $this->form = new ProjectForm();
+    $product = Doctrine::getTable('Product')->find($request->getParameter('product_id'));
+    $project = new Project();
+    $project->setProduct($product);
+
+    $this->form = new ProjectForm($project);
 
     $this->processForm($request, $this->form);
 

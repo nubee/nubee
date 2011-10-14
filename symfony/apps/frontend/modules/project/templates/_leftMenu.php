@@ -12,5 +12,5 @@
     <?php endforeach; ?>
   </ul>
   <br />
-  <?php echo link_to('Add a new project', '@project_new', $product) ?>
+  <?php echo link_to('Add a new project', '@project_new?product_id=' . $product->getId()) ?>
 </div>
