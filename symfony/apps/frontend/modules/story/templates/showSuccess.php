@@ -65,7 +65,7 @@
   </table>
 </div>
 
-<div class="clear" style="clear:both"></div>
+<div class="clear"></div>
 
 <div class="section">
   <h2>
