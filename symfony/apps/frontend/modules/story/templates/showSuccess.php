@@ -53,8 +53,19 @@
       <th>Effort left</th>
       <td><?php echo format_timestamp($story->getEffortLeft()) ?></td>
     </tr>
+    <tr>
+      <th>Number of left tasks</th>
+      <td>
+        <?php echo __('%available% of %total%', array(
+          '%available%' => $story->countAvailableTasks(),
+          '%total%' => $story->countTasks()
+        )) ?>
+      </td>
+    </tr>    
   </table>
 </div>
+
+<div class="clear" style="clear:both"></div>
 
 <div class="section">
   <h2>

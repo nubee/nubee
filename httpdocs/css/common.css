@@ -43,6 +43,8 @@
   position: absolute;
   left: 10px;
 }
+.clear { clear: both; }
+
 
 .ui-datepicker-trigger {
   margin-left: 5px;

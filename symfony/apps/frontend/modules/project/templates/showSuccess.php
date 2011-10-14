@@ -40,9 +40,12 @@
       </td>
     </tr>
     <tr>
-      <th>Number of tasks</th>
+      <th>Number of left tasks</th>
       <td>
-        <?php echo $project->getTasks()->count() ?>
+        <?php echo __('%available% of %total%', array(
+          '%available%' => $project->countAvailableTasks(),
+          '%total%' => $project->countTasks()
+        )) ?>
       </td>
     </tr>
   </table>

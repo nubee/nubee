@@ -5,26 +5,42 @@
  */
 class Project extends BaseProject
 {
-  public function getStories() {
+
+  public function getStories()
+  {
     return Doctrine::getTable('Story')->findByProject($this);
   }
 
-  public function getTasks() {
+  public function getTasks()
+  {
     return Doctrine::getTable('Task')->findByProject($this);
   }
 
-  public function countBacklogTasks() {
+  public function countBacklogTasks()
+  {
     return $this->getBacklogTasks()->count();
   }
 
-  public function isEnabled() {
+  public function countTasks()
+  {
+    return Doctrine::getTable('Task')->countByProject($this);
+  }
+
+  public function countAvailableTasks()
+  {
+    return Doctrine::getTable('Task')->countAvailableByProject($this);
+  }
+
+  public function isEnabled()
+  {
     if($this->getStatus() == 'enabled')
       return true;
 
     return false;
   }
 
-  public function isDisabled() {
+  public function isDisabled()
+  {
     if($this->getStatus() == 'disabled')
       return true;
 

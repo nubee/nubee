@@ -4,85 +4,119 @@
  */
 class TaskTable extends Doctrine_Table
 {
-  public function construct()
-  {
-//    $this->setOption('orderBy', 'status ASC and priority ASC');
-  }
-
-  public function findByProduct($product) {
+  public function findByProductQuery(Product $product) {
     $q = $this->createQuery('t')
       ->leftJoin('t.Story s')
       ->leftJoin('s.Iteration i')
       ->leftJoin('i.Project p')
       ->where('p.product_id = ?', $product->getId());
 
-    return $q->execute();
+    return $q;
   }
 
-  public function findByProject($project) {
+  public function findByProduct(Product $product) {
+    $q = $this->findByProductQuery($product);
+    
+    return $q->execute();
+  }
+  
+  public function countByProduct(Product $product) {
+    $q = $this->findByProductQuery($product);
+
+    return $q->count();
+  }
+
+  public function countAvailableByProduct(Product $product) {
+    $q = $this->findByProductQuery($product);
+    $q->andWhere('t.status <> ?', 'done');
+
+    return $q->count();
+  }
+
+  public function findByProjectQuery(Project $project) {
     $q = $this->createQuery('t')
       ->leftJoin('t.Story s')
       ->leftJoin('s.Iteration i')
       ->where('i.project_id = ?', $project->getId());
 
+    return $q;
+  }
+  
+  public function findByProject(Project $project) {
+    $q = $this->findByProjectQuery($project);
+    
     return $q->execute();
   }
-
-  public function findByIteration($iteration) {
-    $q = $this->createQuery('t')
-      ->leftJoin('t.Story s')
-      ->where('s.iteration_id = ?', $iteration->getId());
-
-    return $q->execute();
-  }
-
-  public function countByIteration($iteration) {
-    $q = $this->createQuery('t')
-      ->leftJoin('t.Story s')
-      ->where('s.iteration_id = ?', $iteration->getId());
+  
+  public function countByProject(Project $project) {
+    $q = $this->findByProjectQuery($project);
 
     return $q->count();
   }
 
-  public function countAvailableByIteration($iteration) {
+  public function countAvailableByProject(Project $project) {
+    $q = $this->findByProjectQuery($project);
+    $q->andWhere('t.status <> ?', 'done');
+
+    return $q->count();
+  }
+
+  public function findByIterationQuery(Iteration $iteration) {
     $q = $this->createQuery('t')
       ->leftJoin('t.Story s')
-      ->where('s.iteration_id = ?', $iteration->getId())
+      ->where('s.iteration_id = ?', $iteration->getId());
+
+    return $q;
+  }
+
+  public function findByIteration(Iteration $iteration) {
+    $q = $this->findByIterationQuery($iteration);
+
+    return $q->execute();
+  }
+
+  public function countByIteration(Iteration $iteration) {
+    $q = $this->findByIterationQuery($iteration);
+
+    return $q->count();
+  }
+
+  public function countAvailableByIteration(Iteration $iteration) {
+    $q = $this->findByIterationQuery($iteration);
+    $q->andWhere('t.status <> ?', 'done');
+
+    return $q->count();
+  }
+
+  public function findByStoryQuery(Story $story) {
+    $q = $this->createQuery('t')
+      ->where('t.story_id = ?', $story->getId())
+      ->orderBy('t.priority DESC');
+
+    return $q;
+  }
+
+  public function findByStory(Story $story) {
+    $q = $this->findByStoryQuery($story);
+
+    return $q->execute();
+  }
+
+  public function findAvailableByStory(Story $story) {
+    $q = $this->findByStoryQuery($story);
+
+    return $q->execute();
+  }
+
+  public function countByStory(Story $story) {
+    $q = $this->findByStoryQuery($story);
+
+    return $q->count();
+  }
+
+  public function countAvailableByStory(Story $story) {
+    $q = $this->findByStoryQuery($story)
       ->andWhere('t.status <> ?', 'done');
-
-    return $q->count();
-  }
-
-  public function findByStory($story) {
-    $q = $this->createQuery('t')
-      ->where('t.story_id = ?', $story->getId())
-      ->orderBy('t.priority DESC');
-
-    return $q->execute();
-  }
-
-  public function findAvailableByStory($story) {
-    $q = $this->createQuery('t')
-      ->where('t.story_id = ?', $story->getId())
-      ->andWhere('t.status <> ?', 'done')
-      ->orderBy('t.priority DESC');
-
-    return $q->execute();
-  }
-
-  public function countByStory($story) {
-    $q = $this->createQuery('t')
-      ->where('t.story_id = ?', $story->getId())
-      ->orderBy('t.priority DESC');
-
-    return $q->count();
-  }
-
-  public function countAvailableByStory($story) {
-    $q = $this->createQuery('t')
-      ->where('t.story_id = ?', $story->getId())
-      ->andWhere('t.status <> ?', 'done')
-      ->orderBy('t.priority DESC');
 
     return $q->count();
   }

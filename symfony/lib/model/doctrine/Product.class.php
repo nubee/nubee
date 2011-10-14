@@ -5,15 +5,30 @@
  */
 class Product extends BaseProduct
 {
-  public function getIterations() {
+
+  public function getIterations()
+  {
     return Doctrine::getTable('Iteration')->findByProduct($this);
   }
 
-  public function getStories() {
+  public function getStories()
+  {
     return Doctrine::getTable('Story')->findByProduct($this);
   }
 
-  public function getTasks() {
+  public function getTasks()
+  {
     return Doctrine::getTable('Task')->findByProduct($this);
   }
+
+  public function countTasks()
+  {
+    return Doctrine::getTable('Task')->countByProduct($this);
+  }
+
+  public function countAvailableTasks()
+  {
+    return Doctrine::getTable('Task')->countAvailableByProduct($this);
+  }
+
 }

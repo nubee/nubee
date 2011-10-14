@@ -21,7 +21,7 @@ $(function() {
   var count = <?php echo $children->count() ?>;
   var data = <?php echo format_efforts($item, $children) ?>;
   series.push(data);
-  options.push({ label: 'Effort spent', color: '#a4e142', markerOptions: { style:'square' }});
+  options.push({ label: 'Effort left', color: '#a4e142', markerOptions: { style:'square' }});
   
   $.jqplot('chart', series, {
     series: options,

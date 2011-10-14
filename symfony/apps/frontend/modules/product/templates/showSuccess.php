@@ -25,6 +25,43 @@
 </div>
 
 <div class="section">
+  <?php echo format_text($product->getDescription()) ?>
+</div>
+
+<div class="section">
+  <h2>Details</h2>
+  <table class="details">
+    <tr>
+      <th>Number of projects</th>
+      <td>
+        <?php echo $product->getProjects()->count() ?>
+      </td>
+    </tr>
+    <tr>
+      <th>Number of iterations</th>
+      <td>
+        <?php echo $product->getIterations()->count() ?>
+      </td>
+    </tr>
+    <tr>
+      <th>Number of stories</th>
+      <td>
+        <?php echo $product->getStories()->count() ?>
+      </td>
+    </tr>
+    <tr>
+      <th>Number of left tasks</th>
+      <td>
+        <?php echo __('%available% of %total%', array(
+          '%available%' => $product->countAvailableTasks(),
+          '%total%' => $product->countTasks()
+        )) ?>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="section">
   <h2>
     Projects
     <span class="actions">
