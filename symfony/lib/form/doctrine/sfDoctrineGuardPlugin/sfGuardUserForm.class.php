@@ -24,8 +24,20 @@ class sfGuardUserForm extends PluginsfGuardUserForm
     if(!$user->isSuperAdmin())
       unset($this['is_super_admin']);
 
-    if(!$user->isAdministrator())
+    if(!$user->isAdministrator()) {
       unset($this['is_active'], $this['is_super_admin'], $this['groups_list'], $this['permissions_list']);
+    }
+    else {
+      $this->widgetSchema['groups_list']->setLabel('Groups');
+      $this->widgetSchema['permissions_list']->setLabel('Permissions');
+    }
+    
+    if(!$user->isManager()) {
+      unset($this['teams_list']);
+    }
+    else {
+      $this->widgetSchema['teams_list']->setLabel('Teams');
+    }
 
     if(!$this->isNew()) {
       unset($this['username']);
@@ -53,10 +65,6 @@ class sfGuardUserForm extends PluginsfGuardUserForm
     $this->widgetSchema['email_address']->setAttribute('class', 'width200f');
 //    $this->widgetSchema['password']->setAttribute('class', 'width200f');
 //    $this->widgetSchema['confirm_password']->setAttribute('class', 'width200f');
-
-    $this->widgetSchema['groups_list']->setLabel('Groups');
-    $this->widgetSchema['permissions_list']->setLabel('Permissions');
-    $this->widgetSchema['teams_list']->setLabel('Teams');
 
     $this->validatorSchema->setPostValidator(new sfValidatorSchemaCompare('confirm_password', sfValidatorSchemaCompare::EQUAL, 'password'));
     
