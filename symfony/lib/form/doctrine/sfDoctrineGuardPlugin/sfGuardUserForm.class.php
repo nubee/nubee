@@ -25,7 +25,11 @@ class sfGuardUserForm extends PluginsfGuardUserForm
       unset($this['is_super_admin']);
 
     if(!$user->isAdministrator()) {
-      unset($this['is_active'], $this['is_super_admin'], $this['groups_list'], $this['permissions_list']);
+      unset(
+        $this['is_active'], 
+        $this['is_super_admin'], 
+        $this['groups_list'], 
+        $this['permissions_list']);
     }
     else {
       $this->widgetSchema['groups_list']->setLabel('Groups');

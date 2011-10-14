@@ -28,6 +28,8 @@
         <?php echo $form['is_super_admin']->renderRow() ?>
         <?php echo $form['groups_list']->renderRow() ?>
         <?php echo $form['permissions_list']->renderRow() ?>
+      <?php endif ?>
+      <?php if($sf_user->isManager()) : ?>
         <?php echo $form['teams_list']->renderRow() ?>
       <?php endif ?>
     </tbody>
