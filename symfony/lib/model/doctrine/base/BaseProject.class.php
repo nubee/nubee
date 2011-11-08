@@ -14,9 +14,9 @@
  * @property enum $status
  * @property sfGuardUser $Manager
  * @property Product $Product
+ * @property Doctrine_Collection $Members
  * @property Doctrine_Collection $Children
  * @property Doctrine_Collection $Parents
- * @property Doctrine_Collection $Members
  * @property Doctrine_Collection $Iterations
  * @property Doctrine_Collection $BacklogTasks
  * 
@@ -29,9 +29,9 @@
  * @method enum                getStatus()       Returns the current record's "status" value
  * @method sfGuardUser         getManager()      Returns the current record's "Manager" value
  * @method Product             getProduct()      Returns the current record's "Product" value
+ * @method Doctrine_Collection getMembers()      Returns the current record's "Members" collection
  * @method Doctrine_Collection getChildren()     Returns the current record's "Children" collection
  * @method Doctrine_Collection getParents()      Returns the current record's "Parents" collection
- * @method Doctrine_Collection getMembers()      Returns the current record's "Members" collection
  * @method Doctrine_Collection getIterations()   Returns the current record's "Iterations" collection
  * @method Doctrine_Collection getBacklogTasks() Returns the current record's "BacklogTasks" collection
  * @method Project             setUserId()       Sets the current record's "user_id" value
@@ -43,9 +43,9 @@
  * @method Project             setStatus()       Sets the current record's "status" value
  * @method Project             setManager()      Sets the current record's "Manager" value
  * @method Project             setProduct()      Sets the current record's "Product" value
+ * @method Project             setMembers()      Sets the current record's "Members" collection
  * @method Project             setChildren()     Sets the current record's "Children" collection
  * @method Project             setParents()      Sets the current record's "Parents" collection
- * @method Project             setMembers()      Sets the current record's "Members" collection
  * @method Project             setIterations()   Sets the current record's "Iterations" collection
  * @method Project             setBacklogTasks() Sets the current record's "BacklogTasks" collection
  * 
@@ -107,6 +107,11 @@ abstract class BaseProject extends sfDoctrineRecord
              'foreign' => 'id',
              'onDelete' => 'CASCADE'));
 
+        $this->hasMany('sfGuardUser as Members', array(
+             'refClass' => 'ProjectMember',
+             'local' => 'project_id',
+             'foreign' => 'member_id'));
+
         $this->hasMany('ProjectRelation as Children', array(
              'local' => 'id',
              'foreign' => 'parent_id'));
@@ -114,10 +119,6 @@ abstract class BaseProject extends sfDoctrineRecord
         $this->hasMany('ProjectRelation as Parents', array(
              'local' => 'id',
              'foreign' => 'child_id'));
-
-        $this->hasMany('ProjectMember as Members', array(
-             'local' => 'id',
-             'foreign' => 'project_id'));
 
         $this->hasMany('Iteration as Iterations', array(
              'local' => 'id',

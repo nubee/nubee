@@ -8,7 +8,19 @@ class Iteration extends BaseIteration
   public function getProduct() {
     return $this->getProject()->getProduct();
   }
-
+  
+  public function getManager() {
+    return $this->getProject()->getManager();
+  }  
+  
+  public function hasMembers() {
+    return $this->getMembers()->count() > 0;
+  }  
+  
+  public function getMembers() {
+    return $this->getProject()->getMembers();
+  }  
+  
   public function getTasks() {
     return Doctrine::getTable('Task')->findByIteration($this);
   }

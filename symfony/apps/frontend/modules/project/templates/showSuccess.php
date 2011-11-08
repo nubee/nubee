@@ -24,9 +24,16 @@
   <?php echo format_text($project->getDescription()) ?>
 </div>
 
+
+<?php include_partial('content/effortChart', array('id' => 'chart', 'item' => $project, 'children' => $project->getIterations(), 'length' => 60*8*5)) ?>
+
 <div class="section">
   <h2>Details</h2>
   <table class="details">
+    <tr>
+      <th>Manager</th>
+      <td><?php echo link_to($project->getManager(), 'user_show', $project->getManager()) ?></td>
+    </tr>    
     <tr>
       <th>Number of iterations</th>
       <td>
@@ -48,6 +55,35 @@
         )) ?>
       </td>
     </tr>
+    <tr>
+      <th>Original estimate</th>
+      <td><?php echo format_timestamp($project->getOriginalEstimate(), 'w') ?></td>
+    </tr>
+    <tr>
+      <th>Current estimate</th>
+      <td class="<?php echo get_estimate_class($project) ?>"><?php echo format_timestamp($project->getCurrentEstimate(), 'w') ?></td>
+    </tr>
+    <tr>
+      <th>Effort spent</th>
+      <td><?php echo format_timestamp($project->getEffortSpent(), 'w') ?></td>
+    </tr>
+    <tr>
+      <th>Effort left</th>
+      <td><?php echo format_timestamp($project->getEffortLeft(), 'w') ?></td>
+    </tr>    
+    <tr>
+      <th>Members</th>
+      <td>
+        <ul>
+          <?php if($project->hasMembers()) : ?>
+          <?php foreach($project->getMembers() as $member) : ?>
+          <li><?php echo link_to($member, 'user_show', $member) ?></li>
+          <?php endforeach; ?>
+          <?php else : ?>
+          No members assigned to this project
+          <?php endif; ?>
+      </td>
+    </tr>      
   </table>
 </div>
 

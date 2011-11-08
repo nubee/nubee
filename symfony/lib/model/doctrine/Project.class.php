@@ -5,7 +5,10 @@
  */
 class Project extends BaseProject
 {
-
+  public function hasMembers() {
+    return $this->getMembers()->count() > 0;
+  }  
+  
   public function getStories()
   {
     return Doctrine::getTable('Story')->findByProject($this);
@@ -46,5 +49,33 @@ class Project extends BaseProject
 
     return false;
   }
+  
+  public function getEffortLeft() {
+    $timestamp = 0;
+    foreach($this->getTasks() as $task)
+      $timestamp += $task->getEffortLeft();
+    return $timestamp;
+  }
+
+  public function getOriginalEstimate() {
+    $timestamp = 0;
+    foreach($this->getTasks() as $task)
+      $timestamp += $task->getOriginalEstimate();
+    return $timestamp;
+  }
+
+  public function getCurrentEstimate() {
+    $timestamp = 0;
+    foreach($this->getTasks() as $task)
+      $timestamp += $task->getCurrentEstimate();
+    return $timestamp;
+  }
+
+  public function getEffortSpent() {
+    $timestamp = 0;
+    foreach($this->getTasks() as $task)
+      $timestamp += $task->getEffortSpent();
+    return $timestamp;
+  }  
 
 }

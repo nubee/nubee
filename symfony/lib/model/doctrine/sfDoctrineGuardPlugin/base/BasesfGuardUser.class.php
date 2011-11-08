@@ -23,6 +23,7 @@
  * @property sfGuardRememberKey $RememberKeys
  * @property sfGuardForgotPassword $ForgotPassword
  * @property Doctrine_Collection $Projects
+ * @property Doctrine_Collection $ProjectsAsMember
  * @property Doctrine_Collection $WorkingUnits
  * @property UserProfile $Profile
  * @property Doctrine_Collection $UserPerTeam
@@ -45,6 +46,7 @@
  * @method sfGuardRememberKey    getRememberKeys()          Returns the current record's "RememberKeys" value
  * @method sfGuardForgotPassword getForgotPassword()        Returns the current record's "ForgotPassword" value
  * @method Doctrine_Collection   getProjects()              Returns the current record's "Projects" collection
+ * @method Doctrine_Collection   getProjectsAsMember()      Returns the current record's "ProjectsAsMember" collection
  * @method Doctrine_Collection   getWorkingUnits()          Returns the current record's "WorkingUnits" collection
  * @method UserProfile           getProfile()               Returns the current record's "Profile" value
  * @method Doctrine_Collection   getUserPerTeam()           Returns the current record's "UserPerTeam" collection
@@ -66,6 +68,7 @@
  * @method sfGuardUser           setRememberKeys()          Sets the current record's "RememberKeys" value
  * @method sfGuardUser           setForgotPassword()        Sets the current record's "ForgotPassword" value
  * @method sfGuardUser           setProjects()              Sets the current record's "Projects" collection
+ * @method sfGuardUser           setProjectsAsMember()      Sets the current record's "ProjectsAsMember" collection
  * @method sfGuardUser           setWorkingUnits()          Sets the current record's "WorkingUnits" collection
  * @method sfGuardUser           setProfile()               Sets the current record's "Profile" value
  * @method sfGuardUser           setUserPerTeam()           Sets the current record's "UserPerTeam" collection
@@ -172,6 +175,11 @@ abstract class BasesfGuardUser extends sfDoctrineRecord
         $this->hasMany('Project as Projects', array(
              'local' => 'id',
              'foreign' => 'user_id'));
+
+        $this->hasMany('Project as ProjectsAsMember', array(
+             'refClass' => 'ProjectMember',
+             'local' => 'member_id',
+             'foreign' => 'project_id'));
 
         $this->hasMany('WorkingUnit as WorkingUnits', array(
              'local' => 'id',

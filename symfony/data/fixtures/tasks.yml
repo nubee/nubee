@@ -74,3 +74,13 @@ Task:
     status:            done
     priority:          p5    
     WorkingUnits:      { wu_4_5: { User: sgu_adam, effort_spent: 720, date: <?php echo date('Y-m-d') ?> } }        
+    
+<?php for($i = 0; $i < 10; $i++) : ?>
+  task_1_3_1_<?php echo $i + 1 ?>:
+    name:              Task 3.<?php echo $i + 1 . "\n" ?>
+    Story:             story_1_3_1
+    original_estimate: 60
+    current_estimate:  120
+    status:            not_started
+    priority:          p5
+<?php endfor ?>

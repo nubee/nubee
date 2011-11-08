@@ -26,6 +26,7 @@ default:
     - list.css
     - details.css
     - wikipage.css
+    - chart.css
 
   javascripts:
     - jquery.min.js

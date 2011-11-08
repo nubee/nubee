@@ -62,11 +62,44 @@ function format_priority($priority) {
   return $str;
 }
 
-function format_timestamp($timestamp) {
-  $hours = $timestamp / 60;
-  $minutes = $timestamp % 60;
+function format_timestamp($timestamp, $format = 'h') {
+  $weeks = 0;
+  $days = 0;
+  $hours = 0;
+  switch($format) {
+    case 'w':
+      if($timestamp >= 60 * 8 * 7) {
+        $days = (int)($timestamp / (60 * 8 * 7));
+        $timestamp %= 8 * 7;
+      }
+    case 'd':
+      if($timestamp >= 60 * 8) {
+        $days = (int)($timestamp / (60*8));
+        $timestamp %= 8;
+      }
+    case 'h':
+      if($timestamp >= 60) {
+        $hours = (int)($timestamp / 60);
+        $timestamp %= 60;
+      }
+    case 'm':
+      $minutes = $timestamp;
+  }
 
-  return sprintf("%02d:%02d", $hours, $minutes);  
+  switch($format) {
+    case 'w':
+      if($weeks > 0)
+        return sprintf("%dw %dd %dh %dm", $weeks, $days, $hours, $minutes);  
+    case 'd':
+      if($days > 0)
+        return sprintf("%dd %dh %dm", $days, $hours, $minutes);  
+    case 'h':
+      if($hours > 0)
+        return sprintf("%dh %dm", $hours, $minutes);  
+    case 'm':
+      return sprintf("%dm", $minutes);  
+  }
+
 }
 
 function format_status($status) {
@@ -97,19 +130,32 @@ function get_estimate_class($object) {
   return '';
 }
 
-function format_efforts($item, $children) {
-  $left = $item->getCurrentEstimate()/60;
+function format_efforts($item, $children, $length, $debug = false) {
+  $currentEstimate = $item->getCurrentEstimate() / $length;
+  $originalEstimate = $item->getOriginalEstimate() / $length;
   $spent = 0;
   $offset = 0;
   
-  $str = sprintf('[[%s, %s]', $spent, $left);
+  $str = sprintf('[[%s, %s]', $spent, $originalEstimate);
+  if($debug)
+    echo '<table>';
   foreach($children as $child) {
-    $effort = $child->getEffortSpent() / 60;
-    $left -= $effort;
-    $spent += $effort;
-    $offset += ($child->getCurrentEstimate() - $child->getOriginalEstimate()) / 60;
-    $str .= sprintf(', [%s, %s]', $spent, $left + $offset);
+    $es = $child->getEffortSpent() / $length;
+    $el = $child->getEffortLeft() / $length;
+    $oe = $child->getOriginalEstimate() / $length;
+    $ce = $child->getCurrentEstimate() / $length;
+
+    $diff = $ce - $oe;
+    $currentEstimate -= $es;
+    $originalEstimate -= ($es - $diff);
+    $spent += $es;
+    $offset += $diff - $es;
+    $str .= sprintf(', [%s, %s]', $spent, $originalEstimate);
+    if($debug)
+      echo sprintf("<tr><td>%s</td><td>%s</td><td>%s</td><td>(%s)</td></tr>", $es, $currentEstimate, $originalEstimate, $offset);
   }
+  if($debug)
+    echo '</table>';
   
   $str .= ']';
   

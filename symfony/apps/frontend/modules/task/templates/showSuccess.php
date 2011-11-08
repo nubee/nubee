@@ -37,19 +37,19 @@
       </tr>
       <tr>
         <th>Original estimate</th>
-        <td><?php echo format_timestamp($task->getOriginalEstimate()) ?></td>
+        <td><?php echo format_timestamp($task->getOriginalEstimate(), 'h') ?></td>
       </tr>
       <tr>
         <th>Current estimate</th>
-        <td class="<?php echo get_estimate_class($task) ?>"><?php echo format_timestamp($task->getCurrentEstimate()) ?></td>
+        <td class="<?php echo get_estimate_class($task) ?>"><?php echo format_timestamp($task->getCurrentEstimate(), 'h') ?></td>
       </tr>
       <tr>
         <th>Effort spent</th>
-        <td><?php echo format_timestamp($task->getEffortSpent()) ?></td>
+        <td><?php echo format_timestamp($task->getEffortSpent(), 'h') ?></td>
       </tr>
       <tr>
         <th>Effort left</th>
-        <td><?php echo format_timestamp($task->getEffortLeft()) ?></td>
+        <td><?php echo format_timestamp($task->getEffortLeft(), 'h') ?></td>
       </tr>
     </tbody>
   </table>

@@ -18,10 +18,10 @@
       <td><?php echo link_to($iteration, 'iteration_show', $iteration) ?></td>
       <td class="center"><?php echo $iteration->getStories()->count() ?></td>
       <td class="center"><?php echo $iteration->getTasks()->count() ?></td>
-      <td class="center"><?php echo format_timestamp($iteration->getOriginalEstimate()) ?></td>
-      <td class="center <?php echo get_estimate_class($iteration) ?>"><?php echo format_timestamp($iteration->getCurrentEstimate()) ?></td>
-      <td class="center"><?php echo format_timestamp($iteration->getEffortLeft()) ?></td>
-      <td class="center"><?php echo format_timestamp($iteration->getEffortSpent()) ?></td>      
+      <td class="center"><?php echo format_timestamp($iteration->getOriginalEstimate(), 'w') ?></td>
+      <td class="center <?php echo get_estimate_class($iteration) ?>"><?php echo format_timestamp($iteration->getCurrentEstimate(), 'w') ?></td>
+      <td class="center"><?php echo format_timestamp($iteration->getEffortLeft(), 'w') ?></td>
+      <td class="center"><?php echo format_timestamp($iteration->getEffortSpent(), 'w') ?></td>      
       <td class="center">
         <?php echo edit_link_to('iteration_edit', $iteration) ?>
         <?php echo delete_link_to('iteration_delete', $iteration) ?>

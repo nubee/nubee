@@ -24,11 +24,7 @@
   <?php echo format_text($story->getDescription()) ?>
 </div>
 
-<div id="chart_box" style="width:600px;float: right;margin-bottom: 20px;">
-  <div id="chart" ></div>
-</div>
-
-<?php include_partial('content/effortChart', array('item' => $story, 'children' => $story->getTasks())) ?>
+<?php include_partial('content/effortChart', array('id' => 'chart', 'item' => $story, 'children' => $story->getTasks(), 'length' => 60)) ?>
 
 <div class="section">
   <h2>Details</h2>
@@ -39,19 +35,19 @@
     </tr>
     <tr>
       <th>Original estimate</th>
-      <td><?php echo format_timestamp($story->getOriginalEstimate()) ?></td>
+      <td><?php echo format_timestamp($story->getOriginalEstimate(), 'h') ?></td>
     </tr>
     <tr>
       <th>Current estimate</th>
-      <td class="<?php echo get_estimate_class($story) ?>"><?php echo format_timestamp($story->getCurrentEstimate()) ?></td>
+      <td class="<?php echo get_estimate_class($story) ?>"><?php echo format_timestamp($story->getCurrentEstimate(), 'h') ?></td>
     </tr>
     <tr>
       <th>Effort spent</th>
-      <td><?php echo format_timestamp($story->getEffortSpent()) ?></td>
+      <td><?php echo format_timestamp($story->getEffortSpent(), 'h') ?></td>
     </tr>
     <tr>
       <th>Effort left</th>
-      <td><?php echo format_timestamp($story->getEffortLeft()) ?></td>
+      <td><?php echo format_timestamp($story->getEffortLeft(), 'h') ?></td>
     </tr>
     <tr>
       <th>Number of left tasks</th>

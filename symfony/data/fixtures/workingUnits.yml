@@ -1,0 +1,8 @@
+WorkingUnit:
+<?php for($i = 0; $i < 10; $i++) : ?>
+  wu_1_3_1_<?php echo $i + 1 ?>_1:
+    User:              sgu_adam
+    Task:              task_1_3_1_<?php echo $i + 1 . "\n" ?>
+    effort_spent:      90
+    date:              '<?php echo date('Y-m-d') ?>'
+<?php endfor ?>

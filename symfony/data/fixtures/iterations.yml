@@ -9,6 +9,11 @@ Iteration:
     Project: project_1_1
     start_date: '<?php echo date('Y-m-d') ?>'
 
+  iteration_1_3:
+    name:    Late iteration
+    Project: project_1_1
+    start_date: '<?php echo date('Y-m-d') ?>'
+    
   iteration_2_1:
     name:    First iteration
     Project: project_1_2

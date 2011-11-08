@@ -27,14 +27,14 @@
         </span>
       </td>
       <td class="center"><?php echo format_priority($task->getPriority()) ?></td>
-      <td class="center"><?php echo format_timestamp($task->getOriginalEstimate()) ?></td>
+      <td class="center"><?php echo format_timestamp($task->getOriginalEstimate(), 'h') ?></td>
       <td class="center">
         <span class="<?php echo ($task->getCurrentEstimate() == 0 ? 'warning ' : '') ?><?php echo get_estimate_class($task) ?>">
-          <?php echo format_timestamp($task->getCurrentEstimate()) ?>
+          <?php echo format_timestamp($task->getCurrentEstimate(), 'h') ?>
         </span>
       </td>
-      <td class="center"><?php echo format_timestamp($task->getEffortLeft()) ?></td>
-      <td class="center"><?php echo format_timestamp($task->getEffortSpent()) ?></td>
+      <td class="center"><?php echo format_timestamp($task->getEffortLeft(), 'h') ?></td>
+      <td class="center"><?php echo format_timestamp($task->getEffortSpent(), 'h') ?></td>
       <td class="center">
         <?php echo edit_link_to('task_edit', $task) ?>
         <?php echo delete_link_to('task_delete', $task) ?>

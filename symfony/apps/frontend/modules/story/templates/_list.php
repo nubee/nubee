@@ -26,10 +26,10 @@
             ?>
           </span>
         </td>
-        <td class="center"><?php echo format_timestamp($story->getOriginalEstimate()) ?></td>
-        <td class="center <?php echo get_estimate_class($story) ?>"><?php echo format_timestamp($story->getCurrentEstimate()) ?></td>
-        <td class="center"><?php echo format_timestamp($story->getEffortLeft()) ?></td>
-        <td class="center"><?php echo format_timestamp($story->getEffortSpent()) ?></td>
+        <td class="center"><?php echo format_timestamp($story->getOriginalEstimate(), 'd') ?></td>
+        <td class="center <?php echo get_estimate_class($story) ?>"><?php echo format_timestamp($story->getCurrentEstimate(), 'd') ?></td>
+        <td class="center"><?php echo format_timestamp($story->getEffortLeft(), 'd') ?></td>
+        <td class="center"><?php echo format_timestamp($story->getEffortSpent(), 'd') ?></td>
         <td class="center">
           <?php echo edit_link_to('story_edit', $story) ?>
           <?php echo delete_link_to('story_delete', $story) ?>

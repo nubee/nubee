@@ -24,45 +24,7 @@
   <?php echo format_text($iteration->getDescription()) ?>
 </div>
 
-<div id="chart_box" style="width:600px;float: right;margin-bottom: 20px;">
-  <div id="chart" ></div>
-</div>
-
-<?php include_partial('content/effortChart', array('item' => $iteration, 'children' => $iteration->getTasks())) ?>
-
-<script>
-  
-/*
-
-$(function(){
-  var series = [];
-  var options = [];
-  <?php $originalEstimate = ($iteration->getOriginalEstimate()); ?>
-  <?php $currentEstimate = ($iteration->getCurrentEstimate()); ?>
-  
-  series.push([
-  <?php for($i = 0; $i <= $originalEstimate; $i += 60) : ?>
- <?php echo sprintf('[%s,%s],', $i, $originalEstimate - $i) ?>
-<?php endfor ?> [<?php echo $originalEstimate ?>, 0]]);
-  options.push({ color: '#00336f', label: 'Original estimate'});
-    
-  <?php if($currentEstimate != $originalEstimate) : ?>
-  series.push([
-  <?php for($i = 0; $i <= $currentEstimate; $i += 60) : ?>
-    <?php echo sprintf('[%s,%s],', $i, $currentEstimate - $i) ?>
-  <?php endfor ?>0]);
-  options.push({ color: 'red', label: 'Current estimate'});
-  <?php endif; ?>
-    
-  series.push([[<?php echo $iteration->getEffortSpent() ?>, <?php echo $currentEstimate - $iteration->getEffortSpent() ?>]]);
-  options.push({ label: 'Effort spent', color: '#a4e142', markerOptions: { style:'square' }});
-  
-  $.jqplot('chart', series, {
-    series: options,
-    legend: { show: true }
-  });
-});  */
-</script>
+<?php include_partial('content/effortChart', array('id' => 'chart', 'item' => $iteration, 'children' => $iteration->getStories(), 'length' => 60*8)) ?>
 
 <div class="section">
   <h2>
@@ -70,24 +32,28 @@ $(function(){
   </h2>
   <table class="details">
     <tr>
+      <th>Manager</th>
+      <td><?php echo link_to($iteration->getManager(), 'user_show', $iteration->getManager()) ?></td>
+    </tr>
+    <tr>
       <th>Start date</th>
       <td><?php echo format_date($iteration->getStartDate(), 'd/M/y') ?></td>
     </tr>
     <tr>
       <th>Original estimate</th>
-      <td><?php echo format_timestamp($iteration->getOriginalEstimate()) ?></td>
+      <td><?php echo format_timestamp($iteration->getOriginalEstimate(), 'd') ?></td>
     </tr>
     <tr>
       <th>Current estimate</th>
-      <td class="<?php echo get_estimate_class($iteration) ?>"><?php echo format_timestamp($iteration->getCurrentEstimate()) ?></td>
+      <td class="<?php echo get_estimate_class($iteration) ?>"><?php echo format_timestamp($iteration->getCurrentEstimate(), 'd') ?></td>
     </tr>
     <tr>
       <th>Effort spent</th>
-      <td><?php echo format_timestamp($iteration->getEffortSpent()) ?></td>
+      <td><?php echo format_timestamp($iteration->getEffortSpent(), 'd') ?></td>
     </tr>
     <tr>
       <th>Effort left</th>
-      <td><?php echo format_timestamp($iteration->getEffortLeft()) ?></td>
+      <td><?php echo format_timestamp($iteration->getEffortLeft(), 'd') ?></td>
     </tr>
     <tr>
       <th>Number of stories</th>
@@ -104,6 +70,19 @@ $(function(){
         )) ?>
       </td>
     </tr>
+    <tr>
+      <th>Members</th>
+      <td>
+        <ul>
+          <?php if($iteration->hasMembers()) : ?>
+          <?php foreach($iteration->getMembers() as $user) : ?>
+          <li><?php echo link_to($user, 'user_show', $user) ?></li>
+          <?php endforeach; ?>
+          <?php else : ?>
+          No members assigned to this project
+          <?php endif; ?>
+      </td>
+    </tr>    
   </table>
 </div>
 

@@ -15,7 +15,8 @@ class ProjectForm extends BaseProjectForm
     
     $this->widgetSchema->setLabels(array(
       'user_id' => 'Project Manager',
-      'product_id' => 'Product'
+      'product_id' => 'Product',
+      'members_list' => 'Members'
     ));
   }
 }
