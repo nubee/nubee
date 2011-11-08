@@ -1,7 +1,7 @@
-nubee/cache/**/*
-nubee/cache/*
-nubee/log/**/*
-nubee/log/*
+symfony/cache/**/*
+symfony/cache/*
+symfony/log/**/*
+symfony/log/*
 .netbeans/nbproject/private/*
 /symfony/cache/.pear/
 /symfony/plugins/.channels/
