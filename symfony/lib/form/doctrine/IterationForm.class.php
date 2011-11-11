@@ -25,7 +25,10 @@ class IterationForm extends BaseIterationForm
     ));
 
     $this->widgetSchema['start_date'] = new nbWidgetFormDateJQueryUI();
-    $this->widgetSchema['start_date']->setDefault(date('m/d/Y'));
+    $this->widgetSchema['start_date']->setDefault(date('d/m/Y'));
+
+    $this->widgetSchema['end_date'] = new nbWidgetFormDateJQueryUI();
+    $this->widgetSchema['end_date']->setDefault(date('d/m/Y', strtotime('+1 month')));
 
     $this->widgetSchema->setLabels(array(
       'project_id' => 'Project'

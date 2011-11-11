@@ -43,6 +43,7 @@ Iteration:
     name:        { type: string(255), notnull: true }
     description: { type: string }
     start_date:  { type: date, notnull: true }
+    end_date:    { type: date, notnull: true }
   relations:
     Project:    { local: project_id, foreign: id, foreignAlias: Iterations, onDelete: CASCADE }
 
@@ -60,6 +61,7 @@ Task:
   actAs:               { Timestampable: ~ }
   columns:
     story_id:          { type: integer, notnull: true }
+    user_id:           { type: integer }
     name:              { type: string(255), notnull: true }
     description:       { type: string }
     original_estimate: { type: integer, notnull: true }
@@ -67,7 +69,8 @@ Task:
     status:            { type: enum, notnull: true, values: [not_started, started, done] }
     priority:          { type: enum, notnull: true, values: [none, p1, p2, p3, p4, p5, p6] }
   relations:
-    Story:             { local: story_id, foreign: id, foreignAlias: Tasks, onDelete: CASCADE }
+    Story:             { local: story_id, foreignAlias: Tasks, onDelete: CASCADE }
+    Assignee:          { class: sfGuardUser, local: user_id, foreignAlias: Tasks, onDelete: CASCADE }
 
 BacklogTask:
   actAs:               { Timestampable: ~ }

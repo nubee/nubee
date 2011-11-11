@@ -5,6 +5,7 @@ Project:
     name:    First Project
     version: '1.0'
     status:  enabled
+    Members:  [ sgu_adam, sgu_chloe ]
 
   project_1_2:
     Manager: sgu_adam
@@ -41,12 +42,3 @@ ProjectRelation:
   relation_2_1_3:
     Parent: project_2_1
     Child:  project_2_3
-
-ProjectMember:
-  prj_member_1_1:
-    Project: project_1_1
-    Member:  sgu_adam
-  prj_member_1_2:
-    Project: project_1_1
-    Member:  sgu_chloe
-

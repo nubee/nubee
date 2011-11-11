@@ -20,6 +20,7 @@ abstract class BaseIterationForm extends BaseFormDoctrine
       'name'        => new sfWidgetFormInputText(),
       'description' => new sfWidgetFormTextarea(),
       'start_date'  => new sfWidgetFormDate(),
+      'end_date'    => new sfWidgetFormDate(),
       'created_at'  => new sfWidgetFormDateTime(),
       'updated_at'  => new sfWidgetFormDateTime(),
     ));
@@ -30,6 +31,7 @@ abstract class BaseIterationForm extends BaseFormDoctrine
       'name'        => new sfValidatorString(array('max_length' => 255)),
       'description' => new sfValidatorString(array('required' => false)),
       'start_date'  => new sfValidatorDate(),
+      'end_date'    => new sfValidatorDate(),
       'created_at'  => new sfValidatorDateTime(),
       'updated_at'  => new sfValidatorDateTime(),
     ));

@@ -37,7 +37,11 @@
     </tr>
     <tr>
       <th>Start date</th>
-      <td><?php echo format_date($iteration->getStartDate(), 'd/M/y') ?></td>
+      <td><?php echo format_date($iteration->getStartDate(), 'dd/M/yyyy') ?></td>
+    </tr>
+    <tr>
+      <th>End date</th>
+      <td><?php echo format_date($iteration->getEndDate(), 'dd/M/yyyy') ?></td>
     </tr>
     <tr>
       <th>Original estimate</th>

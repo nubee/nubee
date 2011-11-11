@@ -3,7 +3,7 @@ CREATE TABLE iteration (id BIGINT AUTO_INCREMENT, project_id BIGINT NOT NULL, na
 CREATE TABLE migration_version (id BIGINT AUTO_INCREMENT, version BIGINT, PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE product (id BIGINT AUTO_INCREMENT, name VARCHAR(255) NOT NULL, description TEXT, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, slug VARCHAR(255), UNIQUE INDEX product_sluggable_idx (slug), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE project (id BIGINT AUTO_INCREMENT, user_id BIGINT NOT NULL, product_id BIGINT NOT NULL, name VARCHAR(255) NOT NULL, description TEXT, version VARCHAR(16) NOT NULL, website VARCHAR(255), status VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, slug VARCHAR(255), UNIQUE INDEX project_sluggable_idx (slug), INDEX user_id_idx (user_id), INDEX product_id_idx (product_id), PRIMARY KEY(id)) ENGINE = INNODB;
-CREATE TABLE project_member (id BIGINT AUTO_INCREMENT, project_id BIGINT NOT NULL, member_id BIGINT NOT NULL, INDEX project_id_idx (project_id), INDEX member_id_idx (member_id), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE project_member (id BIGINT AUTO_INCREMENT, project_id BIGINT NOT NULL, member_id BIGINT NOT NULL, INDEX member_id_idx (member_id), INDEX project_id_idx (project_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE project_relation (parent_id BIGINT, child_id BIGINT, PRIMARY KEY(parent_id, child_id)) ENGINE = INNODB;
 CREATE TABLE story (id BIGINT AUTO_INCREMENT, iteration_id BIGINT NOT NULL, name VARCHAR(255) NOT NULL, description TEXT, priority VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX iteration_id_idx (iteration_id), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE task (id BIGINT AUTO_INCREMENT, story_id BIGINT NOT NULL, name VARCHAR(255) NOT NULL, description TEXT, original_estimate BIGINT NOT NULL, current_estimate BIGINT NOT NULL, status VARCHAR(255) NOT NULL, priority VARCHAR(255) NOT NULL, created_at DATETIME NOT NULL, updated_at DATETIME NOT NULL, INDEX story_id_idx (story_id), PRIMARY KEY(id)) ENGINE = INNODB;
@@ -23,8 +23,8 @@ ALTER TABLE backlog_task ADD CONSTRAINT backlog_task_project_id_project_id FOREI
 ALTER TABLE iteration ADD CONSTRAINT iteration_project_id_project_id FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE;
 ALTER TABLE project ADD CONSTRAINT project_user_id_sf_guard_user_id FOREIGN KEY (user_id) REFERENCES sf_guard_user(id);
 ALTER TABLE project ADD CONSTRAINT project_product_id_product_id FOREIGN KEY (product_id) REFERENCES product(id) ON DELETE CASCADE;
-ALTER TABLE project_member ADD CONSTRAINT project_member_project_id_project_id FOREIGN KEY (project_id) REFERENCES project(id) ON DELETE CASCADE;
-ALTER TABLE project_member ADD CONSTRAINT project_member_member_id_sf_guard_user_id FOREIGN KEY (member_id) REFERENCES sf_guard_user(id) ON DELETE CASCADE;
+ALTER TABLE project_member ADD CONSTRAINT project_member_project_id_project_id FOREIGN KEY (project_id) REFERENCES project(id);
+ALTER TABLE project_member ADD CONSTRAINT project_member_member_id_sf_guard_user_id FOREIGN KEY (member_id) REFERENCES sf_guard_user(id);
 ALTER TABLE project_relation ADD CONSTRAINT project_relation_parent_id_project_id FOREIGN KEY (parent_id) REFERENCES project(id) ON DELETE CASCADE;
 ALTER TABLE project_relation ADD CONSTRAINT project_relation_child_id_project_id FOREIGN KEY (child_id) REFERENCES project(id);
 ALTER TABLE story ADD CONSTRAINT story_iteration_id_iteration_id FOREIGN KEY (iteration_id) REFERENCES iteration(id) ON DELETE CASCADE;

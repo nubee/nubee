@@ -13,5 +13,6 @@ class ProjectConfiguration extends sfProjectConfiguration
       'sfDoctrineGuardPlugin',
       'sfJQueryUIPlugin'
     ));
+    $this->enablePlugins('sfFormExtraPlugin');
   }
 }

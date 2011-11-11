@@ -49,8 +49,10 @@ class nbWidgetFormDateJQueryUI extends sfWidgetForm
     $attributes = $this->getAttributes();
 
     $input = new sfWidgetFormInput(array(), $attributes);
+    
+    $date = new DateTime($value);
 
-    $html = $input->render($name, $value);
+    $html = $input->render($name, $date->format('m/d/Y'));
 
     $id = $input->generateId($name);
     $culture = $this->getOption('culture');
@@ -67,6 +69,7 @@ class nbWidgetFormDateJQueryUI extends sfWidgetForm
 <script type="text/javascript">
 	$(function() {
     var params = $.datepicker.regional['$culture'];
+    params.dateFormat = 'mm/dd/yy';
     params.changeMonth = $cm;
     params.changeYear = $cy;
     params.numberOfMonths = $nom;
@@ -84,6 +87,7 @@ EOHTML;
 <script type="text/javascript">
 	$(function() {
     var params = {
+      dateFormat: 'mm/dd/yy',
       changeMonth : $cm,
       changeYear : $cy,
       numberOfMonths : $nom,
@@ -110,8 +114,6 @@ EOHTML;
 
   public function getStylesheets()
   {
-//    $theme = $this->getOption('theme');
-//    return array($theme => 'screen');
     return array();
   }
 
@@ -124,18 +126,7 @@ EOHTML;
   {
     //check if jquery is loaded
     $js = array();
-    /*    if (sfConfig::has('sf_jquery_web_dir') && sfConfig::has('sf_jquery_core'))
-      $js[] = sfConfig::get('sf_jquery_web_dir').'/js/'.sfConfig::get('sf_jquery_core');
-      else
-      $js[] = '/sfJQueryUIPlugin/js/jquery-1.3.1.min.js';
-
-      $js[] = '/sfJQueryUIPlugin/js/jquery-ui.js';
-
-      $culture = $this->getOption('culture');
-      if ($culture!='en')
-      $js[] = '/sfJQueryUIPlugin/js/i18n/ui.datepicker-'.$culture.".js";
-
-     */ return $js;
+    return $js;
   }
 
 }

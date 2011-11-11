@@ -3,6 +3,8 @@
   <thead>
     <tr>
       <th class="left width40">Name</th>
+      <th class="center width10">Start Date</th>
+      <th class="center width10">End Date</th>
       <th class="center width10">Stories</th>
       <th class="center width10">Tasks</th>
       <th class="center width5">OE</th>
@@ -16,6 +18,8 @@
     <?php foreach ($iterations as $i => $iteration): ?>
     <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">
       <td><?php echo link_to($iteration, 'iteration_show', $iteration) ?></td>
+      <td class="center"><?php echo format_date($iteration->getStartDate(), 'dd/MM/yyyy') ?></td>
+      <td class="center"><?php echo format_date($iteration->getEndDate(), 'dd/MM/yyyy') ?></td>
       <td class="center"><?php echo $iteration->getStories()->count() ?></td>
       <td class="center"><?php echo $iteration->getTasks()->count() ?></td>
       <td class="center"><?php echo format_timestamp($iteration->getOriginalEstimate(), 'w') ?></td>

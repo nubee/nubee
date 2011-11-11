@@ -17,6 +17,7 @@
       <?php echo $form['name']->renderRow() ?>
       <?php echo $form['description']->renderRow() ?>
       <?php echo $form['start_date']->renderRow() ?>
+      <?php echo $form['end_date']->renderRow() ?>
     </tbody>
     <tfoot>
       <tr>

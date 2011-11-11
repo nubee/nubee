@@ -14,6 +14,7 @@ abstract class BaseTaskFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'story_id'          => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Story'), 'add_empty' => true)),
+      'user_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Assignee'), 'add_empty' => true)),
       'name'              => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'description'       => new sfWidgetFormFilterInput(),
       'original_estimate' => new sfWidgetFormFilterInput(array('with_empty' => false)),
@@ -26,6 +27,7 @@ abstract class BaseTaskFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'story_id'          => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Story'), 'column' => 'id')),
+      'user_id'           => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Assignee'), 'column' => 'id')),
       'name'              => new sfValidatorPass(array('required' => false)),
       'description'       => new sfValidatorPass(array('required' => false)),
       'original_estimate' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
@@ -55,6 +57,7 @@ abstract class BaseTaskFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'                => 'Number',
       'story_id'          => 'ForeignKey',
+      'user_id'           => 'ForeignKey',
       'name'              => 'Text',
       'description'       => 'Text',
       'original_estimate' => 'Number',

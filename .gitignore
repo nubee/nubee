@@ -6,3 +6,4 @@ symfony/log/*
 /symfony/cache/.pear/
 /symfony/plugins/.channels/
 /symfony/plugins/.registry/
+/.netbeans/

@@ -17,6 +17,7 @@ abstract class BaseTaskForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'                => new sfWidgetFormInputHidden(),
       'story_id'          => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Story'), 'add_empty' => false)),
+      'user_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Assignee'), 'add_empty' => true)),
       'name'              => new sfWidgetFormInputText(),
       'description'       => new sfWidgetFormTextarea(),
       'original_estimate' => new sfWidgetFormInputText(),
@@ -30,6 +31,7 @@ abstract class BaseTaskForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'                => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'story_id'          => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Story'))),
+      'user_id'           => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Assignee'), 'required' => false)),
       'name'              => new sfValidatorString(array('max_length' => 255)),
       'description'       => new sfValidatorString(array('required' => false)),
       'original_estimate' => new sfValidatorInteger(),

@@ -9,6 +9,7 @@
  * @property string $name
  * @property string $description
  * @property date $start_date
+ * @property date $end_date
  * @property Project $Project
  * @property Doctrine_Collection $Stories
  * 
@@ -16,12 +17,14 @@
  * @method string              getName()        Returns the current record's "name" value
  * @method string              getDescription() Returns the current record's "description" value
  * @method date                getStartDate()   Returns the current record's "start_date" value
+ * @method date                getEndDate()     Returns the current record's "end_date" value
  * @method Project             getProject()     Returns the current record's "Project" value
  * @method Doctrine_Collection getStories()     Returns the current record's "Stories" collection
  * @method Iteration           setProjectId()   Sets the current record's "project_id" value
  * @method Iteration           setName()        Sets the current record's "name" value
  * @method Iteration           setDescription() Sets the current record's "description" value
  * @method Iteration           setStartDate()   Sets the current record's "start_date" value
+ * @method Iteration           setEndDate()     Sets the current record's "end_date" value
  * @method Iteration           setProject()     Sets the current record's "Project" value
  * @method Iteration           setStories()     Sets the current record's "Stories" collection
  * 
@@ -48,6 +51,10 @@ abstract class BaseIteration extends sfDoctrineRecord
              'type' => 'string',
              ));
         $this->hasColumn('start_date', 'date', null, array(
+             'type' => 'date',
+             'notnull' => true,
+             ));
+        $this->hasColumn('end_date', 'date', null, array(
              'type' => 'date',
              'notnull' => true,
              ));
