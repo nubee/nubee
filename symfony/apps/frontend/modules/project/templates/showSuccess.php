@@ -24,8 +24,85 @@
   <?php echo format_text($project->getDescription()) ?>
 </div>
 
+<div id="timeline" style="width:600px;height:300px;float:right"></div>
+<script>
+  var data = [
+    // Marker for today
+    {
+      data: [[new Date(), 0], [new Date(), 1]],
+      points: { show: false },
+      color: '#00336f'
+    },
+    { 
+      label: '<?php echo $project->getName() ?>',
+      data: <?php echo format_flot_dates($project, 0.50) ?>,
+      points: { symbol: "triangle" },
+      color: '#000'
+    }
+    <?php foreach($project->getIterations() as $iteration) : ?>,
+    { 
+      label: '<?php echo $iteration->getName() ?>',
+      data: <?php echo format_flot_dates($iteration, 0.35) ?>,
+      points: { symbol: "circle" },
+      color: '<?php echo $iteration->getColor() ?>'
+    }
+    <?php endforeach; ?>
+  ];
 
-<?php include_partial('content/effortChart', array('id' => 'chart', 'item' => $project, 'children' => $project->getIterations(), 'length' => 60*8*5)) ?>
+  var startDate = new Date(<?php echo strtotime($project->getStartDate()) * 1000 ?>).addMonths(-1);
+  var endDate = new Date(<?php echo strtotime($project->getEndDate()) * 1000 ?>).addMonths(1);
+  
+  $.plot($("#timeline"), data, { 
+    xaxis: { 
+      mode: "time",
+      minTickSize: [1, "month"],
+      min: startDate,
+      max: endDate
+    },
+    yaxis: { 
+      show: false,
+      min: 0,
+      max: 1
+    },
+    series: { 
+      lines: { show: true },
+      points: { show: true, radius: 3 } 
+    },
+    grid: { hoverable: true }
+  });
+  
+  
+  function showTooltip(x, y, contents) {
+    $('<div id="tooltip">' + contents + '</div>').css( {
+      position: 'absolute',
+      display: 'none',
+      top: y + 5,
+      left: x + 5,
+      border: '1px solid #fdd',
+      padding: '2px',
+      'background-color': '#fee',
+      opacity: 0.80
+    }).appendTo("body").fadeIn(200);
+  }  
+
+  var previousPoint = null;  
+  $("#timeline").bind("plothover", function (event, pos, item) {
+    if (item) {
+      if (previousPoint != item.dataIndex) {
+        previousPoint = item.dataIndex;
+
+        $("#tooltip").remove();
+        var date = new Date(item.datapoint[0]);
+
+        showTooltip(item.pageX, item.pageY, $.plot.formatDate(date, '%b %d'));
+      }
+    }
+    else {
+        $("#tooltip").remove();
+        previousPoint = null;            
+    }
+  });  
+</script>
 
 <div class="section">
   <h2>Details</h2>
@@ -34,6 +111,14 @@
       <th>Manager</th>
       <td><?php echo link_to($project->getManager(), 'user_show', $project->getManager()) ?></td>
     </tr>    
+    <tr>
+      <th>Start date</th>
+      <td><?php echo format_date($project->getStartDate(), 'dd/M/yyyy') ?></td>
+    </tr>
+    <tr>
+      <th>End date</th>
+      <td><?php echo format_date($project->getEndDate(), 'dd/M/yyyy') ?></td>
+    </tr>
     <tr>
       <th>Number of iterations</th>
       <td>

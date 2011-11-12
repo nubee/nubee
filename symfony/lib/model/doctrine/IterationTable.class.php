@@ -4,7 +4,7 @@
  */
 class IterationTable extends Doctrine_Table
 {
-  public function findByProduct($product) {
+  public function findByProduct(Product $product) {
     $q = $this->createQuery('i')
       ->leftJoin('i.Project p')
       ->where('p.product_id = ?', $product->getId());
@@ -12,9 +12,10 @@ class IterationTable extends Doctrine_Table
     return $q->execute();
   }
 
-  public function findByProjectQuery($project) {
+  public function findByProjectQuery(Product $project) {
     $q = $this->createQuery('i')
       ->where('i.project_id = ?', $project->getId());
     return $q;
   }
+ 
 }

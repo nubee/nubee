@@ -77,5 +77,31 @@ class Project extends BaseProject
       $timestamp += $task->getEffortSpent();
     return $timestamp;
   }  
+  
+  public function getStartDate() {
+    $date = null;
+    
+    foreach($this->getIterations() as $iteration) {
+      $startDate = strtotime($iteration->getStartDate());
+      
+      if(!$date || $date > $startDate)
+        $date = $startDate;
+    }
+    
+    return date('Y-m-d', $date);
+  }
+  
+  public function getEndDate() {
+    $date = null;
+    
+    foreach($this->getIterations() as $iteration) {
+      $endDate = strtotime($iteration->getEndDate());
+      
+      if(!$date || $date <= $endDate)
+        $date = $endDate;
+    }
+    
+    return date('Y-m-d', $date);
+  }
 
 }

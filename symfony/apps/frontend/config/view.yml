@@ -13,6 +13,7 @@ default:
     - jquery.treeview.css
     - jquery.jqplot.min.css
     - jquery.ui.css
+    - jquery.ganttView.css
     - main.css
     - common.css
     - layout.css
@@ -29,6 +30,7 @@ default:
     - chart.css
 
   javascripts:
+    - date.js
     - jquery.min.js
     - jquery.ui.min.js
     - jquery.corner.js
@@ -38,6 +40,13 @@ default:
     - jquery.splitter.js
     - jquery.progressbar.min.js
     - jquery.jqplot.min.js
+    - plugins/jqplot.highlighter.min.js
+    - plugins/jqplot.cursor.min.js
+    - plugins/jqplot.dateAxisRenderer.min.js
+    - plugins/jqplot.pointLabels.min.js
+    - jquery.ganttView.js
+    - jquery.flot.js
+    - jquery.flot.symbol.js
 
   has_layout:     true
   layout:         layout

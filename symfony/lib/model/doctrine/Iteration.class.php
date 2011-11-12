@@ -64,4 +64,34 @@ class Iteration extends BaseIteration
       $timestamp += $task->getEffortSpent();
     return $timestamp;
   }
+  
+  public function getColor() {
+    if($this->isDone()) {
+      return $this->isLate() ? '#ff5e07' : '#a4e142';
+    }
+    else {
+      return $this->isLate() ? '#ff0000' : 'gray';
+    }
+  }
+  
+  public function isDone() {
+    return $this->getEffortLeft() == 0;
+  }
+  
+  public function isLate() {
+    $endDate = strtotime($this->getEndDate());
+    $today = strtotime('today');
+    
+    if(!$this->isDone() && $endDate < $today)
+      return true;
+    
+    $lastWorkingUnit = WorkingUnitTable::getInstance()->getLastByIteration($this);
+    
+    if(!$lastWorkingUnit)
+      return false;
+    
+    $lastDate = strtotime($lastWorkingUnit->getDate());
+    
+    return $endDate <= $lastDate;
+  }
 }

@@ -1,18 +1,21 @@
 Iteration:
   iteration_1_1:
-    name:    First iteration
+    name:    First milestone
     Project: project_1_1
-    start_date: '<?php echo date('Y-m-d') ?>'
+    start_date: '<?php echo date('Y-m-d', strtotime('-2 month')) ?>'
+    end_date: '<?php echo date('Y-m-d', strtotime('-1 month')) ?>'
 
   iteration_1_2:
-    name:    Second iteration
+    name:    Early milestone (green)
     Project: project_1_1
-    start_date: '<?php echo date('Y-m-d') ?>'
+    start_date: '<?php echo date('Y-m-d', strtotime('+1 month')) ?>'
+    end_date: '<?php echo date('Y-m-d', strtotime('+2 month')) ?>'
 
   iteration_1_3:
-    name:    Late iteration
+    name:    Late milestone (red)
     Project: project_1_1
-    start_date: '<?php echo date('Y-m-d') ?>'
+    start_date: '<?php echo date('Y-m-d', strtotime('+2 month')) ?>'
+    end_date: '<?php echo date('Y-m-d', strtotime('+2 month +1week')) ?>'
     
   iteration_2_1:
     name:    First iteration

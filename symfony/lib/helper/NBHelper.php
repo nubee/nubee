@@ -161,3 +161,26 @@ function format_efforts($item, $children, $length, $debug = false) {
   
   return $str;
 }
+
+function count_months($start, $end) {
+  $start = strtotime($start);
+  $end = strtotime($end);
+  
+  $m1 = date('n', $start);
+  $m2 = date('n', $end);
+  
+  $y1 = date('y', $start);
+  $y2 = date('y', $end);
+  
+//  echo $m1 . ' ' . $m2 . "<br />";
+//  echo $y1 . ' ' . $y2 . "<br />";
+
+  return ($m2 - $m1) + ($y2 - $y1) * 12;
+}
+
+function format_flot_dates($item, $value) {
+  $startDate = strtotime($item->getStartDate()) * 1000;
+  $endDate = strtotime($item->getEndDate()) * 1000;
+
+  return sprintf('[[%s, %s], [%s, %s]]', $startDate, $value, $endDate, $value);
+}
