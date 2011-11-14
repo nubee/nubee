@@ -4,7 +4,7 @@
  */
 class StoryTable extends Doctrine_Table
 {
-  public function findByProduct($product) {
+  public function findByProduct(Product $product) {
     $q = $this->createQuery('s')
       ->leftJoin('s.Iteration i')
       ->leftJoin('i.Project p')
@@ -13,7 +13,7 @@ class StoryTable extends Doctrine_Table
     return $q->execute();
   }
 
-  public function findByProject($project) {
+  public function findByProject(Project $project) {
     $q = $this->createQuery('s')
       ->leftJoin('s.Iteration i')
       ->where('i.project_id = ?', $project->getId());
@@ -21,18 +21,18 @@ class StoryTable extends Doctrine_Table
     return $q->execute();
   }
 
-  public function findByIterationQuery($iteration) {
+  public function findByIterationQuery(Iteration $iteration) {
     $q = $this->createQuery('s')
       ->where('s.iteration_id = ?', $iteration->getId())
       ->orderBy('s.priority DESC');
     return $q;
   }
 
-  public function findByIteration($iteration) {
+  public function findByIteration(Iteration $iteration) {
     return $this->findByIterationQuery($iteration)->execute();
   }
 
-  public function findMostActive($user, $limit) {
+  public function findMostActive(sfGuardUser $user, $limit) {
     $q = Doctrine_Query::create()
       ->select('s.*')
       ->addSelect('(SELECT count(*) FROM WorkingUnit w1 WHERE w1.task_id = t.id and w1.user_id = u.id) as count_working_units')

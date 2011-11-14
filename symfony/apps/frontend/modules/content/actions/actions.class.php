@@ -17,6 +17,6 @@ class contentActions extends sfActions
   public function executeDashboard(sfWebRequest $request)
   {
     $this->projects = Doctrine::getTable('Project')->findMostActive(5);
-    $this->stories = Doctrine::getTable('Story')->findMostActive($this->getUser(), 5);
+    $this->stories = Doctrine::getTable('Story')->findMostActive($this->getUser()->getGuardUser(), 5);
   }
 }

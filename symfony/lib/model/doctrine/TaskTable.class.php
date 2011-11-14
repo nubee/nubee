@@ -4,6 +4,7 @@
  */
 class TaskTable extends Doctrine_Table
 {
+
   public function findByProductQuery(Product $product) {
     $q = $this->createQuery('t')
       ->leftJoin('t.Story s')
@@ -91,7 +92,10 @@ class TaskTable extends Doctrine_Table
   public function findByStoryQuery(Story $story) {
     $q = $this->createQuery('t')
       ->where('t.story_id = ?', $story->getId())
-      ->orderBy('t.priority DESC');
+      ->orderBy('t.status = \'done\' ASC')
+      ->addOrderBy('t.status = \'started\' DESC')
+      ->addOrderBy('t.priority DESC')
+      ;
 
     return $q;
   }

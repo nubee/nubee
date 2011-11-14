@@ -12,7 +12,7 @@ class IterationTable extends Doctrine_Table
     return $q->execute();
   }
 
-  public function findByProjectQuery(Product $project) {
+  public function findByProjectQuery(Project $project) {
     $q = $this->createQuery('i')
       ->where('i.project_id = ?', $project->getId());
     return $q;
