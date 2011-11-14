@@ -24,7 +24,7 @@
         <td colspan="2">
           <?php echo $form->renderHiddenFields() ?>
           <?php echo $form->renderGlobalErrors() ?>
-          <input type="submit" value="Save" />
+          <button type="submit">Save</button>
         </td>
       </tr>
     </tfoot>

@@ -1,14 +1,14 @@
 <?php use_helper('I18N') ?>
 
 <form action="<?php echo url_for('@sf_guard_signin') ?>" method="post">
-  <table>
+  <table class="details">
     <tbody>
       <?php echo $form ?>
     </tbody>
     <tfoot>
       <tr>
         <td colspan="2">
-          <input type="submit" value="<?php echo __('Login', null, 'sf_guard') ?>" />
+          <button type="submit"><?php echo __('Login', null, 'sf_guard') ?></button>
           
           <?php $routes = $sf_context->getRouting()->getRoutes() ?>
           <?php if (isset($routes['sf_guard_forgot_password'])): ?>

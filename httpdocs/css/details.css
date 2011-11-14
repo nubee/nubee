@@ -9,6 +9,7 @@
   padding: 5px;
   width: 200px;
   vertical-align: top;
+  font-size: 11px;
 }
 
 .details td {
@@ -22,12 +23,18 @@
 .details tfoot td {
   padding-top: 10px;
 }
+.details input, 
 .details select {
-  width: 150px;
+  width: 200px;
+  padding: 3px;
 }
+
 .details textarea {
-  width: 300px;
+  width: 400px;
   height: 100px;
+}
+.details button {
+  padding: 3px 6px;
 }
 
 .error_list {

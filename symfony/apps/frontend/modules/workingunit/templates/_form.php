@@ -7,7 +7,7 @@
   <?php echo $form['effort_spent']->renderHelp(); ?>
   <?php echo $form['date']->renderLabel(); ?> <?php echo $form['date']; ?>
   <?php echo $form['date']->renderHelp(); ?>
-  <input type="submit" value="Add" />
+  <button type="submit">Add</button>
   <?php echo $form['effort_spent']->renderError(); ?>
   <?php echo $form->renderHiddenFields() ?>
   <?php echo $form->renderGlobalErrors() ?>

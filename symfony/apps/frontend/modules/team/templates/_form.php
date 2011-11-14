@@ -19,7 +19,7 @@
     <tfoot>
       <tr>
         <td colspan="2">
-          <input type="submit" value="Save" />
+          <button type="submit">Save</button>
         </td>
       </tr>
     </tfoot>
