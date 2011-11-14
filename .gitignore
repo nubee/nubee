@@ -1,6 +1,4 @@
-symfony/cache/**/*
 symfony/cache/*
-symfony/log/**/*
 symfony/log/*
 .netbeans/nbproject/private/*
 /symfony/cache/.pear/
