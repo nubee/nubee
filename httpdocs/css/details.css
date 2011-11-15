@@ -32,6 +32,7 @@
 .details textarea {
   width: 400px;
   height: 100px;
+  padding: 3px;
 }
 .details button {
   padding: 3px 6px;
