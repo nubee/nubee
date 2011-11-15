@@ -17,32 +17,28 @@ class IterationForm extends BaseIterationForm
       'model' => 'Project',
       'query' => Doctrine::getTable('Project')->findByProductQuery($this->getObject()->getProduct()),
       'add_empty' => false
+    ), array(
+      'class' => 'width100',
     ));
+    
+    $this->widgetSchema['name']->setAttribute('class', 'width95');
+    $this->widgetSchema['description']->setAttribute('class', 'width95');
 
     $this->validatorSchema['project_id'] = new sfValidatorDoctrineChoice(array(
       'model' => 'Project',
       'query' => Doctrine::getTable('Project')->findByProductQuery($this->getObject()->getProduct()),
     ));
 
-    $this->widgetSchema['start_date'] = new nbWidgetFormDateInput();
+    $this->widgetSchema['start_date'] = new nbWidgetFormDateInput(array(
+      'class' => 'date width100f'
+    ));
     $this->widgetSchema['start_date']->setDefault(date('d/m/Y'));
 
-    $this->widgetSchema['end_date'] = new nbWidgetFormDateInput();
+    $this->widgetSchema['end_date'] = new nbWidgetFormDateInput(array(
+      'class' => 'date width100f'
+    ));
     $this->widgetSchema['end_date']->setDefault(date('d/m/Y', strtotime('+1 month')));
 
-/*    $this->validatorSchema['start_date'] = new nbDateValidator(array(
-      'date_output' => 'Y-m-d',
-      'input_date_format' => 'd/m/Y',
-      'output_date_format' => 'Y-m-d',
-      'with_time' => false,     
-    ));
-    $this->validatorSchema['end_date'] = new nbDateValidator(array(
-      'date_output' => 'Y-m-d',
-      'input_date_format' => 'd/m/Y',
-      'output_date_format' => 'Y-m-d',
-      'with_time' => false,     
-    ));
-*/    
     $this->widgetSchema->setLabels(array(
       'project_id' => 'Project'
     ));

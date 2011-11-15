@@ -25,12 +25,10 @@
 }
 .details input, 
 .details select {
-  width: 98%;
   padding: 3px;
 }
 
 .details textarea {
-  width: 400px;
   height: 100px;
   padding: 3px;
 }
