@@ -5,6 +5,15 @@
  */
 class Task extends BaseTask
 {
+  public function formatName($showComplete) {
+    $name = $this->getName();
+    
+    if($showComplete)
+      return sprintf('%s - %s', $this->getStory()->formatName($showComplete), $name);
+    
+    return $name;
+  }
+  
   public function getProduct() {
     return $this->getStory()->getProduct();
   }
