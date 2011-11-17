@@ -124,4 +124,17 @@ class TaskTable extends Doctrine_Table
 
     return $q->count();
   }
+  
+  public function findMineUncomplete(sfGuardUser $user) {
+    $q = $this->createQuery('t')
+      ->leftJoin('t.Story s')
+      ->leftJoin('s.Iteration i')
+      ->leftJoin('i.Project p')
+      ->leftJoin('t.Assignee a')
+      ->where('a.id = ?', $user->getId())
+      ->andWhere('t.status <> ?', 'done');
+
+    return $q->execute();
+  }  
+  
 }

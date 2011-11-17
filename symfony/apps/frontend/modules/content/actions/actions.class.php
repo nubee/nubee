@@ -18,5 +18,8 @@ class contentActions extends sfActions
   {
     $this->projects = Doctrine::getTable('Project')->findMostActive(5);
     $this->stories = Doctrine::getTable('Story')->findMostActive($this->getUser()->getGuardUser(), 5);
+
+    $this->myProjects = Doctrine::getTable('Project')->findMineUncomplete($this->getUser()->getGuardUser());
+    $this->myTasks = Doctrine::getTable('Task')->findMineUncomplete($this->getUser()->getGuardUser());
   }
 }

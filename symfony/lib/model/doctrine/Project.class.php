@@ -5,6 +5,15 @@
  */
 class Project extends BaseProject
 {
+  public function formatName($showComplete) {
+    $name = $this->getName();
+    
+    if($showComplete)
+      return sprintf('%s - %s', $this->getProduct()->formatName($showComplete), $name);
+    
+    return $name;
+  }
+  
   public function hasMembers() {
     return $this->getMembers()->count() > 0;
   }  

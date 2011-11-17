@@ -15,7 +15,7 @@
   <tbody>
     <?php foreach ($tasks as $i => $task): ?>
     <tr class="<?php echo ($task->getStatus() . ' ' . (fmod($i, 2) ? 'even' : 'odd')) ?>">
-      <td class="left"><?php echo link_to($task, 'task_show', $task) ?></td>
+      <td class="left"><?php echo link_to($task->formatName(isset($showCompleteName) && $showCompleteName), 'task_show', $task) ?></td>
       <td class="center">
         <span class="progressBar" id="pb<?php echo $task->getId() ?>">
           <?php

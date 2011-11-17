@@ -5,6 +5,16 @@
  */
 class Story extends BaseStory
 {
+  public function formatName($showComplete) {
+    $name = $this->getName();
+    
+    if($showComplete)
+      return sprintf('%s - %s', $this->getIteration()->formatName($showComplete), $name);
+    
+    return $name;
+  }
+    
+  
   public function getProduct() {
     return $this->getIteration()->getProduct();
   }

@@ -5,7 +5,12 @@
  */
 class Product extends BaseProduct
 {
-
+  public function formatName($showComplete) {
+    $name = $this->getName();
+    
+    return $name;
+  }
+  
   public function getIterations()
   {
     return Doctrine::getTable('Iteration')->findByProduct($this);

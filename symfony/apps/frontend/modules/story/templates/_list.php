@@ -15,7 +15,7 @@
   <tbody>
     <?php foreach ($stories as $i => $story): ?>
       <tr class="<?php echo ($story->countAvailableTasks() == 0 ? 'done' : '') ?>">
-        <td class="left"><?php echo link_to($story, 'story_show', $story) ?></td>
+        <td class="left"><?php echo link_to($story->formatName(isset($showCompleteName) && $showCompleteName), 'story_show', $story) ?></td>
         <td class="center"><?php echo format_priority($story->getPriority()) ?></td>
         <td class="center">
           <span class="progressbar" id="pb<?php echo $story->getId() ?>">

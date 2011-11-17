@@ -13,9 +13,8 @@
   </thead>
   <tbody>
     <?php foreach ($projects as $i => $project): ?>
-    <tr class="<?php echo (fmod($i, 2) ? 'even' : 'odd')
-      . ($project->isDisabled() ? ' disabled'  : '') ?>">
-      <td class="left"><?php echo link_to($project, 'project_show', $project) ?></td>
+    <tr class="<?php echo (fmod($i, 2) ? 'even' : 'odd') . ($project->isDisabled() ? ' disabled'  : '') ?>">
+      <td class="left"><?php echo link_to($project->formatName(isset($showCompleteName) && $showCompleteName), 'project_show', $project) ?></td>
       <td class="center"><?php echo $project->getVersion() ?></td>
       <td class="center"><?php echo format_status($project->isEnabled()) ?></td>
       <td class="center"><?php echo $project->getIterations()->count() ?></td>

@@ -32,4 +32,19 @@ class ProjectTable extends Doctrine_Table
 
     return $q->execute();
   }
+  
+  public function findMineUncomplete(sfGuardUser $user) {
+    $q = Doctrine_Query::create()
+      ->select('p.*')
+      ->addSelect('(SELECT count(*) FROM Task t1 WHERE t1.story_id = s.id WHERE t1.status <> \'done\') as count_tasks')
+      ->from('Project p')
+      ->leftJoin('p.Iterations i')
+      ->leftJoin('i.Stories s')
+      ->leftJoin('p.Manager m')
+      ->where('p.status = ?', 'enabled')
+      ->andWhere('m.id = ?', $user->getId())
+      ->having('count_tasks > 0');
+
+    return $q->execute();
+  }  
 }
